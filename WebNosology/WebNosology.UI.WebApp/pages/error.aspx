@@ -7,10 +7,10 @@
     
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="#FILL">
+    <meta name="description" content="Ошибка. Высокозатратные нозологии">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>#FILL</title>
+    <title>Ошибка. Высокозатратные нозологии</title>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -19,7 +19,7 @@
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Ошибка">
+    <meta name="apple-mobile-web-app-title" content="Ошибка. Высокозатратные нозологии">
     <%--<link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">--%>
 
     <!-- Tile icon for Win8 (144x144 + tile color) -->
@@ -28,9 +28,9 @@
 
     <%--<link rel="shortcut icon" href="images/favicon.png">--%>
     
-    <link rel="stylesheet" href="../mdl/material.css"/>
-    <link rel="stylesheet" href="../css/style-login.css"/>  
-    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../plugins/mdl/material.css"/>
+    <link rel="stylesheet" href="../styles/login.css"/>  
+    <link rel="stylesheet" href="../plugins/font-awesome/css/font-awesome.min.css" />
   
 </head>
 
@@ -50,9 +50,7 @@
                 <br />
                 
                 <div align="center">
-                    
                     <span>Что-то пошло не так</span>                    
-                    
                 </div>
                
                 <button runat="server" id="backButton"
@@ -65,30 +63,19 @@
         </main>
           
         <footer class="mdl-mini-footer nos-footer">
-            
             <div class="mdl-mini-footer--left-section">
                 <ul class="mdl-mini-footer--link-list">
                     <li><a href="http://www.escyug.ru/">ООО "Эскейп-Юг"</a></li>
                     <li><a href="http://www.minzdravkk.ru/">Министерство здравоохранения Краснодарского края</a></li>
                 </ul>
             </div>
-            
-            <div class="mdl-mini-footer--right-section">
-                <ul class="mdl-mini-footer--link-list">
-                    <li></li>
-                </ul>
-            </div>
-            
         </footer>
           
     </div>
     
-    <script type="text/javascript" src="../jQuery/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="../mdl/material.min.js"></script>   
+    <script type="text/javascript" src="../scripts/jQuery/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../plugins/mdl/material.min.js"></script>   
 
-    <!-- shows progress bar and block page elements -->
-    <script type="text/javascript" src="../Scripts/progress.js"></script>
-    
 </body>
 
 </html>

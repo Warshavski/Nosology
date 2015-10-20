@@ -47,20 +47,12 @@ namespace WebNosology.UI.WebApp.pages
 
         #endregion
     
-        /*
-        protected void Signout_Click(object sender, EventArgs e)
-        {
-            FormsAuthentication.SignOut();
-            Response.Redirect("pages/login.aspx");
-        }
-        */
-
         protected void Page_Init(object sender, EventArgs e)
         {
             this.signOutLink.ServerClick += (send, args) =>
                 {
                     FormsAuthentication.SignOut();
-                    Response.Redirect("pages/login.aspx");
+                    Response.Redirect("/pages/login.aspx");
                 };
         }
 
