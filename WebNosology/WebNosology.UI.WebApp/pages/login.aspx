@@ -85,7 +85,7 @@
                 
                 <button runat="server" id="checkButton"
                     class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
-                           mdl-color--my mdl-color-text--white logon-button">
+                           mdl-color--my2 mdl-color-text--white logon-button">
                     Вход
                 </button>
                 
