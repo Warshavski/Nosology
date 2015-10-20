@@ -1,0 +1,179 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7CC68A28-3899-4F48-A6CC-AF038FED2D88}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebNosology.UI.WebApp</RootNamespace>
+    <AssemblyName>WebNosology.UI.WebApp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\documents.aspx.cs">
+      <DependentUpon>documents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\documents.aspx.designer.cs">
+      <DependentUpon>documents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\downloads.aspx.cs">
+      <DependentUpon>downloads.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\downloads.aspx.designer.cs">
+      <DependentUpon>downloads.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\error.aspx.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\error.aspx.designer.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\main.aspx.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\main.aspx.designer.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="files\dist\dotnetfx.exe" />
+    <Content Include="pages\documents.aspx" />
+    <Content Include="pages\downloads.aspx" />
+    <Content Include="pages\error.aspx" />
+    <Content Include="pages\login.aspx" />
+    <Content Include="pages\main.aspx" />
+    <Content Include="plugins\font-awesome\css\font-awesome.css" />
+    <Content Include="plugins\font-awesome\css\font-awesome.min.css" />
+    <Content Include="plugins\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="plugins\jDialog\jDialog.css" />
+    <Content Include="plugins\jDialog\jDialog.js" />
+    <Content Include="plugins\mdl\material.css" />
+    <Content Include="plugins\mdl\material.js" />
+    <Content Include="plugins\mdl\material.min.css" />
+    <Content Include="plugins\mdl\material.min.js" />
+    <Content Include="scripts\jQuery\jquery-1.11.3.js" />
+    <Content Include="scripts\jQuery\jquery-1.6.2.js" />
+    <Content Include="scripts\jQuery\jquery-1.6.2.min.js" />
+    <Content Include="scripts\jQuery\jquery-2.1.4.js" />
+    <Content Include="scripts\jQuery\jquery-2.1.4.min.js" />
+    <Content Include="scripts\modal.js" />
+    <Content Include="scripts\progress.js" />
+    <Content Include="styles\style-login.css" />
+    <Content Include="styles\style-main.css" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="files\dist\Высокозатратные нозологии%28Руководство%29Вер.2_1.doc" />
+    <None Include="files\dist\Высокозатратные нозологии.msi" />
+    <None Include="files\doc\rp_№2782-r_30_12_2014.pdf" />
+    <None Include="files\doc\О внесении изменений в приказ Минздравсоцразвития №162н.pdf" />
+    <None Include="files\doc\Постановление №404 от 2012.pdf" />
+    <None Include="plugins\font-awesome\fonts\fontawesome-webfont.eot" />
+    <None Include="plugins\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <None Include="plugins\font-awesome\fonts\fontawesome-webfont.woff" />
+    <None Include="plugins\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <None Include="plugins\font-awesome\fonts\FontAwesome.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebNosology.Presentation\WebNosology.Presentation.csproj">
+      <Project>{A9462EBB-2439-4B8B-96AE-CD456549A197}</Project>
+      <Name>WebNosology.Presentation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55282</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
