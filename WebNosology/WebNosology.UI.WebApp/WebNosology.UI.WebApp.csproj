@@ -123,8 +123,8 @@
     <Content Include="scripts\jQuery\jquery-2.1.4.min.js" />
     <Content Include="scripts\modal.js" />
     <Content Include="scripts\progress.js" />
-    <Content Include="styles\style-login.css" />
-    <Content Include="styles\style-main.css" />
+    <Content Include="styles\login.css" />
+    <Content Include="styles\main.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

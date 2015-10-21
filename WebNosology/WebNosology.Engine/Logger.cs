@@ -11,10 +11,11 @@ namespace WebNosology.Engine
     public class Logger
     {
         private const string PROVIDER_NAME = "System.Data.SqlClient";
-        private const string CONNECTION_STRING = "Data Source=localhost;Initial Catalog=REGISTR; Integrated Security=True";
+        private const string CONNECTION_STRING = "Data Source=sql04.corp.parking.ru;Initial Catalog=escyug-6; Persist Security Info=True;User ID=escyug-6;Password=pgpFmvk5";
+            //"Data Source=localhost;Initial Catalog=REGISTR; Integrated Security=True";
         private const string COMMAND_TEXT = @"SELECT PAROL, DATE_E, NIC, KAT
                                         FROM dbo.DOPUSK 
-                                   WHERE  MCOD = @MCOD";
+                                   WHERE  NIC = @NIC";
 
         private readonly string[] LEVELS = new string[] 
         {
@@ -32,7 +33,7 @@ namespace WebNosology.Engine
 
         private DataTable LoadData(DbCommand command, DbConnection connection)
         {
-            DataTable dat = new DataTable();
+            DataTable dat = new DataTable("DOPUSK");
 
             connection.Open();
 
@@ -55,7 +56,7 @@ namespace WebNosology.Engine
                 string refPwd = data.Rows[0]["PAROL"].ToString().Trim();
                 DateTime refDate = (DateTime)data.Rows[0]["DATE_E"];
 
-                if (inputPwd == refPwd && currentDate >= refDate)
+                if (inputPwd.ToLower() == refPwd.ToLower() && currentDate <= refDate)
                 { 
                     string userName = data.Rows[0]["NIC"].ToString().Trim();
                     string userLevel = LEVELS[(int)data.Rows[0]["KAT"]];
@@ -92,9 +93,9 @@ namespace WebNosology.Engine
 
                 command.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
                 new System.Data.SqlClient.SqlParameter("@RETURN_VALUE", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.ReturnValue, false, ((byte)(0)), ((byte)(0)), "", System.Data.DataRowVersion.Current, null),
-                new System.Data.SqlClient.SqlParameter("@MCOD", System.Data.SqlDbType.NVarChar, 5)});
+                new System.Data.SqlClient.SqlParameter("@NIC", System.Data.SqlDbType.NVarChar, 20)});
 
-                command.Parameters["@MCOD"].Value = mcod;
+                command.Parameters["@NIC"].Value = mcod;
 
                 DataTable userData = LoadData(command, connection);
                 userInfo = CheckData(userData, inputPwd);

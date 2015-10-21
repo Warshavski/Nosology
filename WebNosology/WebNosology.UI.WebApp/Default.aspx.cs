@@ -9,7 +9,7 @@ namespace WebNosology.UI.WebApp
     {
         protected void Page_Init(object sender, EventArgs e)
         {
-            //Response.Redirect("~/pages/login.aspx");
+            Response.Redirect("pages/login.aspx");
         }
     }
 }

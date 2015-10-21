@@ -52,7 +52,7 @@ namespace WebNosology.UI.WebApp.pages
             this.signOutLink.ServerClick += (send, args) =>
                 {
                     FormsAuthentication.SignOut();
-                    Response.Redirect("/pages/login.aspx");
+                    Response.Redirect("pages/login.aspx");
                 };
         }
 
