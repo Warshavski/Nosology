@@ -130,9 +130,9 @@
   <ItemGroup>
     <None Include="files\dist\Высокозатратные нозологии%28Руководство%29Вер.2_1.doc" />
     <None Include="files\dist\Высокозатратные нозологии.msi" />
-    <None Include="files\doc\rp_№2782-r_30_12_2014.pdf" />
-    <None Include="files\doc\О внесении изменений в приказ Минздравсоцразвития №162н.pdf" />
-    <None Include="files\doc\Постановление №404 от 2012.pdf" />
+    <None Include="files\docs\rp_№2782-r_30_12_2014.pdf" />
+    <None Include="files\docs\О внесении изменений в приказ Минздравсоцразвития №162н.pdf" />
+    <None Include="files\docs\Постановление №404 от 2012.pdf" />
     <None Include="plugins\font-awesome\fonts\fontawesome-webfont.eot" />
     <None Include="plugins\font-awesome\fonts\fontawesome-webfont.ttf" />
     <None Include="plugins\font-awesome\fonts\fontawesome-webfont.woff" />
