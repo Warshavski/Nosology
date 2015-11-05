@@ -8,27 +8,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebNosology.UI.WebApp.pages {
+namespace WebNosology.UI.WebApp.pages.shared {
     
     
-    public partial class error {
+    public partial class _default {
         
         /// <summary>
-        /// loginForm элемент управления.
+        /// Head1 элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm loginForm;
+        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
-        /// backButton элемент управления.
+        /// head элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton backButton;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        
+        /// <summary>
+        /// BodyPlaceHolder элемент управления.
+        /// </summary>
+        /// <remarks>
+        /// Автоматически создаваемое поле.
+        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder BodyPlaceHolder;
     }
 }

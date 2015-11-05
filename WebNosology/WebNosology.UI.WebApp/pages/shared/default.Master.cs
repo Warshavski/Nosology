@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace WebNosology.UI.WebApp.pages.main
+namespace WebNosology.UI.WebApp.pages.shared
 {
-    public partial class downloads : System.Web.UI.Page
+    public partial class _default : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

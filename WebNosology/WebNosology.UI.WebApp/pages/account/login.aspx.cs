@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
 using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
-using WebNosology.Presentation.Views;
 using WebNosology.Presentation.Presenters;
+using WebNosology.Presentation.Views;
 
-namespace WebNosology.UI.WebApp.pages
+namespace WebNosology.UI.WebApp.pages.account
 {
     public partial class login : System.Web.UI.Page, ILoginView
     {
@@ -46,11 +36,11 @@ namespace WebNosology.UI.WebApp.pages
 
         public string[] UserInfo
         {
-            set 
+            set
             {
                 if (value[0] == "true")
                 {
-                    bool persist = 
+                    bool persist =
                         this.checkBoxPersist.Attributes["checked"] == null ? false : true;
 
                     FormsAuthentication.RedirectFromLoginPage(
@@ -58,7 +48,7 @@ namespace WebNosology.UI.WebApp.pages
                 }
                 else
                 {
-                    this.errorLabel.Text = "Ошибка! Проверьте логин и(или) пароль"; 
+                    this.errorLabel.Text = "Ошибка! Проверьте логин и(или) пароль";
                 }
             }
         }

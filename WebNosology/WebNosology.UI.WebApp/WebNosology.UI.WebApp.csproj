@@ -53,15 +53,22 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Default.aspx" />
+    <Content Include="Index.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="Index.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
-      <DependentUpon>Default.aspx</DependentUpon>
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\account\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\account\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\error.aspx.cs">
       <DependentUpon>error.aspx</DependentUpon>
@@ -69,13 +76,6 @@
     </Compile>
     <Compile Include="pages\error.aspx.designer.cs">
       <DependentUpon>error.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pages\login.aspx.cs">
-      <DependentUpon>login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\login.aspx.designer.cs">
-      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\main\documents.aspx.cs">
       <DependentUpon>documents.aspx</DependentUpon>
@@ -98,6 +98,13 @@
     <Compile Include="pages\main\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="pages\shared\default.Master.cs">
+      <DependentUpon>default.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\shared\default.Master.designer.cs">
+      <DependentUpon>default.Master</DependentUpon>
+    </Compile>
     <Compile Include="pages\shared\main.Master.cs">
       <DependentUpon>main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -109,8 +116,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="files\dist\dotnetfx.exe" />
-    <Content Include="pages\error.aspx" />
-    <Content Include="pages\login.aspx" />
     <Content Include="plugins\font-awesome\css\font-awesome.css" />
     <Content Include="plugins\font-awesome\css\font-awesome.min.css" />
     <Content Include="plugins\font-awesome\fonts\fontawesome-webfont.svg" />
@@ -137,11 +142,14 @@
     <None Include="files\docs\rp_№2782-r_30_12_2014.pdf" />
     <None Include="files\docs\О внесении изменений в приказ Минздравсоцразвития №162н.pdf" />
     <None Include="files\docs\Постановление №404 от 2012.pdf" />
+    <Content Include="pages\account\login.aspx" />
+    <Content Include="pages\error.aspx" />
     <Content Include="pages\main\documents.aspx" />
     <Content Include="pages\main\downloads.aspx" />
     <Content Include="pages\main\home.aspx" />
     <Content Include="pages\shared\main.Master" />
     <Content Include="readme.txt" />
+    <Content Include="pages\shared\default.Master" />
     <None Include="plugins\font-awesome\fonts\fontawesome-webfont.eot" />
     <None Include="plugins\font-awesome\fonts\fontawesome-webfont.ttf" />
     <None Include="plugins\font-awesome\fonts\fontawesome-webfont.woff" />

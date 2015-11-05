@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebNosology.UI.WebApp.pages {
+namespace WebNosology.UI.WebApp.pages.account {
     
     
     public partial class login {
