@@ -53,15 +53,15 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Index.aspx" />
+    <Content Include="Default.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Index.aspx.cs">
+    <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
-      <DependentUpon>Index.aspx</DependentUpon>
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\account\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

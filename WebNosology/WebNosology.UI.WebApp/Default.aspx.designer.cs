@@ -11,7 +11,7 @@
 namespace WebNosology.UI.WebApp {
     
     
-    public partial class _Index {
+    public partial class _Default {
         
         /// <summary>
         /// defaultForm элемент управления.

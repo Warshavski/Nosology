@@ -130,11 +130,9 @@
       
         <!-- Start #MAIN_CONTENT -->
         <main class="mdl-layout__content mdl-color--grey-100">
-            <div class="mdl-grid nos-content nos-docs">
-                <asp:ContentPlaceHolder ID="BodyPlaceHolder" runat="server">
-            
-                </asp:ContentPlaceHolder>
-            </div>
+            <asp:ContentPlaceHolder ID="BodyPlaceHolder" runat="server">
+                
+            </asp:ContentPlaceHolder>
         </main> <!-- / #MAIN_CONTENT -->
         
     </div>

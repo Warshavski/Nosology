@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/pages/shared/default.Master" AutoEventWireup="true" CodeBehind="error.aspx.cs" Inherits="WebNosology.UI.WebApp.pages.error" Title="Безымянная страница" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
-
+    <title>Высокозатратные нозологии - Ошибка</title>
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="BodyPlaceHolder" runat="server">
