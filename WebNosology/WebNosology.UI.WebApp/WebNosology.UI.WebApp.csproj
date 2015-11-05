@@ -63,20 +63,6 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\documents.aspx.cs">
-      <DependentUpon>documents.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\documents.aspx.designer.cs">
-      <DependentUpon>documents.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pages\downloads.aspx.cs">
-      <DependentUpon>downloads.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\downloads.aspx.designer.cs">
-      <DependentUpon>downloads.aspx</DependentUpon>
-    </Compile>
     <Compile Include="pages\error.aspx.cs">
       <DependentUpon>error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -91,22 +77,40 @@
     <Compile Include="pages\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\main.aspx.cs">
-      <DependentUpon>main.aspx</DependentUpon>
+    <Compile Include="pages\main\documents.aspx.cs">
+      <DependentUpon>documents.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\main.aspx.designer.cs">
-      <DependentUpon>main.aspx</DependentUpon>
+    <Compile Include="pages\main\documents.aspx.designer.cs">
+      <DependentUpon>documents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\main\downloads.aspx.cs">
+      <DependentUpon>downloads.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\main\downloads.aspx.designer.cs">
+      <DependentUpon>downloads.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\main\home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\main\home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\shared\main.Master.cs">
+      <DependentUpon>main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\shared\main.Master.designer.cs">
+      <DependentUpon>main.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="files\dist\dotnetfx.exe" />
-    <Content Include="pages\documents.aspx" />
-    <Content Include="pages\downloads.aspx" />
     <Content Include="pages\error.aspx" />
     <Content Include="pages\login.aspx" />
-    <Content Include="pages\main.aspx" />
     <Content Include="plugins\font-awesome\css\font-awesome.css" />
     <Content Include="plugins\font-awesome\css\font-awesome.min.css" />
     <Content Include="plugins\font-awesome\fonts\fontawesome-webfont.svg" />
@@ -133,6 +137,11 @@
     <None Include="files\docs\rp_№2782-r_30_12_2014.pdf" />
     <None Include="files\docs\О внесении изменений в приказ Минздравсоцразвития №162н.pdf" />
     <None Include="files\docs\Постановление №404 от 2012.pdf" />
+    <Content Include="pages\main\documents.aspx" />
+    <Content Include="pages\main\downloads.aspx" />
+    <Content Include="pages\main\home.aspx" />
+    <Content Include="pages\shared\main.Master" />
+    <Content Include="readme.txt" />
     <None Include="plugins\font-awesome\fonts\fontawesome-webfont.eot" />
     <None Include="plugins\font-awesome\fonts\fontawesome-webfont.ttf" />
     <None Include="plugins\font-awesome\fonts\fontawesome-webfont.woff" />
