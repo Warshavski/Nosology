@@ -1,4 +1,4 @@
-/**
+﻿/**
  * material-design-lite - Material Design Components in CSS, JS and HTML
  * @version v1.0.5
  * @license Apache-2.0
@@ -1319,6 +1319,22 @@ ul, ol {
 /* GRID */
 /* DATA TABLE */
 /* TOOLTIP */
+
+/*#MY*/
+/*.mdl-color-text--my {
+  color: rgb(0,131,143) !important; }*/
+
+.mdl-color--liss-main {
+  background-color: rgb(0,131,143) !important; }
+  
+.mdl-color--liss-help {
+  background-color: rgb(0,151,167) !important; }
+
+.mdl-color--liss-subhelp {
+  background-color: rgb(19, 202, 233) !important; }
+
+/*#MY #REMOVE*/
+
 .mdl-color-text--red {
   color: rgb(244,67,54) !important; }
 
