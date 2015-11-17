@@ -24,6 +24,176 @@ html, body {
   border-radius: 24px;
 }
 
+
+.wat {
+    padding: 0 16px 0 15px;
+   
+}
+
+@media (max-width: 480px) {
+    .wat {
+        font-size: 12px;
+    }
+}
+
+
+.mdl-layout__drawer-button {
+    padding-top : 11px;
+}
+
+.mdl-layout__drawer-button i {
+    color: rgba(0, 0, 0, 0.54);
+}
+    
+
+.header-row--default {
+    padding-left: 55px;
+}
+
+
+.login-form {
+    width: 340px;
+    margin: 11em auto;
+    padding: 3em 2em 2em 2em;
+    background: #fafafa;
+    border: 1px solid #ebebeb;
+}
+    
+.mdl-mini-footer {
+	padding: 16px;
+}
+
+.mdl-mini-footer a {
+    text-decoration: underline;
+}
+
+.mdl-logo a {
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 480px) {
+    .mdl-mini-footer a {
+        font-size: 12px;
+        word-break: break-all;
+        word-wrap: break-word;
+    }
+}
+
+
+.logon-button {
+	width:  340px; 
+	height: 45px;
+	margin-top: 55px;
+}
+
+.user-logon-icon {
+	margin-left:   140px;
+	margin-bottom: 25px;
+}
+	.user-logon-icon i {
+		font-size: 60px;
+	}
+
+.mdl-textfield {
+	width: 340px;
+}
+
+#errorLabel {
+	color: Red;
+}
+
+
+@media (max-width: 480px) {
+    .logon-button {
+    	width:  250px; 
+    }
+    .mdl-textfield {
+	    width: 250px;
+    }
+
+    .login-form {
+        width: 250px;
+        margin: 4em auto;
+        padding: 3em 2em 2em 2em;
+    }
+
+    .user-logon-icon {
+	    margin-left:   110px;
+	    
+    }
+}
+
+
+
+
+
+
+
+/*------------------------------------------------------*\
+    #COLOR - SECTION - set main, help and subhelp colors
+\*------------------------------------------------------*/
+
+
+.mdl-color-text--nos-main {
+  color: rgb(0,131,143) !important; }
+
+.mdl-color--nos-main {
+  background-color: rgb(0,131,143) !important; }
+
+.mdl-color-text--nos-help {
+  color: rgb(0,151,167) !important; }  
+
+.mdl-color--nos-help {
+  background-color: rgb(0,151,167) !important; }
+
+.mdl-color--nos-subhelp {
+  background-color: rgb(19, 202, 233) !important; }
+
+
+
+
+
+ .mdl-layout.is-small-screen .mdl-layout-title {
+      font-size: 18px;
+ }
+
+
+ .mdl-textfield--floating-label.is-focused .mdl-textfield__label,
+  .mdl-textfield--floating-label.is-dirty .mdl-textfield__label {
+    color: rgb(0,131,143); 
+    font-size: 12px;  
+    top: 4px;
+    visibility: visible; }
+  .mdl-textfield--floating-label.is-focused .mdl-textfield__expandable-holder .mdl-textfield__label,
+  .mdl-textfield--floating-label.is-dirty .mdl-textfield__expandable-holder .mdl-textfield__label {
+    top: -16px; }
+  .mdl-textfield--floating-label.is-invalid .mdl-textfield__label {
+    color: rgb(222, 50, 38);
+    font-size: 12px; }
+  .mdl-textfield__label:after {
+    background-color: rgb(0,131,143); 
+    bottom: 20px;
+    content: '';
+    height: 2px;
+    left: 45%;
+    position: absolute;
+    -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    visibility: hidden;
+    width: 10px; }
+
+
+
+  
+.nos-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+}
+
 .nos-layout .nos-header .mdl-textfield {
   padding-top: 27px;
 }

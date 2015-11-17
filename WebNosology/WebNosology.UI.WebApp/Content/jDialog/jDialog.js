@@ -462,7 +462,7 @@ https://github.com/litson/jDialog
             //text += '<span class="mdl-button__ripple-container"> <span class="mdl-ripple"></span></span>';
             var element = _createElement('a', {
                 href: 'javascript:;',
-                className: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-color--my dialog-btn',
+                className: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-color--nos-help dialog-btn',
                 innerHTML: text || defaultText
             });
 

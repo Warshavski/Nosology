@@ -19,7 +19,7 @@
 	flex-shrink: 0;
 }
 
-.logon-layout.is-small-screen .nos-content {
+.default-layout.is-small-screen .nos-content {
 	padding: 40px 28px;
 }
 

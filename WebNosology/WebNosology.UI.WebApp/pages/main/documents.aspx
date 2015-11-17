@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/pages/shared/main.Master" AutoEventWireup="true" CodeBehind="documents.aspx.cs" Inherits="WebNosology.UI.WebApp.pages.main.documents" Title="Безымянная страница" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
-
+    <title>Высокозатратные нозологии - Документы</title>
 </asp:Content>
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="TitlePlaceHolder" runat="server">

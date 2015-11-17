@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/pages/shared/main.Master" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="WebNosology.UI.WebApp.pages.main.home" Title="Безымянная страница" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+     <title>Высокозатратные нозологии - Главная</title>
 </asp:Content>
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="TitlePlaceHolder" runat="server">
@@ -9,7 +10,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="BodyPlaceHolder" runat="server">
     <!-- Static text -->
-    <div class="nos-graphs">
+    <div class="nos-graphs" style="padding: 10px;">
                     
         <p>
             Граждане Российской Федерации имеют право на бесплатную медицинскую помощь согласно Конституции Российской Федерации. Это право реализуется через&nbsp;<b>Программу государственных гарантий</b>&nbsp;оказания гражданам России бесплатной медицинской помощи.&nbsp;

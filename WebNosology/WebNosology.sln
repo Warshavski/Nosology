@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebNosology.Engine", "WebNosology.Engine\WebNosology.Engine.csproj", "{11CE9304-7874-4481-818D-0F0A99F52AF6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebNosology.Presentation", "WebNosology.Presentation\WebNosology.Presentation.csproj", "{A9462EBB-2439-4B8B-96AE-CD456549A197}"

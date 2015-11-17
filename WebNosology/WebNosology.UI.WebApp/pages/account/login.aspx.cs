@@ -2,6 +2,7 @@
 using System.Web.Security;
 using WebNosology.Presentation.Presenters;
 using WebNosology.Presentation.Views;
+using System.Web.UI.HtmlControls;
 
 namespace WebNosology.UI.WebApp.pages.account
 {
@@ -40,8 +41,9 @@ namespace WebNosology.UI.WebApp.pages.account
             {
                 if (value[0] == "true")
                 {
-                    bool persist =
-                        this.checkBoxPersist.Attributes["checked"] == null ? false : true;
+
+                    bool persist = bool.Parse(this.HiddenChecked.Value);
+                        //this.checkBoxPersist.Attributes["checked"] == null ? false : true;
 
                     FormsAuthentication.RedirectFromLoginPage(
                         string.Format("{0}#{1}", value[1], value[2]), persist);
