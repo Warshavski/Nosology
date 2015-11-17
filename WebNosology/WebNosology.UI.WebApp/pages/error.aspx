@@ -5,9 +5,9 @@
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="BodyPlaceHolder" runat="server">
-    <form id="loginForm" runat="server" class="mdl-shadow--2dp">
+    <form id="loginForm" runat="server" class="mdl-shadow--2dp default-form">
         
-        <i style="font-size: 60px;" class="fa fa-exclamation-triangle user-logon-icon"></i>
+        <i style="font-size: 60px;" class="fa fa-exclamation-triangle mdl-color-text--nos-main user-logon-icon"></i>
         
         <br />
         
@@ -17,7 +17,7 @@
        
         <button runat="server" id="backButton"
             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
-                   mdl-color--my mdl-color-text--white logon-button">
+                   mdl-color--nos-help mdl-color-text--white logon-button">
             Вернуться назад
         </button>
         

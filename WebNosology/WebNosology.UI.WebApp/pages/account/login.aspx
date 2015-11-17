@@ -9,7 +9,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="BodyPlaceHolder" runat="server">
     
     <!-- #LOGIN_FORM -->
-    <form id="loginForm" runat="server" class="mdl-shadow--2dp login-form">
+    <form id="loginForm" runat="server" class="mdl-shadow--2dp default-form">
         
         <asp:HiddenField ID="HiddenChecked" runat="server"  Value="false"/>
         

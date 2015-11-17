@@ -51,7 +51,7 @@ html, body {
 }
 
 
-.login-form {
+.default-form {
     width: 340px;
     margin: 11em auto;
     padding: 3em 2em 2em 2em;
@@ -112,14 +112,14 @@ html, body {
 	    width: 250px;
     }
 
-    .login-form {
+    .default-form {
         width: 250px;
         margin: 4em auto;
         padding: 3em 2em 2em 2em;
     }
 
     .user-logon-icon {
-	    margin-left:   110px;
+	    margin-left:   100px;
 	    
     }
 }
