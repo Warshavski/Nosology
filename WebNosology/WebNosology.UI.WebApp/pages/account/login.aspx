@@ -22,7 +22,7 @@
             
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input runat="server" class="mdl-textfield__input" type="text" id="loginField"
-                    onfocus="$('#errorLabel').text('')" />
+                    onfocus="$('#errorLabel').text('');" />
                 <label class="mdl-textfield__label" for="loginField">Имя...</label>
             </div>
            
@@ -30,7 +30,7 @@
            
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input runat="server" class="mdl-textfield__input" type="password" id="pwdField" 
-                    onfocus="$('#errorLabel').text('')"/>
+                    onfocus="$('#errorLabel').text('');"/>
                 <label class="mdl-textfield__label" for="pwdField">Пароль...</label>
             </div>
             
@@ -49,7 +49,7 @@
         
         <br />
         
-        <button runat="server" id="checkButton"
+        <button runat="server" id="checkButton" onclick="checkInput();"
             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
                    mdl-color--nos-help mdl-color-text--white logon-button">Вход
         </button>
@@ -58,5 +58,32 @@
         
     </form><!-- / #LOGIN_FORM -->
     
+    <script type="text/javascript">
+        function checkPersist() {
+            if ($('#checkBoxPersist').prop("checked"))
+                $("<%= HiddenChecked.ClientID %>").val(true);
+            else
+                $("<%= HiddenChecked.ClientID %>").val(false);
+        }
+
+        function checkInput() {
+
+            if ($('#loginField').text().trim() == '') {
+                $('#errorLabel').text('Ошибка! Поле логина и(или) пароля не должны быть пустым(и)');
+                $('#loginField').focus();
+
+                return false;
+            }
+
+            if ($('#pwdField').text().trim() == '') {
+                $('#errorLabel').text('Ошибка! Поле логина и(или) пароля не должны быть пустым(и)');
+                $('#pwdField').focus();
+
+                return false;
+            }
+
+            return true;
+        }
+    </script>
   
 </asp:Content>

@@ -10,6 +10,9 @@ namespace WebNosology.Engine
 {
     public class Logger
     {
+        private const int LOGIN_SIZE_THRESHOLD = 20;
+        private const int PWD_SIZE_THRESHOLD = 5;
+
         private const string PROVIDER_NAME = "System.Data.SqlClient";
         private const string CONNECTION_STRING = "Data Source=sql04.corp.parking.ru;Initial Catalog=escyug-6; Persist Security Info=True;User ID=escyug-6;Password=pgpFmvk5";
             //"Data Source=localhost;Initial Catalog=REGISTR; Integrated Security=True";
@@ -80,32 +83,39 @@ namespace WebNosology.Engine
         {
             string[] userInfo;
 
-            try
+            if (mcod.Length > LOGIN_SIZE_THRESHOLD || inputPwd.Length > PWD_SIZE_THRESHOLD)
             {
-                DbConnection connection =
-                    DbFactory.CreateDbConnection(PROVIDER_NAME, CONNECTION_STRING);
-
-                DbCommand command =
-                    DbFactory.CreateCommand(COMMAND_TEXT, connection);
-
-                command.CommandType = System.Data.CommandType.Text;
-                command.Connection = connection;
-
-                command.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
-                new System.Data.SqlClient.SqlParameter("@RETURN_VALUE", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.ReturnValue, false, ((byte)(0)), ((byte)(0)), "", System.Data.DataRowVersion.Current, null),
-                new System.Data.SqlClient.SqlParameter("@NIC", System.Data.SqlDbType.NVarChar, 20)});
-
-                command.Parameters["@NIC"].Value = mcod;
-
-                DataTable userData = LoadData(command, connection);
-                userInfo = CheckData(userData, inputPwd);
-
-                return userInfo;
-                
+                return userInfo = new string[2] { "false", "Login error" };
             }
-            catch (DbException)
+            else
             {
-                return userInfo = new string[2] { "false", "Server error" };
+                try
+                {
+                    DbConnection connection =
+                        DbFactory.CreateDbConnection(PROVIDER_NAME, CONNECTION_STRING);
+
+                    DbCommand command =
+                        DbFactory.CreateCommand(COMMAND_TEXT, connection);
+
+                    command.CommandType = System.Data.CommandType.Text;
+                    command.Connection = connection;
+
+                    command.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
+                    new System.Data.SqlClient.SqlParameter("@RETURN_VALUE", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.ReturnValue, false, ((byte)(0)), ((byte)(0)), "", System.Data.DataRowVersion.Current, null),
+                    new System.Data.SqlClient.SqlParameter("@NIC", System.Data.SqlDbType.NVarChar, 20)});
+
+                    command.Parameters["@NIC"].Value = mcod;
+
+                    DataTable userData = LoadData(command, connection);
+                    userInfo = CheckData(userData, inputPwd);
+
+                    return userInfo;
+
+                }
+                catch (DbException)
+                {
+                    return userInfo = new string[2] { "false", "Server error" };
+                }
             }
         }
     }

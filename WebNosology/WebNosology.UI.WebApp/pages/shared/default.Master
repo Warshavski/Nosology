@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="default.master.cs" Inherits="WebNosology.UI.WebApp.pages.shared._default" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="default.master.cs" Inherits="WebNosology.UI.WebApp.pages.shared._default" EnableViewState="false" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -6,29 +6,29 @@
 
 <head runat="server">
     
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     
     <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes" />
     <%--<link rel="icon" sizes="192x192" href="images/android-desktop.png">--%>
 
     <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     
     <%--<link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">--%>
 
     <!-- Tile icon for Win8 (144x144 + tile color) -->
     <%--<meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">--%>
 
-    <meta name="msapplication-TileColor" content="#3372DF">
+    <meta name="msapplication-TileColor" content="#3372DF" />
 
     <%--<link rel="shortcut icon" href="images/favicon.png">--%>
     
     <link rel="stylesheet" href="../../Content/mdl-v1.0.5/material.min.css"/>
-    <link rel="stylesheet" href="../../styles/main.css"/>  
+    <link rel="stylesheet" href="../../styles/main.min.css"/>  
     
      <!-- fonts and icons -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
@@ -42,6 +42,7 @@
     </asp:ContentPlaceHolder>
     
 </head>
+
 
 <body>
     
@@ -65,7 +66,6 @@
             <div class="mdl-mini-footer--left-section" >
 
                 <div class="mdl-logo">
-                    
                     <a href="http://www.escyug.ru/"><i class="fa fa-cube" style="font-size: 25px; color: white"></i>&nbsp ООО "Эскейп-Юг"</a>
                 </div>
                 
@@ -80,12 +80,6 @@
     
     <script type="text/javascript" src="../../scripts/jQuery/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="../../Content/mdl-v1.0.5/material.min.js"></script>   
-    
-    <script type="text/javascript">
-         function checkPersist() {
-            
-        }        
-    </script>
     
 </body>
 

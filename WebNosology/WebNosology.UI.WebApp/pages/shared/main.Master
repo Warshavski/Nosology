@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="main.master.cs" Inherits="WebNosology.UI.WebApp.pages.shared.main" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="main.master.cs" Inherits="WebNosology.UI.WebApp.pages.shared.main" EnableViewState="false" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -6,30 +6,27 @@
 
 <head runat="server">
 
-   <%-- <title>Высокозатратные нозологии - Главная</title>--%>
-
     <link rel="stylesheet" href="../../Content/mdl-v1.0.5/material.min.css"/>
-    <link rel="stylesheet" href="../../styles/main.css"/>  
-    <link rel="Stylesheet" href="../../Content/jDialog/jDialog.css" />
+    <link rel="stylesheet" href="../../styles/main.min.css"/>  
+    <link rel="Stylesheet" href="../../Content/jDialog/jDialog.min.css" />
 
     <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes" />
     <%--<link rel="icon" sizes="192x192" href="images/android-desktop.png">--%>
 
     <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Главная форма">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    
     <%--<link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">--%>
 
     <!-- Tile icon for Win8 (144x144 + tile color) -->
     <%--<meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">--%>
-    <meta name="msapplication-TileColor" content="#3372DF">
+    <meta name="msapplication-TileColor" content="#3372DF" />
     
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Высокозатратные нозологии - Главная">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <%--<link rel="shortcut icon" href="images/favicon.png">--%>
     
@@ -44,15 +41,16 @@
     </asp:ContentPlaceHolder>
     
 </head>
+
 <body>
     <div class="nos-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
         
-        <!-- Start #HEADER (TITLE, MENU) -->
-        <header class="nos-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <!-- Start #HEADER (TITLE, MENU) nos-header -->
+        <header class="mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
             
+            <!-- #HEADER__TITLE -->
             <div class="mdl-layout__header-row">
                 
-                <!-- #TITLE -->
                 <asp:ContentPlaceHolder ID="TitlePlaceHolder" runat="server">
                     <%--<span class="mdl-layout-title">Главная</span>--%>
                 </asp:ContentPlaceHolder>
@@ -63,44 +61,50 @@
                     <i class="fa fa-ellipsis-v"></i>
                 </button>
               
-                <!-- Start #TITLE #CONTEXT_MENU -->
+                <!-- Start #HEADER__CONTEXT_MENU -->
                 <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+                    
                     <li class="mdl-menu__item" onclick="showNoticeDialog()">
                         Справка
                     </li>
+
                     <li class="mdl-menu__item" onclick="showContactDialog()">
                         Контакты
                     </li>
-                </ul> <!-- / #TITLE #CONTEXT_MENU -->
+
+                </ul><!-- / #HEADER__CONTEXT_MENU -->
                 
-            </div>
+            </div><!-- / #HEADER__TITLE -->
             
-            <!-- Start #SUBTITLE -->
-            <div class="mdl-layout__header-row wat" style="height: 35px;">
+            <!-- Start #HEADER__SUBTITLE -->
+            <div class="mdl-layout__header-row header-row--helper" style="height: 35px;">
+                
                 <i class="fa fa-star"></i>&nbsp
-                <asp:Label ID="userLevel" runat="server" Text="[user level placeholder]"></asp:Label>
-            </div> <!-- / #SUBTITLE -->
+                <asp:Label ID="userLevel" runat="server" Text="[user level placeholder]" />
+
+            </div><!-- / #HEADER__SUBTITLE -->
             
-        </header> <!-- / #HEADER -->
+        </header><!-- / #HEADER -->
         
-        <!-- Start #DRAWER (USER INFO, NAVIGATION MENU) -->
-        <div class="nos-drawer mdl-layout__drawer mdl-color-text--white mdl-shadow--4dp">  
+        <!-- Start #DRAWER (USER INFO, NAVIGATION MENU) nos-drawer -->
+        <div class="mdl-layout__drawer mdl-color-text--white mdl-shadow--4dp">  
             
-            <header class="nos-drawer-header">
+            <!-- #DRAWER__HEADER -->
+            <header class="mdl-drawer__header mdl-color--nos-main"> <!-- class="nos-drawer-header" -->
                 
                 <i class="fa fa-user-md" style="font-size: 54px"></i>
                 
-                <div class="nos-avatar-dropdown">
+                <div class="user-avatar-dropdown">
                     
                     <asp:Label ID="userName" runat="server" Text="[user name placeholder]"></asp:Label>
                     <div class="mdl-layout-spacer"></div>
                     
                 </div>
                 
-            </header>
+            </header><!-- / #DRAWER__HEADER -->
             
-            <!-- Start #NAVIGATION_MENU -->
-            <nav class="nos-navigation mdl-navigation">
+            <!-- Start #DRAWER__NAVIGATION_MENU -->
+            <nav class="mdl-navigation">
                 <form id="navigationForm" runat="server">
                     
                     <a class="mdl-navigation__link" href="../main/home.aspx">
@@ -118,31 +122,32 @@
                         Загрузки
                     </a>
                     
-                    <!-- closes user session and redirects to the login page -->
+                    <!-- close user session and redirects to the login page -->
                     <a runat="server" id="signOutLink" class="mdl-navigation__link">
                         <i class="fa fa-sign-out nav-icon" role="presentation"></i>
                         Выход
                     </a>
                      
                     <div class="mdl-layout-spacer"></div>
-                    
+                    <!-- search box goes here -->
+
                 </form>
-            </nav> <!-- / #NAVIGATION_MENU -->
+            </nav><!-- / #DRAWER__NAVIGATION_MENU -->
             
-        </div><!-- / #SIDE_PANEL -->
+        </div><!-- / #DRAWER -->
       
-        <!-- Start #MAIN_CONTENT -->
+        <!-- Start #MAIN -->
         <main class="mdl-layout__content mdl-color--grey-100">
             <asp:ContentPlaceHolder ID="BodyPlaceHolder" runat="server">
                 
             </asp:ContentPlaceHolder>
-        </main> <!-- / #MAIN_CONTENT -->
+        </main><!-- / #MAIN -->
         
     </div>
     
     <script type="text/javascript" src="../../scripts/jQuery/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="../../Content/mdl-v1.0.5/material.js"></script>   
-    <script type="text/javascript" src="../../Content/jDialog/jDialog.js"></script>
+    <script type="text/javascript" src="../../Content/mdl-v1.0.5/material.min.js"></script>   
+    <script type="text/javascript" src="../../Content/jDialog/jDialog.min.js"></script>
     
     <!-- shows up contact info dialog window (side menu in #HEADER) -->
     <script type="text/javascript">
@@ -161,12 +166,3 @@
 </body>
 
 </html>
-
-
- <%--<form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
-    </form>--%>

@@ -5,6 +5,7 @@ namespace WebNosology.UI.WebApp.pages.shared
 {
     public partial class main : System.Web.UI.MasterPage
     {
+        private const int SIZE_THESHOLD = 42;
         protected void Page_Init(object sender, EventArgs e)
         {
             this.signOutLink.ServerClick += (send, args) =>
