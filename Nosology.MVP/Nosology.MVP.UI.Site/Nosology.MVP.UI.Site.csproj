@@ -164,6 +164,10 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\mdl-v1.0.5\material.css" />
+    <Content Include="Content\mdl-v1.0.5\material.js" />
+    <Content Include="Content\mdl-v1.0.5\material.min.css" />
+    <Content Include="Content\mdl-v1.0.5\material.min.js" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="packages.config" />
@@ -171,6 +175,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="Content\mdl-v1.0.5\package.json" />
+    <Content Include="Content\mdl-v1.0.5\material.min.js.map" />
+    <Content Include="Content\mdl-v1.0.5\material.min.css.map" />
+    <Content Include="Content\mdl-v1.0.5\LICENSE" />
+    <Content Include="Content\mdl-v1.0.5\bower.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

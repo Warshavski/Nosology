@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Номер телефона" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddPhoneNumber.aspx.cs" Inherits="Escyug.Escyug.Nosology.MVP.UI.Site.Account.AddPhoneNumber" %>
+﻿<%@ Page Title="Номер телефона" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddPhoneNumber.aspx.cs" Inherits="Escyug.Nosology.MVP.UI.Site.Account.AddPhoneNumber" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>

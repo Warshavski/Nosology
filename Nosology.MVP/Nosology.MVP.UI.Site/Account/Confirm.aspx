@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Подтверждение учетной записи" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Confirm.aspx.cs" Inherits="Escyug.Escyug.Nosology.MVP.UI.Site.Account.Confirm" Async="true" %>
+﻿<%@ Page Title="Подтверждение учетной записи" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Confirm.aspx.cs" Inherits="Escyug.Nosology.MVP.UI.Site.Account.Confirm" Async="true" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <h2><%: Title %>.</h2>

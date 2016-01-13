@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Двухфакторная проверка подлинности" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TwoFactorAuthenticationSignIn.aspx.cs" Inherits="Escyug.Escyug.Nosology.MVP.UI.Site.Account.TwoFactorAuthenticationSignIn" %>
+﻿<%@ Page Title="Двухфакторная проверка подлинности" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TwoFactorAuthenticationSignIn.aspx.cs" Inherits="Escyug.Nosology.MVP.UI.Site.Account.TwoFactorAuthenticationSignIn" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
         <h2><%: Title %>.</h2>

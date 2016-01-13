@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Регистрация внешней учетной записи" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegisterExternalLogin.aspx.cs" Inherits="Escyug.Escyug.Nosology.MVP.UI.Site.Account.RegisterExternalLogin" Async="true" %>
+﻿<%@ Page Title="Регистрация внешней учетной записи" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegisterExternalLogin.aspx.cs" Inherits="Escyug.Nosology.MVP.UI.Site.Account.RegisterExternalLogin" Async="true" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
 <h3>Регистрация по учетной записи <%: ProviderName %></h3>

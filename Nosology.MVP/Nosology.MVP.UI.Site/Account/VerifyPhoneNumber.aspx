@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Проверка номера телефона" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VerifyPhoneNumber.aspx.cs" Inherits="Escyug.Escyug.Nosology.MVP.UI.Site.Account.VerifyPhoneNumber" %>
+﻿<%@ Page Title="Проверка номера телефона" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VerifyPhoneNumber.aspx.cs" Inherits="Escyug.Nosology.MVP.UI.Site.Account.VerifyPhoneNumber" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
  <h2><%: Title %>.</h2>

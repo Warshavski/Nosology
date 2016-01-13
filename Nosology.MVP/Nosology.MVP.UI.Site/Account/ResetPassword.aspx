@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Сброс пароля" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ResetPassword.aspx.cs" Inherits="Escyug.Escyug.Nosology.MVP.UI.Site.Account.ResetPassword" Async="true" %>
+﻿<%@ Page Title="Сброс пароля" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ResetPassword.aspx.cs" Inherits="Escyug.Nosology.MVP.UI.Site.Account.ResetPassword" Async="true" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <h2><%: Title %>.</h2>

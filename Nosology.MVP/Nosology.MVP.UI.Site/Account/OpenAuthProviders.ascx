@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="OpenAuthProviders.ascx.cs" Inherits="Escyug.Escyug.Nosology.MVP.UI.Site.Account.OpenAuthProviders" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="OpenAuthProviders.ascx.cs" Inherits="Escyug.Nosology.MVP.UI.Site.Account.OpenAuthProviders" %>
 
 <div id="socialLoginList">
     <h4>Используйте для входа другую службу.</h4>

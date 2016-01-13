@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Управление паролем" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManagePassword.aspx.cs" Inherits="Escyug.Escyug.Nosology.MVP.UI.Site.Account.ManagePassword" %>
+﻿<%@ Page Title="Управление паролем" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManagePassword.aspx.cs" Inherits="Escyug.Nosology.MVP.UI.Site.Account.ManagePassword" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
