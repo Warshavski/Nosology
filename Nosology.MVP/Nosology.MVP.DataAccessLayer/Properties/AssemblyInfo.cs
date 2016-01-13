@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("Nosology.MVP.UI.ConsoleApp")]
+[assembly: AssemblyTitle("Nosology.MVP.DataAccessLayer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Nosology.MVP.UI.ConsoleApp")]
+[assembly: AssemblyProduct("Nosology.MVP.DataAccessLayer")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("89f8ebba-4f03-434d-96ed-9ef9b12541be")]
+[assembly: Guid("ab6fea5e-b67c-49fd-a208-0bec25731320")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //
