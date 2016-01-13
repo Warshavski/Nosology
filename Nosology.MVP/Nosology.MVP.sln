@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nosology.MVP.Presentation",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nosology.MVP.UI.Site", "Nosology.MVP.UI.Site\Nosology.MVP.UI.Site.csproj", "{36A43483-AD6A-46EC-8F54-9CE9DE701B9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nosology.MVP.UI.Console", "Nosology.MVP.UI.Console\Nosology.MVP.UI.Console.csproj", "{262768B8-0A80-48CD-819A-74D8910260E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{36A43483-AD6A-46EC-8F54-9CE9DE701B9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36A43483-AD6A-46EC-8F54-9CE9DE701B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36A43483-AD6A-46EC-8F54-9CE9DE701B9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{262768B8-0A80-48CD-819A-74D8910260E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{262768B8-0A80-48CD-819A-74D8910260E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{262768B8-0A80-48CD-819A-74D8910260E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{262768B8-0A80-48CD-819A-74D8910260E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,5 +45,6 @@ Global
 		{D19FAC5F-0433-4BCE-A44F-C2B5FF583E65} = {6C4E04D3-648D-4104-9971-B598A2A8E2AE}
 		{1F92EBD8-2021-4D61-8ECE-E3FB628EE8FD} = {6C4E04D3-648D-4104-9971-B598A2A8E2AE}
 		{36A43483-AD6A-46EC-8F54-9CE9DE701B9E} = {E5FBFE60-AC0A-44D2-A3A3-EDB390C89794}
+		{262768B8-0A80-48CD-819A-74D8910260E3} = {E5FBFE60-AC0A-44D2-A3A3-EDB390C89794}
 	EndGlobalSection
 EndGlobal
