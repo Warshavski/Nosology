@@ -12,9 +12,13 @@ namespace Escyug.Nosology.MVP.DataAccessLayer.Sql
 {
     public sealed class UserService
     {
+        private string _connectionString;
+        private string _providerName;
+
         public UserService()
         {
-
+            _connectionString = @"Data Source=sql04.corp.parking.ru;Initial Catalog=escyug-6; Persist Security Info=True;User ID=escyug-6;Password=pgpFmvk5";
+            _providerName = "System.Data.SqlClient";
         }
 
         public DataTable GetUserData(string login)
@@ -24,7 +28,7 @@ namespace Escyug.Nosology.MVP.DataAccessLayer.Sql
 
             try
             {
-                connection = ConnectionFactory.Create("parking");
+                connection = DataFactory.CreateConnection(_providerName, _connectionString); //ConnectionFactory.Create("parking");
 
                 var commandText = @"SELECT PAROL, DATE_E, NIC, KAT  FROM dbo.DOPUSK WHERE  NIC = @NIC";
                 var commandType = CommandType.Text;
@@ -34,7 +38,7 @@ namespace Escyug.Nosology.MVP.DataAccessLayer.Sql
                     new System.Data.SqlClient.SqlParameter("@NIC", System.Data.SqlDbType.NVarChar, 20)};
 
                 var command = DataFactory.CreateCommand(connection, commandText, commandType, parameters);
-                command.Parameters["@nic"].Value = login;
+                command.Parameters["@NIC"].Value = login;
 
                 userData = new DataTable();
                 using (connection)

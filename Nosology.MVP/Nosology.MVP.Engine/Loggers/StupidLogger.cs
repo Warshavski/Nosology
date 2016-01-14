@@ -52,9 +52,12 @@ namespace Escyug.Nosology.MVP.Engine
 
                     if (inputPwd.ToLower() == refPwd.ToLower() && currentDate <= refDate)
                     {
-                        user = new User();
                         string userName = userInfo["name"].Trim();
                         string userLevel = _levels[int.Parse(userInfo["level"])];
+                        
+                        userInfo.Clear();
+
+                        user = new User(userName, userLevel);
                     }
                 }
             }

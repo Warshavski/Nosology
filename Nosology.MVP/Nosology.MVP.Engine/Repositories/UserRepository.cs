@@ -30,6 +30,8 @@ namespace Escyug.Nosology.MVP.Engine.Repositories
                 usrDataList.Add("date", usrData.Rows[0]["DATE_E"].ToString());
                 usrDataList.Add("name", usrData.Rows[0]["NIC"].ToString());
                 usrDataList.Add("level", usrData.Rows[0]["KAT"].ToString());
+
+                usrData.Dispose();
             }
 
             return usrDataList;
