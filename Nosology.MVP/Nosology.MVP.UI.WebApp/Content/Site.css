@@ -1,0 +1,201 @@
+﻿/**
+ * CONTENTS
+ *
+ * 
+ *
+ * GENERIC
+ * Normalize.css........A level playing field.
+ * Box-sizing...........Better default `box-sizing`.
+ *
+ * BASE
+ * Headings.............H1–H6 styles.
+ *
+ * OBJECTS
+ * Wrappers.............Wrapping and constraining elements.
+ *
+ * COMPONENTS
+ * Page-head............The main page header.
+ * Page-foot............The main page footer.
+ * Buttons..............Button elements.
+ *
+ * TRUMPS
+ * Text.................Text helpers.
+ */
+
+
+
+
+
+
+/*-------------------------------------------------------*\
+    #GLOBAL - SECTION
+\*-------------------------------------------------------*/
+
+
+html, body {
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+
+
+
+
+
+/*------------------------------------------------------*\
+    #COLOR - SECTION - set main, help and subhelp colors
+\*------------------------------------------------------*/
+
+/* +-----------------------------------------+ *
+ * |   #00838F; #0097A7; #00BCD4; #37474F;   | *
+ * +-----------------------------------------+ */
+
+.mdl-color-text--nos-main {
+  color: rgb(0,131,143) !important; }
+
+.mdl-color--nos-main {
+  background-color: rgb(0,131,143) !important; }
+
+.mdl-color-text--nos-help {
+  color: rgb(0,151,167) !important; }  
+
+.mdl-color--nos-help {
+  background-color: rgb(0,151,167) !important; }
+
+.mdl-color--nos-subhelp {
+  background-color: rgb(19, 202, 233) !important; }
+
+
+
+
+
+/*-------------------------------------------------------*\
+    #MDL - SECTION
+\*-------------------------------------------------------*/
+
+/* +--------------------------------------------------------------+ *
+ * | #HEADER - (.mdl-layout__header) -                            | *
+ * |           - display titles                                   | *
+ * +--------------------------------------------------------------+ */
+
+/* change font size of main title on small screens */
+.mdl-layout.is-small-screen .mdl-layout-title {
+    font-size: 18px;
+ }
+
+/* +--------------------------------------------------------------+ *
+ * | #TEXTFIELD - (.mdl-textfield) -                              | *
+ * |                  - input textboxes (login, pwd)              | *
+ * +--------------------------------------------------------------+ */
+
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label,
+.mdl-textfield--floating-label.is-dirty .mdl-textfield__label {
+    color: rgb(0,131,143); 
+    font-size: 12px;  
+    top: 4px;
+    visibility: visible; 
+}
+
+.mdl-textfield--floating-label.is-focused .mdl-textfield__expandable-holder .mdl-textfield__label,
+.mdl-textfield--floating-label.is-dirty .mdl-textfield__expandable-holder .mdl-textfield__label {
+    top: -16px; 
+}
+
+.mdl-textfield--floating-label.is-invalid .mdl-textfield__label {
+    color: rgb(222, 50, 38);
+    font-size: 12px; 
+}
+
+.mdl-textfield__label:after {
+    background-color: rgb(0,131,143); 
+    content: '';
+    position: absolute;
+    height: 2px;
+    width:  10px; 
+    left:   45%;
+    bottom: 20px;
+    -webkit-transition-duration: 0.2s;
+       -moz-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+       -moz-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    visibility: hidden;
+}
+
+
+
+
+/*-------------------------------------------------------*\
+    #DEFAULT LAYOUT - SECTION
+\*-------------------------------------------------------*/
+
+/* +--------------------------------------------------------------+ *
+ * | #FOOTER - (.mdl-mini-footer) -                               | *      
+ * |            - show company title and useble links             | *
+ * +--------------------------------------------------------------+ */
+
+.mdl-logo a {
+    color: white;
+    text-decoration: none;
+}
+
+.mdl-logo i {
+    font-size: 25px;
+}
+
+@media (max-width: 480px) {
+    .mdl-logo i {
+        font-size: 20px;
+    }
+
+}
+
+
+
+
+
+/*-------------------------------------------------------*\
+    #DEFAULT_PAGE - SECTION
+\*-------------------------------------------------------*/
+
+
+/* +--------------------------------------------------------------+ *
+ * | #LOGIN BLOCK - (main) (.mdl-layout__content) -                      | *
+ * |         - display login form                         | *
+ * +--------------------------------------------------------------+ */
+
+.login-block {
+    background: #FAFAFA;
+    width: 250px;
+    margin: 10em auto;
+    padding: 3rem 5rem;
+
+    /*border: 1px solid black;*//*#EBEBEB;*/
+}
+
+.login-block .login-block__icon {
+    font-size: 60px; 
+    padding: 1rem 7.5rem
+}
+
+@media (max-width: 480px) {
+    .login-block {
+        width: 200px;
+    }
+
+    .login-block .login-block__icon {
+        padding: 2rem 6rem
+    }
+}
+
+.login-block__button {
+    width : 100px;
+    margin-top: 3rem;
+}
+
+
+
+
+
+/*-------------------------------------------------------*\
+    #MAIN LAYOUT - SECTION
+\*-------------------------------------------------------*/

@@ -50,7 +50,8 @@ namespace Escyug.Nosology.MVP.Engine
                     string refPwd = userInfo["pwd"].Trim();
                     DateTime refDate = DateTime.Parse(userInfo["date"]);
 
-                    if (inputPwd.ToLower() == refPwd.ToLower() && currentDate <= refDate)
+                    //inputPwd.ToLower() == refPwd.ToLower() && 
+                    if (inputPwd.Equals(refPwd, StringComparison.OrdinalIgnoreCase)  && currentDate <= refDate)
                     {
                         string userName = userInfo["name"].Trim();
                         string userLevel = _levels[int.Parse(userInfo["level"])];
