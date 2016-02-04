@@ -26,13 +26,13 @@ https://github.com/litson/jDialog
         init: function(message, callBack) {
 
             this.options = {
-                title: ' <i class="fa fa-exclamation-triangle"></i> Предупреждение', // title 提示
-                modal: true, //是否启用模式窗口
+                title: '<h2>Material design lite</h2>', // title 提示(notice)
+                modal: true, //是否启用模式窗口(turn on modal box)
                 content: 'messages', // 
-                autoHide: 0, // 自动销毁
+                autoHide: 0, // 自动销毁(auto destroy)
                 fixed: true,
                 /**
-                *  点击modal不会销毁
+                *  点击modal不会销毁(click modal not destroy)
                 */
                 preventHide: false,
                 callBack: null
@@ -40,7 +40,7 @@ https://github.com/litson/jDialog
 
             this.buttons = [];
 
-            // 只存活一个dialog
+            // 只存活一个dialog(if dialog exists)
             if (jDialog.currentDialog) {
                 jDialog.currentDialog.remove();
             }
@@ -123,10 +123,10 @@ https://github.com/litson/jDialog
         //
         self.content(options.content);
 
-        //#MY 取消
+        //#MY 取消(cancel/close)
         self.addButton('ЗАКРЫТЬ', 'destory', function() {
             self.remove();
-        });
+        }, true);
 
         //
         if (options.modal) {
@@ -163,6 +163,13 @@ https://github.com/litson/jDialog
     function _createElement(tagName, attrs) {
         var element = doc.createElement(tagName);
         jDialog.extend(element, attrs);
+        return element;
+    }
+
+    // hmmm... normal or not?
+    function _createMdlElement(tagName, attrs) {
+        var element = _createElement(tagName, attrs)
+        
         return element;
     }
 
@@ -441,7 +448,7 @@ https://github.com/litson/jDialog
         * @param handler
         * @returns {*}
         */
-        addButton: function(text, actionName, handler) {
+        addButton: function(text, actionName, handler, isMdl) {
 
             // 模拟重载
             var fnKey = ("jDialog" + Math.random()).replace(/\D/g, '');
@@ -460,9 +467,10 @@ https://github.com/litson/jDialog
 
             //#MY dialog-btn
             //text += '<span class="mdl-button__ripple-container"> <span class="mdl-ripple"></span></span>';
-            var element = _createElement('a', {
+
+             var element = _createElement('button', {
                 href: 'javascript:;',
-                className: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white mdl-color--liss-main dialog-btn',
+                className: 'mdl-button mdl-js-button mdl-js-ripple-effect dialog-btn',
                 innerHTML: text || defaultText
             });
 
@@ -472,7 +480,15 @@ https://github.com/litson/jDialog
                 jDialog.event.add(actionName, handler);
             }
 
-            element.setAttribute('data-dialog-action', actionName);
+            if (isMdl){
+                componentHandler.upgradeElement(element);
+                // if more than 2 child elements, how to find direct span
+                element.childNodes[1].setAttribute('data-dialog-action', actionName);
+            }
+            else {
+                element.setAttribute('data-dialog-action', actionName);
+            }
+            
 
             var footer = this.getFooter();
             if (this.buttons.length) {
@@ -482,6 +498,9 @@ https://github.com/litson/jDialog
                 footer.appendChild(element);
             }
             this.buttons.push(element);
+
+            
+            
 
             return this;
         },
@@ -649,6 +668,15 @@ https://github.com/litson/jDialog
         // innerHTML: '关闭'
         getCloseBtn: function() {
             if (!this.closeBtn) {
+
+                //this.closeBtn = document.createElement('button');
+                //var textNode = document.createTextNode('Click Me!');
+                //closeBtn.appendChild(textNode);
+                //closeBtn.className = 'mdl-button mdl-js-button mdl-js-ripple-effect dialog-btn';
+                //componentHandler.upgradeElement(closeBtn);
+                //document.getElementById('container').appendChild(closeBtn);
+
+
                 this.closeBtn = _createElement('span', {
                     innerHTML: 'Close',
                     'data-dialog-action': 'destory',

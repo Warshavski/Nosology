@@ -26,13 +26,15 @@
 
     <!-- general styles -->
     <link rel="stylesheet" href="../../Content/mdl-v1.0.5/material.min.css" />
-    <link rel="stylesheet" href="../../Content/jDialog/jDialog.min.css" />
+    <link rel="stylesheet" href="../../Content/jDialog/jDialog.css" />
     <link rel="stylesheet" href="../../Content/Site.css" />
 
+    <%--    <link rel="stylesheet" href="../../Content/modal/modal.css" />--%>
 
     <!-- fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" />
 
     <title></title>
 
@@ -43,15 +45,14 @@
 
 <body>
 
-    <div class="nos-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 
         <!-- Start #HEADER (TITLE, MENU) nos-header  mdl-color--grey-100 mdl-color-text--grey-600 -->
-        <header class="mdl-layout__header">
+        <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
 
             <div class="mdl-layout__header-row">
 
                 <asp:ContentPlaceHolder ID="TitlePlaceHolder" runat="server">
-                    
                 </asp:ContentPlaceHolder>
 
                 <div class="mdl-layout-spacer"></div>
@@ -62,17 +63,16 @@
 
                 <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
 
-                    <li class="mdl-menu__item" onclick="showNoticeDialog()">Справка</li>
-
-                    <li class="mdl-menu__item" onclick="showContactDialog()">Контакты</li>
+                    <li class="mdl-menu__item" onclick="showContactDialog()">Справка</li>
+                    <li class="mdl-menu__item" onclick="showContactDialog()">Контакт</li>
 
                 </ul>
-                
+
             </div>
-            
+
             <div class="mdl-layout__header-row header-row--helper">
 
-                <i class="fa fa-star"></i>&nbsp
+                <i class="fa fa-star"></i>
                 <asp:Label ID="userLevel" runat="server" Text="[user level placeholder]" />
 
             </div>
@@ -81,9 +81,9 @@
         <!-- / #HEADER -->
 
         <!-- Start #DRAWER (USER INFO, NAVIGATION MENU) nos-drawer -->
-        <div class="mdl-layout__drawer mdl-color-text--white mdl-shadow--4dp">
+        <div class="demo-drawer mdl-layout__drawer colored-test mdl-color-text--blue-grey-50">
 
-            <header class="mdl-drawer__header mdl-color--nos-main">
+            <header class="demo-drawer-header mdl-color--nos-main">
                 <!-- class="nos-drawer-header" -->
 
                 <i class="fa fa-user-md" style="font-size: 48px"></i>
@@ -97,35 +97,45 @@
             </header>
 
             <!-- Start #DRAWER__NAVIGATION_MENU -->
-            <nav class="mdl-navigation">
+            <nav class="demo-navigation mdl-navigation">
                 <form id="navigationForm" runat="server">
 
-                    <a class="mdl-navigation__link" href="../main/home.aspx">
+                    <a class="mdl-navigation__link" href="main.aspx">
                         <i class="fa fa-home nav-icon" role="presentation"></i>
                         Главная
                     </a>
 
-                    <a class="mdl-navigation__link" href="../main/documents.aspx">
+                    <a class="mdl-navigation__link" href="documents.aspx" >
                         <i class="fa fa-file-text nav-icon" role="presentation"></i>
                         Документы
                     </a>
 
-                    <a class="mdl-navigation__link" href="../main/downloads.aspx">
+                    <a class="mdl-navigation__link" href="downloads.aspx">
                         <i class="fa fa-download nav-icon" role="presentation"></i>
                         Загрузки
                     </a>
 
                     <!-- close user session and redirects to the login page -->
-                    <a runat="server" id="signOutLink" class="mdl-navigation__link">
+                    <a class="mdl-navigation__link" runat="server" id="signOutLink">
                         <i class="fa fa-sign-out nav-icon" role="presentation"></i>
                         Выход
                     </a>
 
-                    <div class="mdl-layout-spacer"></div>
-                    <!-- search box goes here -->
-
                 </form>
-            </nav><!-- / #DRAWER__NAVIGATION_MENU -->
+
+                <div class="mdl-layout-spacer"></div>
+                <!-- search box goes here -->
+
+                <div class="mdl-layout-spacer"></div>
+
+                <!-- start #MODAL_BOX (Modal box that contains some help information) -->
+                <a href="#" data-modal="#modal" class="mdl-navigation__link modal__trigger">
+                    <i class="mdl-color-text--white fa fa-question-circle link__icon" role="presentation"></i>
+                    <span class="visuallyhidden"></span>
+                </a>
+
+            </nav>
+            <!-- / #DRAWER__NAVIGATION_MENU -->
 
         </div>
         <!-- / #DRAWER -->
@@ -141,18 +151,24 @@
     <!-- jQuery library -->
     <script type="text/javascript" src="../../Scripts/jquery-1.10.2.min.js"></script>
 
+    <!-- ajax library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+
     <!-- mdl scripts -->
     <script type="text/javascript" src="../../Content/mdl-v1.0.5/material.min.js"></script>
 
     <!-- dialog box -->
-    <script type="text/javascript" src="../../Content/jDialog/jDialog.min.js"></script>
+    <script type="text/javascript" src="../../Content/jDialog/jDialog.js"></script>
 
-    <script type="text/javascript" src="../../Content/jDialog/jDialog.min.js"></script>
+    <%--<script type="text/javascript" src="../../Content/modal/modal.js"></script>--%>
 
     <!-- shows up contact info dialog window (side menu in #HEADER) -->
     <script type="text/javascript">
         function showContactDialog() {
-            jDialog.alert('Контактные данные : #FILL_WITH_INFORMATION');
+            jDialog.alert('Material Design Lite lets you add a Material Design look and feel to your websites.' +
+                'It doesn’t rely on any JavaScript frameworks and aims to optimize for cross-device use, gracefully degrade in older browsers, ' +
+                'and offer an experience that is immediately accessible.' +
+                '<a href="">Get started now.');
         }
     </script>
 
@@ -162,6 +178,29 @@
             jDialog.alert('Справка о странице : #FILL_WITH_INFORMATION');
         }
     </script>
+
+
+
+    <script type="text/javascript">
+        function ShowCurrentTime() {
+            $.ajax({
+                type: "POST",
+                url: "CS.aspx/GetCurrentTime",
+                data: "",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnSuccess,
+                failure: function (response) {
+                    alert(response.d);
+                }
+            });
+        }
+        function OnSuccess(response) {
+            //alert(response.d);
+            document.location.href = "../documents.aspx";
+        }
+    </script>
+
 
     <asp:ContentPlaceHolder ID="ScriptContentPlaceHolder" runat="server">
         <!-- particular page scripts goes here -->

@@ -10,15 +10,15 @@
 namespace Escyug.Nosology.MVP.UI.WebApp.pages {
     
     
-    public partial class main {
+    public partial class documents {
         
         /// <summary>
-        /// contentLiteral элемент управления.
+        /// docsList элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal contentLiteral;
+        protected global::System.Web.UI.WebControls.ListView docsList;
     }
 }

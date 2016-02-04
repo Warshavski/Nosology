@@ -9,7 +9,14 @@
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="BodyPlaceHolder" runat="server">
+    <!-- Static text -->
+    <div class="nos-graphs" style="padding: 10px;">
+                    
+       <asp:Literal ID="contentLiteral" runat="server">
 
+       </asp:Literal>
+        
+    </div>
 </asp:Content>
 
 <asp:Content ID="ScriptContent" ContentPlaceHolderID="ScriptContentPlaceHolder" runat="server">

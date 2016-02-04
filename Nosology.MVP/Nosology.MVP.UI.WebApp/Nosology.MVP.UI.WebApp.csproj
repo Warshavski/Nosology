@@ -95,11 +95,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\docs\" />
     <Folder Include="App_Data\files\" />
-    <Folder Include="pages\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\docs\docTemplate2.txt" />
+    <Content Include="App_Data\docs\docTemplate3.txt" />
+    <Content Include="App_Data\docs\docTemplate1.txt" />
+    <Content Include="App_Data\main.txt" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\jDialog\jDialog.css" />
@@ -110,9 +112,15 @@
     <Content Include="Content\mdl-v1.0.5\material.js" />
     <Content Include="Content\mdl-v1.0.5\material.min.css" />
     <Content Include="Content\mdl-v1.0.5\material.min.js" />
+    <Content Include="Content\modal\common.js" />
+    <Content Include="Content\modal\modal.css" />
+    <Content Include="Content\modal\modal.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\material-design-icons\css\materialdesignicons.css" />
+    <Content Include="fonts\material-design-icons\css\materialdesignicons.min.css" />
+    <Content Include="fonts\material-design-icons\fonts\materialdesignicons-webfont.svg" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -122,10 +130,20 @@
     <Content Include="Content\mdl-v1.0.5\material.min.css.map" />
     <Content Include="Content\mdl-v1.0.5\LICENSE" />
     <Content Include="Content\mdl-v1.0.5\bower.json" />
+    <Content Include="pages\documents.aspx" />
+    <Content Include="pages\downloads.aspx" />
     <Content Include="pages\main.aspx" />
     <Content Include="pages\shared\_Default.Master" />
     <Content Include="pages\shared\_Main.Master" />
+    <Content Include="fonts\material-design-icons\css\materialdesignicons.css.map" />
+    <Content Include="fonts\material-design-icons\css\materialdesignicons.min.css.map" />
+    <Content Include="fonts\material-design-icons\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="fonts\material-design-icons\fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="fonts\material-design-icons\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="fonts\material-design-icons\fonts\materialdesignicons-webfont.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="pages\templates\CS.aspx" />
+    <Content Include="pages\templates\modalTemplate.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -181,6 +199,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="pages\documents.aspx.cs">
+      <DependentUpon>documents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\documents.aspx.designer.cs">
+      <DependentUpon>documents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\downloads.aspx.cs">
+      <DependentUpon>downloads.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\downloads.aspx.designer.cs">
+      <DependentUpon>downloads.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\main.aspx.cs">
       <DependentUpon>main.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -201,6 +233,17 @@
     </Compile>
     <Compile Include="pages\shared\_Main.Master.designer.cs">
       <DependentUpon>_Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="pages\templates\CS.aspx.cs">
+      <DependentUpon>CS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\templates\modalTemplate.aspx.cs">
+      <DependentUpon>modalTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\templates\modalTemplate.aspx.designer.cs">
+      <DependentUpon>modalTemplate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
