@@ -44,6 +44,7 @@
     <Compile Include="Common\DataFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sql\UserService.cs" />
+    <Compile Include="Xml\TemplateFileService.cs" />
     <Compile Include="Xml\UserService.cs" />
   </ItemGroup>
   <ItemGroup />

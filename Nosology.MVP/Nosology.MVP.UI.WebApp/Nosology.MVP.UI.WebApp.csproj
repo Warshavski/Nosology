@@ -101,7 +101,9 @@
     <Content Include="App_Data\docs\docTemplate2.txt" />
     <Content Include="App_Data\docs\docTemplate3.txt" />
     <Content Include="App_Data\docs\docTemplate1.txt" />
+    <Content Include="App_Data\documents.xml" />
     <Content Include="App_Data\main.txt" />
+    <Content Include="App_Data\users.xml" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\jDialog\jDialog.css" />
@@ -247,7 +249,16 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Nosology.MVP.Engine\Nosology.MVP.Engine.csproj">
+      <Project>{d19fac5f-0433-4bce-a44f-c2b5ff583e65}</Project>
+      <Name>Nosology.MVP.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nosology.MVP.Presentation\Nosology.MVP.Presentation.csproj">
+      <Project>{1f92ebd8-2021-4d61-8ece-e3fb628ee8fd}</Project>
+      <Name>Nosology.MVP.Presentation</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

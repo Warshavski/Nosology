@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace Escyug.Nosology.MVP.DataAccessLayer.Xml
 {
-    public class UserService
+    public sealed class UserService
     {
         private string _path;
 

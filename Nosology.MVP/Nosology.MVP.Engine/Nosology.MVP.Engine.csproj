@@ -43,7 +43,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\TemplateFileRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="TemplateFile.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -5,10 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
+using Escyug.Nosology.MVP.Presentation.Views;
+using Escyug.Nosology.MVP.Presentation.Presenters;
+using Escyug.Nosology.MVP.Engine;
 
 namespace Escyug.Nosology.MVP.UI.WebApp.pages
 {
-    public partial class documents : System.Web.UI.Page
+    public partial class documents : System.Web.UI.Page, IDocumentsView
     {
         internal sealed class DocumentTemplate
         {
@@ -24,21 +27,53 @@ namespace Escyug.Nosology.MVP.UI.WebApp.pages
             }
         }
 
-        protected void Page_Load(object sender, EventArgs e)
+        private readonly DocumentsPresenter _presenter;
+
+        public documents()
+        {
+            _presenter = new DocumentsPresenter(this);
+        }
+
+        private void Invoke(Action action)
+        {
+            if (action != null)
+                action.Invoke();
+        }
+
+        public event Action Load;
+
+
+        public List<Escyug.Nosology.MVP.Engine.TemplateFile> DocumentsList
+        {
+            set
+            {
+                docsList.DataSource = value;
+                docsList.DataBind();
+            }
+        }
+
+        protected void Page_Init(object sender, EventArgs e)
         {
             this.AsyncMode = true;
 
-            string path = string.Format("{0}\\{1}", HttpRuntime.AppDomainAppPath, "App_Data\\docs");
-            var icon = "fa fa-file-text-o";
-
-            DirectoryInfo dirInfo = new DirectoryInfo(path);
-
-            List<DocumentTemplate> docs = new List<DocumentTemplate>();
-            foreach (var element in dirInfo.GetFiles())
-                docs.Add(new DocumentTemplate(element.Name, element.FullName, icon));
-
-            docsList.DataSource = docs;
-            docsList.DataBind();
+            if (!Page.IsPostBack)
+                Invoke(Load);
         }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            //string path = string.Format("{0}\\{1}", HttpRuntime.AppDomainAppPath, "App_Data\\docs");
+            //var icon = "fa fa-file-text-o";
+
+            //DirectoryInfo dirInfo = new DirectoryInfo(path);
+
+            //List<DocumentTemplate> docs = new List<DocumentTemplate>();
+            //foreach (var element in dirInfo.GetFiles())
+            //    docs.Add(new DocumentTemplate(element.Name, element.FullName, icon));
+
+            //docsList.DataSource = docs;
+            //docsList.DataBind();
+        }
+
     }
 }

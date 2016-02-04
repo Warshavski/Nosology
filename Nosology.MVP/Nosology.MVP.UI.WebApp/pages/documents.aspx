@@ -16,7 +16,7 @@
                 
                 <div class="mdl-cell mdl-cell--10-col demo-graphs">
                     <a href='<%# Eval("Link") %>'> 
-                        <i class="<%# Eval("Icon") %> content-icon"></i>
+                        <i class="<%# Eval("FileType") %> content-icon"></i>
                         <%# Eval("Title") %>
                     </a>
                 </div>

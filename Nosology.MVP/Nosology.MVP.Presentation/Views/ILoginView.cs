@@ -12,6 +12,6 @@ namespace Escyug.Nosology.MVP.Presentation.Views
         string MCOD { get; }
         string Password { get; }
 
-        string[] UserInfo { set; }
+         Escyug.Nosology.MVP.Engine.User User { set; }
     }
 }

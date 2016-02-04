@@ -19,8 +19,8 @@ namespace Escyug.Nosology.MVP.Presentation.Presenters
 
         private void OnLogin()
         {
-            Logger logger = new Logger();
-             _view.UserInfo = logger.Logon(_view.MCOD, _view.Password);
+            StupidLogger logger = new StupidLogger();
+            _view.User = logger.Logon(_view.MCOD, _view.Password);
         }
     }
 }

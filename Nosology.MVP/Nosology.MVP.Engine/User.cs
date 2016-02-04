@@ -23,8 +23,7 @@ namespace Escyug.Nosology.MVP.Engine
         public User()
         {
             _name = string.Empty;
-            _level = string.Empty;
-            
+            _level = string.Empty;    
         }
 
         public User(string name, string level)
@@ -33,7 +32,7 @@ namespace Escyug.Nosology.MVP.Engine
             _level = level;
         }
 
-        public List<T> LoadDucuments<T>() where T : class
+        public List<TemplateFile> LoadDucuments()
         {
             throw new NotImplementedException();
         }
