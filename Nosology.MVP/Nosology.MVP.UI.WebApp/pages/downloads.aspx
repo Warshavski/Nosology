@@ -14,7 +14,7 @@
 
             <ItemTemplate>
 
-                <div download class="nos-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
+                <div download class="nos-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--6-col">
                     <a href='<%# Eval("Link") %>'>
                         <i class="<%# Eval("Icon") %> content-icon"></i>
                         <%# Eval("Title") %>

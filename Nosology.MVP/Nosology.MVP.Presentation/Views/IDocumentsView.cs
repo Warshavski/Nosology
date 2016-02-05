@@ -9,7 +9,7 @@ namespace Escyug.Nosology.MVP.Presentation.Views
 {
     public interface IDocumentsView
     {
-        event Action Load;
+        event Action PageLoad;
 
         List<TemplateFileMV> DocumentsList { set; }
     }

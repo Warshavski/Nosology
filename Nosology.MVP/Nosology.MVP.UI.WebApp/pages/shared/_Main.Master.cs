@@ -19,11 +19,12 @@ namespace Escyug.Nosology.MVP.UI.WebApp.pages.shared
 
         }
 
-        [System.Web.Services.WebMethod]
-        public static string GetCurrentTime()
-        {
-            return "Hello " + "wat" + Environment.NewLine + "The Current Time is: "
-                + DateTime.Now.ToString();
-        }
+        // ajax call test method
+        //[System.Web.Services.WebMethod]
+        //public static string GetCurrentTime()
+        //{
+        //    return "Hello " + "wat" + Environment.NewLine + "The Current Time is: "
+        //        + DateTime.Now.ToString();
+        //}
     }
 }

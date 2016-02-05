@@ -29,7 +29,7 @@ namespace Escyug.Nosology.MVP.Presentation.Presenters
                 {FileType.txt, "file-text-o"}
             };
 
-            _view.Load += () => OnLoad();
+            _view.PageLoad += () => OnLoad();
         }
 
         private void OnLoad()

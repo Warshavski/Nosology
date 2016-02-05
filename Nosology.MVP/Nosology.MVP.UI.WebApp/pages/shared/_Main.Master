@@ -31,10 +31,7 @@
     <link rel="stylesheet" href="../../Content/Site.css" />
 
     
-    
-
-
-    <%--    <link rel="stylesheet" href="../../Content/modal/modal.css" />--%>
+    <%--<link rel="stylesheet" href="../../Content/modal/modal.css" />--%>
 
     <!-- fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
@@ -63,7 +60,7 @@
                 <div class="mdl-layout-spacer"></div>
 
                 <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
-                    <i class="fa fa-ellipsis-v"></i>
+                    <i class="material-icons">more_vert</i>
                 </button>
 
                 <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
@@ -77,7 +74,7 @@
 
             <div class="mdl-layout__header-row header-row--helper">
 
-                <i class="fa fa-star"></i>
+                <i class="material-icons">star</i>
                 <asp:Label ID="userLevel" runat="server" Text="[user level placeholder]" />
 
             </div>
@@ -106,23 +103,23 @@
                 <form id="navigationForm" runat="server">
 
                     <a class="mdl-navigation__link" href="main.aspx">
-                        <i class="fa fa-home nav-icon" role="presentation"></i>
+                        <i class="material-icons nav-icon" role="presentation">home</i>
                         Главная
                     </a>
 
                     <a class="mdl-navigation__link" href="documents.aspx" >
-                        <i class="fa fa-file-text nav-icon" role="presentation"></i>
+                        <i class="material-icons nav-icon" role="presentation">description</i>
                         Документы
                     </a>
 
                     <a class="mdl-navigation__link" href="downloads.aspx">
-                        <i class="fa fa-download nav-icon" role="presentation"></i>
+                        <i class="material-icons nav-icon" role="presentation">file_download</i>
                         Загрузки
                     </a>
 
                     <!-- close user session and redirects to the login page -->
                     <a class="mdl-navigation__link" runat="server" id="signOutLink">
-                        <i class="fa fa-sign-out nav-icon" role="presentation"></i>
+                        <i class="material-icons nav-icon" role="presentation">exit_to_app</i>
                         Выход
                     </a>
 
@@ -135,7 +132,7 @@
 
                 <!-- start #MODAL_BOX (Modal box that contains some help information) -->
                 <a href="#" data-modal="#modal" class="mdl-navigation__link modal__trigger">
-                    <i class="mdl-color-text--white fa fa-question-circle link__icon" role="presentation"></i>
+                    <i class="material-icons mdl-color-text--white link__icon" role="presentation">help_outline</i>
                     <span class="visuallyhidden"></span>
                 </a>
 
@@ -175,7 +172,7 @@
             jDialog.alert('Material Design Lite lets you add a Material Design look and feel to your websites.' +
                 'It doesn’t rely on any JavaScript frameworks and aims to optimize for cross-device use, gracefully degrade in older browsers, ' +
                 'and offer an experience that is immediately accessible.' +
-                '<a href="">Get started now.');
+                '<br /><a href="">Get started now.</a>');
         }
     </script>
 

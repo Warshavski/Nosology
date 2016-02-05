@@ -8,26 +8,11 @@ using System.IO;
 using Escyug.Nosology.MVP.Presentation.Views;
 using Escyug.Nosology.MVP.Presentation.Presenters;
 using Escyug.Nosology.MVP.Presentation.ModelView;
-using Escyug.Nosology.MVP.Engine;
 
 namespace Escyug.Nosology.MVP.UI.WebApp.pages
 {
     public partial class documents : System.Web.UI.Page, IDocumentsView
     {
-        internal sealed class DocumentTemplate
-        {
-            public string Title { get; set; }
-            public string Link { get; set; }
-            public string Icon { get; set; }
-
-            public DocumentTemplate(string title, string link, string icon)
-            {
-                Title = title;
-                Link = link;
-                Icon = icon;
-            }
-        }
-
         private readonly DocumentsPresenter _presenter;
 
         public documents()
@@ -41,8 +26,7 @@ namespace Escyug.Nosology.MVP.UI.WebApp.pages
                 action.Invoke();
         }
 
-        public event Action Load;
-
+        public event Action PageLoad;
 
         public List<TemplateFileMV> DocumentsList
         {
@@ -58,23 +42,44 @@ namespace Escyug.Nosology.MVP.UI.WebApp.pages
             this.AsyncMode = true;
 
             if (!Page.IsPostBack)
-                Invoke(Load);
+                Invoke(PageLoad);
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //string path = string.Format("{0}\\{1}", HttpRuntime.AppDomainAppPath, "App_Data\\docs");
-            //var icon = "fa fa-file-text-o";
-
-            //DirectoryInfo dirInfo = new DirectoryInfo(path);
-
-            //List<DocumentTemplate> docs = new List<DocumentTemplate>();
-            //foreach (var element in dirInfo.GetFiles())
-            //    docs.Add(new DocumentTemplate(element.Name, element.FullName, icon));
-
-            //docsList.DataSource = docs;
-            //docsList.DataBind();
+            
         }
-
     }
 }
+
+
+
+/* test version
+ * 
+ * internal sealed class DocumentTemplate
+    {
+        public string Title { get; set; }
+        public string Link { get; set; }
+        public string Icon { get; set; }
+
+        public DocumentTemplate(string title, string link, string icon)
+        {
+            Title = title;
+            Link = link;
+            Icon = icon;
+        }
+    }
+ * 
+ * 
+ * string path = string.Format("{0}\\{1}", HttpRuntime.AppDomainAppPath, "App_Data\\docs");
+    var icon = "fa fa-file-text-o";
+
+    DirectoryInfo dirInfo = new DirectoryInfo(path);
+
+    List<DocumentTemplate> docs = new List<DocumentTemplate>();
+    foreach (var element in dirInfo.GetFiles())
+        docs.Add(new DocumentTemplate(element.Name, element.FullName, icon));
+
+    docsList.DataSource = docs;
+    docsList.DataBind();
+*/
