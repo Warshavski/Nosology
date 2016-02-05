@@ -45,7 +45,7 @@ namespace Escyug.Nosology.MVP.Presentation.Presenters
                 {
                     filesListMV.Add(
                         new TemplateFileMV(
-                            file.Title, file.Link, file.Description, _iconSet[file.FileType]));
+                           file.Id, file.Title, file.Link, file.Description, _iconSet[file.FileType]));
                 }
 
             }

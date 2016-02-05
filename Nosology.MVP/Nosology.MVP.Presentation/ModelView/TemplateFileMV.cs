@@ -8,6 +8,9 @@ namespace Escyug.Nosology.MVP.Presentation.ModelView
 {
     public sealed class TemplateFileMV
     {
+        private int _id;
+        public int Id { get { return _id; } }
+
         private string _title;
         public string Title { get { return _title; } }
 
@@ -25,8 +28,9 @@ namespace Escyug.Nosology.MVP.Presentation.ModelView
         
         }
 
-        public TemplateFileMV(string title, string link, string description, string icon)
+        public TemplateFileMV(int id, string title, string link, string description, string icon)
         {
+            _id = id;
             _title = title;
             _link = link;
             _description = description;

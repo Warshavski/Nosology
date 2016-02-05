@@ -26,19 +26,28 @@
 
                     <li class="mdl-list__item mdl-list__item--three-line">
                         
+                        
                         <span class="mdl-list__item-primary-content">
-
+                            
                             <i class="material-icons mdl-list__item-avatar mdl-color--nos-main"></i>
 
-                            <span><%# Eval("Title") %></span>
+                            <a href="'<%# Eval("Link") %>'">
+                                <span><%# Eval("Title") %></span>
+                            </a>
 
                             <span class="mdl-list__item-text-body"><%# Eval("Description") %></span>
-
+                            <%--<a class="mdl-list__item-secondary-action" href="'<%# Eval("Link") %>'"></a>--%>
                         </span>
+                        
 
                         <span class="mdl-list__item-secondary-content">
-                            <a class="mdl-list__item-secondary-action" href="'<%# Eval("Link") %>'"><i class="material-icons">file_download</i></a>
+                            <i class="material-icons" id="<%# Eval("Id") %>">info_outline</i>
+                            
                         </span>
+                        
+                        <div class="mdl-tooltip" for="<%# Eval("Id") %>">
+                             <%# Eval("Id") %> | <%# Eval("Description") %> 
+                        </div>
 
                     </li>
 
