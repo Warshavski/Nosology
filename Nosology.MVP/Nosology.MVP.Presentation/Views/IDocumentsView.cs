@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Escyug.Nosology.MVP.Presentation.ModelView;
 
 namespace Escyug.Nosology.MVP.Presentation.Views
 {
@@ -10,6 +11,6 @@ namespace Escyug.Nosology.MVP.Presentation.Views
     {
         event Action Load;
 
-        List<Escyug.Nosology.MVP.Engine.TemplateFile> DocumentsList { set; }
+        List<TemplateFileMV> DocumentsList { set; }
     }
 }

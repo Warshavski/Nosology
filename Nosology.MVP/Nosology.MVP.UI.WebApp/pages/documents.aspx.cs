@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.IO;
 using Escyug.Nosology.MVP.Presentation.Views;
 using Escyug.Nosology.MVP.Presentation.Presenters;
+using Escyug.Nosology.MVP.Presentation.ModelView;
 using Escyug.Nosology.MVP.Engine;
 
 namespace Escyug.Nosology.MVP.UI.WebApp.pages
@@ -43,7 +44,7 @@ namespace Escyug.Nosology.MVP.UI.WebApp.pages
         public event Action Load;
 
 
-        public List<Escyug.Nosology.MVP.Engine.TemplateFile> DocumentsList
+        public List<TemplateFileMV> DocumentsList
         {
             set
             {

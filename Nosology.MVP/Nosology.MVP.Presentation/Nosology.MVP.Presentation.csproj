@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModelView\TemplateFileMV.cs" />
     <Compile Include="Presenters\DocumentsPresenter.cs" />
     <Compile Include="Presenters\DownloadsPresenter.cs" />
     <Compile Include="Presenters\LoginPresenter.cs" />
