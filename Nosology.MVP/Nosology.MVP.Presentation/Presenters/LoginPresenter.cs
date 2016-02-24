@@ -20,7 +20,16 @@ namespace Escyug.Nosology.MVP.Presentation.Presenters
         private void OnLogin()
         {
             StupidLogger logger = new StupidLogger();
-            _view.User = logger.Logon(_view.MCOD, _view.Password);
+            User usr = logger.Logon(_view.MCOD, _view.Password);
+
+            _view.AuthUser = usr;
+            //_view.IsAllow = false;
+            
+            //if (usr != null)
+            //{
+            //    _view.IsAllow = true;
+                
+            //}
         }
     }
 }

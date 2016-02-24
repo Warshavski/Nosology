@@ -10,6 +10,11 @@ using Escyug.Nosology.MVP.DataAccessLayer.Common;
 
 namespace Escyug.Nosology.MVP.DataAccessLayer.Sql
 {
+    /** TODO :
+     *    1. Replace connection string to separate file (config file)
+     *    2. Encrypt connection string
+     *    3. Create storage procedure in DataBase
+     */
     public sealed class UserService
     {
         private string _connectionString;

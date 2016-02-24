@@ -26,13 +26,15 @@
 
     <!-- general styles -->
     <link rel="stylesheet" href="../../Content/mdl-v1.0.5/material.min.css" />
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.cyan-teal.min.css" />
     <link rel="stylesheet" href="../../Content/jDialog/jDialog.min.css" />
     <link rel="stylesheet" href="../../Content/Site.css" />
     
 
     <!-- fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" />
 
 
     <title></title>

@@ -5,6 +5,11 @@
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="BodyPlaceHolder" runat="server">
+    
+    <form id="loginForm" runat="server">
+        <asp:HiddenField ID="HiddenChecked" runat="server" />
+    </form>
+
     <div class="mdl-grid">
 
         <!-- #SPACER -->
@@ -17,12 +22,12 @@
                 <i class="fa fa-user-md mdl-color-text--nos-main login-block__icon"></i>
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" id="loginInput" />
+                    <input runat="server" class="mdl-textfield__input" type="text" id="loginInput" />
                     <label class="mdl-textfield__label" for="loginInput">Логин...</label>
                 </div>
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" id="pwdInput" />
+                    <input runat="server" class="mdl-textfield__input" type="password" id="pwdInput"/>
                     <label class="mdl-textfield__label" for="pwdInput">Пароль...</label>
                 </div>
 
@@ -31,11 +36,14 @@
                     <span class="mdl-checkbox__label">Запомнить?</span>
                 </label>
 
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-                    mdl-button--colored mdl-color--nos-main login-block__button">
+                <asp:Label ID="errorLabel" CssClass="login-block__label--error" runat="server" Visible="false" Text="[errorLabel palceholder]"></asp:Label>
+
+                <button  runat="server" id="checkButton" onclick="checkInput();"
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
+                    mdl-button--colored mdl-color-text--white mdl-color--nos-main login-block__button">
                     ВХОД
                 </button>
-
+                
             </div>
         </div>
 
@@ -46,6 +54,27 @@
 </asp:Content>
 
 <asp:Content ID="ScriptContent" ContentPlaceHolderID="ScriptContentPlaceHolder" runat="server">
+     <script type="text/javascript">
+
+         function checkPersist() {
+            if ($('#persistCheckBox').prop("checked"))
+                $("<%= HiddenChecked.ClientID %>").val(true);
+            else
+                $("<%= HiddenChecked.ClientID %>").val(false);
+        }
+
+        function checkInput() {
+
+            if ($('#loginInput').text().trim() == '' || $('#pwdInput').text().trim() == '' ) {
+                $('#errorLabel').text('Ошибка! Поле логина и(или) пароля не должны быть пустым(и)');
+                $('#loginInput').focus();
+
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </asp:Content>
 
 
