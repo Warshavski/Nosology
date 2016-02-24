@@ -94,14 +94,11 @@
       <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="App_Data\files\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Data\docs\docTemplate2.txt" />
-    <Content Include="App_Data\docs\docTemplate3.txt" />
-    <Content Include="App_Data\docs\docTemplate1.txt" />
     <Content Include="App_Data\documents.xml" />
+    <Content Include="App_Data\files.xml" />
+    <Content Include="App_Data\files\dotnetfx.exe" />
     <Content Include="App_Data\main.txt" />
     <Content Include="App_Data\users.xml" />
     <Content Include="Content\bootstrap.css" />
@@ -143,6 +140,11 @@
     <Content Include="fonts\material-design-icons\fonts\materialdesignicons-webfont.ttf" />
     <Content Include="fonts\material-design-icons\fonts\materialdesignicons-webfont.woff" />
     <Content Include="fonts\material-design-icons\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="App_Data\docs\rp_№2782-r_30_12_2014.pdf" />
+    <Content Include="App_Data\docs\О внесении изменений в приказ Минздравсоцразвития №162н.pdf" />
+    <Content Include="App_Data\docs\Постановление №404 от 2012.pdf" />
+    <Content Include="App_Data\files\Высокозатратные нозологии%28Руководство%29Вер.2_1.doc" />
+    <Content Include="App_Data\files\Высокозатратные нозологии.msi" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="pages\templates\CS.aspx" />
     <Content Include="pages\templates\modalTemplate.aspx" />

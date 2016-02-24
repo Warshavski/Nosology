@@ -18,23 +18,31 @@ namespace Escyug.Nosology.MVP.Engine.Repositories
         public List<TemplateFile> SelectDocuments()
         {
             List<TemplateFile> documentsList = null;
-            DataTable filesData = null;
-            
+            DataSet filesData = null;
+
             try
             {
                 var fileService = new TemplateFileService();
                 filesData = fileService.GetDocumentsData();
 
-                if (filesData != null && filesData.Rows.Count != 0)
+                DataTable filesTable = filesData.Tables[0];
+
+                if (filesData != null && filesTable.Rows.Count != 0)
                 {
                     documentsList = new List<TemplateFile>();
 
-                    foreach (DataRow row in filesData.Rows)
-                        documentsList.Add(new TemplateFile());
+                    int id = 0;
+                    foreach (DataRow row in filesTable.Rows)
+                        documentsList.Add(
+                            new TemplateFile(++id, row[0].ToString(), row[1].ToString(), row[2].ToString(), FileType.pdf));
                 }
 
             }
             catch (NullReferenceException)
+            {
+                throw;
+            }
+            catch (DataException)
             {
                 throw;
             }
@@ -51,24 +59,30 @@ namespace Escyug.Nosology.MVP.Engine.Repositories
         // #TEST (rewrite method)
         public List<TemplateFile> SelectFiles()
         {
-            List<TemplateFile> documentsList = null;
-            DataTable filesData = null;
+            List<TemplateFile> filesList = null;
+            DataSet filesData = null;
 
             try
             {
                 var fileService = new TemplateFileService();
-                filesData = fileService.GetDocumentsData();
+                filesData = fileService.GetFilesData();
+                DataTable filesTable = filesData.Tables[0];
 
-                if (filesData != null && filesData.Rows.Count != 0)
+                if (filesData != null && filesTable.Rows.Count != 0)
                 {
-                    documentsList = new List<TemplateFile>();
+                    filesList = new List<TemplateFile>();
 
-                    foreach (DataRow row in filesData.Rows)
-                        documentsList.Add(new TemplateFile());
+                    foreach (DataRow row in filesTable.Rows)
+                        filesList.Add(
+                            new TemplateFile(row[0].ToString(), row[1].ToString(), string.Empty, FileType.defaultFile));
                 }
 
             }
             catch (NullReferenceException)
+            {
+                throw;
+            }
+            catch (DataException)
             {
                 throw;
             }
@@ -78,7 +92,7 @@ namespace Escyug.Nosology.MVP.Engine.Repositories
                     filesData.Dispose();
             }
 
-            return documentsList;
+            return filesList;
         }
     }
 }

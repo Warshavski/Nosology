@@ -38,6 +38,15 @@ namespace Escyug.Nosology.MVP.Engine
             _fileType = fileType;
         }
 
+        public TemplateFile(string title, string link, string description, FileType fileType)
+        {
+            _id = -1;
+            _title = title;
+            _link = link;
+            _description = description;
+            _fileType = fileType;
+        }
+
         public TemplateFile()
         {
             _id = ++testID;

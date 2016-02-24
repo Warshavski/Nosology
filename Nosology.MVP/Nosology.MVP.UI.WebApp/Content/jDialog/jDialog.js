@@ -166,12 +166,12 @@ https://github.com/litson/jDialog
         return element;
     }
 
-    // hmmm... normal or not?
-    function _createMdlElement(tagName, attrs) {
-        var element = _createElement(tagName, attrs)
+    // hmmm... normal or not? delete
+    //function _createMdlElement(tagName, attrs) {
+    //    var element = _createElement(tagName, attrs)
         
-        return element;
-    }
+    //    return element;
+    //}
 
     /**
     *

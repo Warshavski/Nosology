@@ -8,14 +8,54 @@ using System.Xml;
 
 namespace Escyug.Nosology.MVP.DataAccessLayer.Xml
 {
+    /** TODO :
+     *    1. Exception handling
+     */
+
     public sealed class TemplateFileService
     {
         private string _path;
 
         public TemplateFileService()
         {
-            _path = @"C:\Users\Администратор\Documents\GitHub\nosology\Nosology.MVP\Nosology.MVP.UI.WebApp\";
+            // should be in config file
+            _path = @"C:\test"; //@"C:\Users\Администратор\Documents\GitHub\nosology\Nosology.MVP\Nosology.MVP.UI.WebApp";
         }
+
+        
+        // create path to .xml file
+        private string CreateFilePath(string folderName, string fileName)
+        {
+            var xmlFilePath = new StringBuilder();
+            xmlFilePath.AppendFormat("{0}\\{1}\\{2}", _path, folderName, fileName);
+
+            return xmlFilePath.ToString();
+        }
+
+        // load data from .xml file to DataSet
+        private DataSet LoadXmlToDataSet(string path)
+        {
+            DataSet data = null;
+
+            try
+            {
+                var settings = new XmlReaderSettings();
+                settings.IgnoreComments = true;
+                settings.IgnoreWhitespace = true;
+
+                data = new DataSet();
+                using (var reader = XmlReader.Create(path, settings))
+                    data.ReadXml(reader);
+            }
+            catch (XmlException)
+            {
+                if (data != null)
+                    data.Dispose();
+            }
+
+            return data;
+        }
+
 
         /** XML NODE EXAMPLE
          * 
@@ -25,42 +65,24 @@ namespace Escyug.Nosology.MVP.DataAccessLayer.Xml
          *  <fileType>login1</login>
          */
 
-        public DataTable GetDocumentsData()
+        public DataSet GetDocumentsData()
         {
-            string directoryName = "App_Data";
+            string directoryName = "docs";//"App_Data";
+            string fileName = "documents.xml";
 
-            var xmlFilePath = new StringBuilder();
-            xmlFilePath.AppendFormat("{0}\\{1}\\{2}", _path, directoryName, "documents.xml");
+            string filePath = CreateFilePath(directoryName, fileName);
 
-            DataTable documentsData = null;
+            return LoadXmlToDataSet(filePath);
+        }
 
-            try
-            {
-                var settings = new XmlReaderSettings();
+        public DataSet GetFilesData()
+        {
+            string directoryName = "files";
+            string fileName = "files.xml";
 
-                documentsData = new DataTable();
-                using (var reader = XmlReader.Create(xmlFilePath.ToString(), settings))
-                {
-                    documentsData.ReadXmlSchema(reader);
-                    //Keep reading until there are no more "XmlUser" elements
-                    while (reader.ReadToFollowing("XmlFile"))
-                    {
-                        string title        = reader.GetAttribute("title");
-                        string link         = reader.GetAttribute("link");
-                        string description  = reader.GetAttribute("description");
-                        string fileType     = reader.GetAttribute("fileType");
+            string filePath = CreateFilePath(directoryName, fileName);
 
-                        documentsData.LoadDataRow(new object[] { title, link, description, fileType }, true);   
-                    }
-                }
-            }
-            catch (XmlException)
-            {
-                if (documentsData != null)
-                    documentsData = null;
-            }
-
-            return documentsData;
+            return LoadXmlToDataSet(filePath);
         }
 
     }

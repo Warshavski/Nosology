@@ -10,14 +10,14 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="BodyPlaceHolder" runat="server">
     <div class="mdl-grid nos-content">
 
-        <asp:ListView ID="docsList" runat="server" EnableViewState="true">
+        <asp:ListView ID="filesList" runat="server" EnableViewState="true">
 
             <ItemTemplate>
 
                 <div download class="nos-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--6-col">
                     <a href='<%# Eval("Link") %>'>
-                        <i class="<%# Eval("Icon") %> content-icon"></i>
-                        <%# Eval("Title") %>
+                        <i class="material-icons content-icon"><%# Eval("Icon") %></i>
+                        <span style="position: absolute; margin-top: 5px;"><%# Eval("Title") %></span>
                     </a>
                 </div>
 

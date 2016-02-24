@@ -13,12 +13,12 @@ namespace Escyug.Nosology.MVP.UI.WebApp.pages {
     public partial class downloads {
         
         /// <summary>
-        /// docsList элемент управления.
+        /// filesList элемент управления.
         /// </summary>
         /// <remarks>
         /// Автоматически создаваемое поле.
         /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView docsList;
+        protected global::System.Web.UI.WebControls.ListView filesList;
     }
 }

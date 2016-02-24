@@ -65,7 +65,7 @@
 
                 <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
 
-                    <li class="mdl-menu__item" onclick="showContactDialog()">Справка</li>
+                    <li class="mdl-menu__item" onclick="showNoticeDialog()">Справка</li>
                     <li class="mdl-menu__item" onclick="showContactDialog()">Контакт</li>
 
                 </ul>
@@ -169,42 +169,20 @@
     <!-- shows up contact info dialog window (side menu in #HEADER) -->
     <script type="text/javascript">
         function showContactDialog() {
-            jDialog.alert('Material Design Lite lets you add a Material Design look and feel to your websites.' +
-                'It doesn’t rely on any JavaScript frameworks and aims to optimize for cross-device use, gracefully degrade in older browsers, ' +
-                'and offer an experience that is immediately accessible.' +
-                '<br /><a href="">Get started now.</a>');
+            jDialog.alert({ title: '<h2>ООО "Эскейп-ЮГ"</h2>', content: 'Тел. : (861) 257-04-14<br />Факс : (861) 257-37-97<br /> E-mail : support@escyug.ru' });
         }
     </script>
 
     <!-- shows up page info dialog window (side menu in #HEADER) -->
     <script type="text/javascript">
         function showNoticeDialog() {
-            jDialog.alert('Справка о странице : #FILL_WITH_INFORMATION');
+            jDialog.alert({title : '<h2>Material design lite</h2>',
+                        content : 'Material Design Lite lets you add a Material Design look and feel to your websites.' +
+                        'It doesn’t rely on any JavaScript frameworks and aims to optimize for cross-device use, gracefully degrade in older browsers, ' +
+                        'and offer an experience that is immediately accessible.' +
+                        '<br /><a href="http://getmdl.io/">Get started now.</a>'});
         }
     </script>
-
-
-
-    <script type="text/javascript">
-        function ShowCurrentTime() {
-            $.ajax({
-                type: "POST",
-                url: "CS.aspx/GetCurrentTime",
-                data: "",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: OnSuccess,
-                failure: function (response) {
-                    alert(response.d);
-                }
-            });
-        }
-        function OnSuccess(response) {
-            //alert(response.d);
-            document.location.href = "../documents.aspx";
-        }
-    </script>
-
 
     <asp:ContentPlaceHolder ID="ScriptContentPlaceHolder" runat="server">
         <!-- particular page scripts goes here -->

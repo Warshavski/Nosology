@@ -8,8 +8,8 @@ namespace Escyug.Nosology.MVP.Presentation.Views
 {
     public interface IDownloadsView
     {
-        event Action Load;
+        event Action PageLoad;
 
-        List<Escyug.Nosology.MVP.Engine.TemplateFile> FilesList { set; }
+        List<Escyug.Nosology.MVP.Presentation.ModelView.TemplateFileMV> FilesList { set; }
     }
 }

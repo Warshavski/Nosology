@@ -3,12 +3,25 @@
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         /*ul {
-            border: solid 1px red;
+            border: solid 1px black;
+            height: 1000px;
         }
 
         li {
+            max-height: 1000px;
+            border: solid 1px blue;
+            height: 400px;
+        }
+        .mdl-list__item-text-body {
+            
             border: solid 1px lime;
+        }
+
+        .mdl-list__item-primary-content {
+            border: solid 1px red;
         }*/
+
+
     </style>
 </asp:Content>
 
@@ -19,7 +32,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="BodyPlaceHolder" runat="server">
     <div class="mdl-grid nos-content nos-docs">
 
-        <ul class="mdl-cell mdl-cell--6-col demo-list-three mdl-list">
+        <ul class="mdl-cell mdl-cell--10-col demo-list-three mdl-list">
             <asp:ListView ID="docsList" runat="server" EnableViewState="true">
 
                 <ItemTemplate>
@@ -29,24 +42,24 @@
                         
                         <span class="mdl-list__item-primary-content">
                             
-                            <i class="material-icons mdl-list__item-avatar mdl-color--nos-main"></i>
-
+                            <%--mdl-color--nos-main--%>
+                            <i class="material-icons mdl-list__item-icon ">description</i>
+                            
                             <a href="'<%# Eval("Link") %>'">
                                 <span><%# Eval("Title") %></span>
                             </a>
 
-                            <span class="mdl-list__item-text-body"><%# Eval("Description") %></span>
+                            <%--<span class="mdl-list__item-text-body"><%# Eval("Description") %></span>--%>
                             <%--<a class="mdl-list__item-secondary-action" href="'<%# Eval("Link") %>'"></a>--%>
                         </span>
                         
 
                         <span class="mdl-list__item-secondary-content">
-                            <i class="material-icons" id="<%# Eval("Id") %>">info_outline</i>
-                            
+                            <i class="material-icons mdl-color-text--grey-600" id="<%# Eval("Id") %>">info_outline</i>
                         </span>
                         
                         <div class="mdl-tooltip" for="<%# Eval("Id") %>">
-                             <%# Eval("Id") %> | <%# Eval("Description") %> 
+                             <%# Eval("Description") %> 
                         </div>
 
                     </li>
