@@ -7,10 +7,10 @@
 // </автоматически создаваемое>
 //------------------------------------------------------------------------------
 
-namespace Escyug.Nosology.MVP.UI.WebApp {
+namespace Escyug.Nosology.MVP.UI.WebApp.pages.templates {
     
     
-    public partial class Default {
+    public partial class loginTemplate {
         
         /// <summary>
         /// loginForm элемент управления.

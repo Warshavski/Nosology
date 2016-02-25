@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Escyug.Nosology.MVP.DataAccessLayer.Xml;
+//using Escyug.Nosology.MVP.DataAccessLayer.Xml;
+using Escyug.Nosology.MVP.DataAccessLayer.Sql;
 using System.Data;
 
 namespace Escyug.Nosology.MVP.Engine.Repositories

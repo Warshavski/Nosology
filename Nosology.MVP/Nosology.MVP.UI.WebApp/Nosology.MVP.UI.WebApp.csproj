@@ -116,6 +116,7 @@
     <Content Include="Content\modal\common.js" />
     <Content Include="Content\modal\modal.css" />
     <Content Include="Content\modal\modal.js" />
+    <Content Include="Content\Site.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -145,6 +146,7 @@
     <Content Include="fonts\material-design-icons\fonts\materialdesignicons-webfont.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="pages\templates\CS.aspx" />
+    <Content Include="pages\templates\loginTemplate.aspx" />
     <Content Include="pages\templates\modalTemplate.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -246,6 +248,13 @@
     <Compile Include="pages\templates\CS.aspx.cs">
       <DependentUpon>CS.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\templates\loginTemplate.aspx.cs">
+      <DependentUpon>loginTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\templates\loginTemplate.aspx.designer.cs">
+      <DependentUpon>loginTemplate.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\templates\modalTemplate.aspx.cs">
       <DependentUpon>modalTemplate.aspx</DependentUpon>

@@ -118,7 +118,7 @@
                     </a>
 
                     <!-- close user session and redirects to the login page -->
-                    <a class="mdl-navigation__link" runat="server" id="signOutLink">
+                    <a class="mdl-navigation__link" href="#" runat="server" id="signOutLink">
                         <i class="material-icons nav-icon" role="presentation">exit_to_app</i>
                         Выход
                     </a>
@@ -169,18 +169,20 @@
     <!-- shows up contact info dialog window (side menu in #HEADER) -->
     <script type="text/javascript">
         function showContactDialog() {
-            jDialog.alert({ title: '<h2>ООО "Эскейп-ЮГ"</h2>', content: 'Тел. : (861) 257-04-14<br />Факс : (861) 257-37-97<br /> E-mail : support@escyug.ru' });
+            jDialog.alert({
+                title: '<h2><i class="fa fa-cube"></i> ООО "Эскейп-ЮГ"</h2>',
+                content: 'Тел. : (861) 257-04-14<br />Факс : (861) 257-37-97<br /> E-mail : support@escyug.ru'
+            });
         }
     </script>
 
     <!-- shows up page info dialog window (side menu in #HEADER) -->
     <script type="text/javascript">
         function showNoticeDialog() {
-            jDialog.alert({title : '<h2>Material design lite</h2>',
-                        content : 'Material Design Lite lets you add a Material Design look and feel to your websites.' +
-                        'It doesn’t rely on any JavaScript frameworks and aims to optimize for cross-device use, gracefully degrade in older browsers, ' +
-                        'and offer an experience that is immediately accessible.' +
-                        '<br /><a href="http://getmdl.io/">Get started now.</a>'});
+            jDialog.alert({
+                title: '<h2>Справка</h2>',
+                content: '#FILL_WITH_INFORMATION'
+            });
         }
     </script>
 

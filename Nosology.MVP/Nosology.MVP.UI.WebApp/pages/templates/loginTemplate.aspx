@@ -1,11 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/shared/_Default.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Escyug.Nosology.MVP.UI.WebApp.Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/shared/_Default.Master" AutoEventWireup="true" CodeBehind="loginTemplate.aspx.cs" Inherits="Escyug.Nosology.MVP.UI.WebApp.pages.templates.loginTemplate" %>
 
-<asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="BodyPlaceHolder" runat="server">
-
-    <form id="loginForm" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="BodyPlaceHolder" runat="server">
+     <form id="loginForm" runat="server">
 
         <asp:HiddenField ID="HiddenChecked" runat="server" />
         
@@ -16,7 +16,7 @@
 
     </form>
 
-    <div class="mdl-grid mdl-grid--no-spacing">
+    <div class="mdl-grid">
 
         <!-- #SPACER -->
         <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-phone mdl-cell--hide-tablet"></div>
@@ -60,7 +60,7 @@
 
 </asp:Content>
 
-<asp:Content ID="ScriptContent" ContentPlaceHolderID="ScriptContentPlaceHolder" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="ScriptContentPlaceHolder" runat="server">
     <script type="text/javascript">
 
         // server elements (bad practice?)
@@ -111,10 +111,10 @@
                 // set value for server side events
                 serverLogin.value = loginField.value;
                 serverPwd.value = pwdField.value;
-
+                
                 var isPersist = checkPersist();
                 serverPersist.value = isPersist;
-
+                
                 // call server side event
                 <%= Page.ClientScript.GetPostBackEventReference(HiddenPwd, String.Empty) %>; 
             }
@@ -129,57 +129,3 @@
         }
     </script>
 </asp:Content>
-
-
-
-
-<%-- Old version
-    <!-- #LOGIN_FORM -->
-    <form id="loginForm" runat="server" class="mdl-shadow--2dp default-form">
-        
-        <asp:HiddenField ID="HiddenChecked" runat="server"  Value="false"/>
-        
-        <i style="font-size: 60px;" class="fa fa-user-md user-logon-icon mdl-color-text--nos-main"></i>
-        
-        <br />
-        
-        <!-- #INPUT_CONTAINER -->
-        <div>
-            
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input runat="server" class="mdl-textfield__input" type="text" id="loginField"
-                    onfocus="$('#errorLabel').text('');" />
-                <label class="mdl-textfield__label" for="loginField">Имя...</label>
-            </div>
-           
-            <br />
-           
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input runat="server" class="mdl-textfield__input" type="password" id="pwdField" 
-                    onfocus="$('#errorLabel').text('');"/>
-                <label class="mdl-textfield__label" for="pwdField">Пароль...</label>
-            </div>
-            
-            <br />
-            
-            <asp:Label ID="errorLabel" runat="server" Text=""></asp:Label>
-            
-        </div><!-- / #INPUT_CONTAINER -->
-        
-        <br />
-        
-        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkBoxPersist" onclick="checkPersist();">
-            <input type="checkbox" id="checkBoxPersist" class="mdl-checkbox__input" />
-            <span class="mdl-checkbox__label">Запомнить?</span>
-        </label>
-        
-        <br />
-        
-        <button runat="server" id="checkButton" onclick="checkInput();"
-            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
-                   mdl-color--nos-help mdl-color-text--white logon-button">Вход
-        </button>
-        
-        <br />
-        
-    </form><!-- / #LOGIN_FORM -->--%>

@@ -12,6 +12,8 @@ namespace Escyug.Nosology.MVP.Presentation.Views
         string MCOD { get; }
         string Password { get; }
 
+        bool IsPersist { get; }
+
         Escyug.Nosology.MVP.Engine.User AuthUser { set; }
 
         //bool IsAllow { set; }
