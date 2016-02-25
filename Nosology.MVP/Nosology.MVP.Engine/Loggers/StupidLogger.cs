@@ -29,6 +29,7 @@ namespace Escyug.Nosology.MVP.Engine
 
         }
 
+        // all passwords are stored in plain text (sic! #1)
         public User Logon(string mcod, string inputPwd)
         {
             User user = null;
@@ -47,10 +48,11 @@ namespace Escyug.Nosology.MVP.Engine
                 {
                     DateTime currentDate = DateTime.Today;
 
+                    // trim because pws in BD can be with spaces(sic! #2)
                     string refPwd = userInfo["pwd"].Trim();
                     DateTime refDate = DateTime.Parse(userInfo["date"]);
 
-                    //inputPwd.ToLower() == refPwd.ToLower() && 
+                    // and case just ignored (sic! #3)
                     if (inputPwd.Equals(refPwd, StringComparison.OrdinalIgnoreCase)  && currentDate <= refDate)
                     {
                         string userName = userInfo["name"].Trim();

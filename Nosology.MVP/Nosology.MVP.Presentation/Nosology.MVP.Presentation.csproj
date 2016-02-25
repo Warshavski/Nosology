@@ -43,11 +43,13 @@
     <Compile Include="Presenters\DocumentsPresenter.cs" />
     <Compile Include="Presenters\DownloadsPresenter.cs" />
     <Compile Include="Presenters\LoginPresenter.cs" />
+    <Compile Include="Presenters\MainLayoutPresenter.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\IDocumentsView.cs" />
     <Compile Include="Views\IDownloadsView.cs" />
     <Compile Include="Views\ILoginView.cs" />
+    <Compile Include="Views\IMainLayoutView.cs" />
     <Compile Include="Views\IMainView.cs" />
   </ItemGroup>
   <ItemGroup>

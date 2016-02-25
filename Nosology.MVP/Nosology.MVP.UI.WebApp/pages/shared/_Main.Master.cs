@@ -17,15 +17,23 @@ namespace Escyug.Nosology.MVP.UI.WebApp.pages.shared
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            this.userName.Text = (Session["User"] as Escyug.Nosology.MVP.Engine.User).Name;
-            this.userLevel.Text = (Session["User"] as Escyug.Nosology.MVP.Engine.User).Level;
+            var usr = Session["User"] as Escyug.Nosology.MVP.Engine.User;
 
-            this.signOutLink.ServerClick += (send, args) =>
+            if (usr != null)
+            {
+                this.userName.Text = (Session["User"] as Escyug.Nosology.MVP.Engine.User).Name;
+                this.userLevel.Text = (Session["User"] as Escyug.Nosology.MVP.Engine.User).Level;
+                this.signOutLink.ServerClick += (send, args) =>
+                {
+                    FormsAuthentication.SignOut();
+                    FormsAuthentication.RedirectToLoginPage();
+                };
+            }
+            else
             {
                 FormsAuthentication.SignOut();
                 FormsAuthentication.RedirectToLoginPage();
-                //Response.Redirect("~/pages/account/login.aspx");
-            };
+            }
         }
 
         protected void Page_Load(object sender, EventArgs e)

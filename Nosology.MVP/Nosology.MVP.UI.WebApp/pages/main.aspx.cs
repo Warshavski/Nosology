@@ -6,40 +6,46 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
+using Escyug.Nosology.MVP.Presentation.Views;
+using Escyug.Nosology.MVP.Presentation.Presenters;
 
 namespace Escyug.Nosology.MVP.UI.WebApp.pages
 {
-	public partial class main : System.Web.UI.Page
+	public partial class main : System.Web.UI.Page, IMainView
 	{
+        private readonly MainPresenter _presenter;
+
+        public main()
+        {
+            _presenter = new MainPresenter(this);
+        }
+
+        private void Invoke(Action action)
+        {
+            if (action != null)
+                action.Invoke();
+        }
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            this.Load += (send, args) => Invoke(PageLoad);
+        }
+
 		protected void Page_Load(object sender, EventArgs e)
 		{
-            this.AsyncMode = true;
-
-            string errorMessage = "SERVER ERROR";
-            string path = string.Format("{0}\\{1}", HttpRuntime.AppDomainAppPath, "App_Data\\main.txt");
-            
-            StringBuilder content = new StringBuilder();
-
-            StreamReader reader = null;
-            try
-            {
-                using (reader = new StreamReader(path, Encoding.GetEncoding(1251)))
-                {
-                    while (!reader.EndOfStream)
-                        content.Append(reader.ReadToEnd());
-                }
-            }
-            catch (IOException)
-            {
-                content.Append(errorMessage);
-            }
-            finally
-            {
-                if (reader != null)
-                    reader.Close();
-            }
-
-            contentLiteral.Text = content.ToString();
+            //this.AsyncMode = true;
 		}
-	}
+
+        #region IMainView members
+
+        public event Action PageLoad;
+
+        public string TextBlock
+        {
+            set { contentLiteral.Text = value; }
+        }
+
+        #endregion
+
+    }
 }

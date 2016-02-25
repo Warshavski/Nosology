@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Escyug.Nosology.MVP.Presentation.Views
 {
-    public interface IMainView
+    public interface IMainLayoutView
     {
-        event Action PageLoad;
-
-        string TextBlock { set; }
+        Escyug.Nosology.MVP.Engine.User AuthUser { get; }
     }
 }
