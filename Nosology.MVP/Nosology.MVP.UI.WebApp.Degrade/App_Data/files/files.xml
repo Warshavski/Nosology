@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<FilesDataSet>
+  <xs:schema id="FilesDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="FilesDataSet" msdata:IsDataSet="true" msdata:MainDataTable="XmlFile" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="XmlFile">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="title"  type="xs:string" minOccurs="0" />
+                <xs:element name="link"   type="xs:string" minOccurs="0" />
+                <xs:element name="fileType"  type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+
+  <XmlFile>
+    <title>Установочный файл "Высокозатратные нозологии"</title>
+    <link>Высокозатратные нозологии.msi</link>
+    <fileType>doc</fileType>
+  </XmlFile>
+  <XmlFile>
+    <title>Библиотека .NET Framework</title>
+    <link>dotnetfx.exe</link>
+    <fileType>doc</fileType>
+  </XmlFile>
+  <XmlFile>
+    <title>Руководство пользователя</title>
+    <link>Высокозатратные нозологии(Руководство)Вер.2_1.doc</link>
+    <fileType>doc</fileType>
+  </XmlFile>
+</FilesDataSet>

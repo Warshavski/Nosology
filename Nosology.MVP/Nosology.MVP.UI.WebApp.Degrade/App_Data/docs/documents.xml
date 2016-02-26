@@ -1,0 +1,48 @@
+<?xml version="1.0" standalone="yes"?>
+<DocsDataSet>
+  <xs:schema id="FilesDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="DocsDataSet" msdata:IsDataSet="true" msdata:MainDataTable="XmlFile" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="XmlFile">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="title"  type="xs:string" minOccurs="0" />
+                <xs:element name="link"   type="xs:string" minOccurs="0" />
+                <xs:element name="description" type="xs:string" minOccurs="0" />
+                <xs:element name="fileType"  type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+
+  <!-- all pwd's should be hash -->
+  <XmlFile>
+    <title>Распоряжение от 30 декабря 2014 г. № 2782-р</title>
+    <link>rp_№2782-r_30_12_2014.pdf</link>
+    <description>Распоряжение Правительства Российской Федерации от 30 декабря 2014 г. № 2782-р</description>
+    <fileType>pdf</fileType>
+  </XmlFile>
+  <XmlFile>
+    <title>Постановление от 26 апреля 2012 г. № 404</title>
+    <link>Постановление №404 от 2012.pdf</link>
+    <description>Постановление Правительства Российской Федерации от 26 апреля 2012г. N404.
+      Об утверждении правил ведения Федерального регистра лиц, больных гемофилией,
+      муковисцидозом,гипофизарным нанизмом, болезнью гоше,
+      локачественными новообразованиями лимфоидной, кроветворной и родственных им тканей, рассеянным склерозом, лиц после трансплантации органов и(или) тканей.
+    </description>
+    <fileType>pdf</fileType>
+  </XmlFile>
+  <XmlFile>
+    <title>Приказ о внесении изменений в приказ Минздравсоцразвития № 162н</title>
+    <link>О внесении изменений в приказ Минздравсоцразвития №162н.pdf</link>
+    <description>О внесении изменений в приказ Минздравсоцразвития России от 4 апреля 2008г. № 162н 
+      "О порядке ведения Федерального регистра больных гемофилией, муковисцидозом, гипофизарным нанизмом, 
+      болезнью Гоше, миелолейкозом, рассеянным склерозом, а также после траснсплантации органов и(или) тканей"
+    </description>
+    <fileType>pdf</fileType>
+  </XmlFile>
+</DocsDataSet>
