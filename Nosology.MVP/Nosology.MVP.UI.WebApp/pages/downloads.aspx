@@ -43,7 +43,7 @@
     <script type="text/javascript">
         function getFile(elem) {
             var fileName = elem.dataset.link;
-            var outPage = 'file.aspx?fileName=' + fileName;
+            var outPage = 'access/file.aspx?fileName=' + fileName;
             window.location.href = outPage;
         }
     </script>
