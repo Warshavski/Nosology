@@ -9,17 +9,19 @@ namespace Escyug.Nosology.MVP.Engine
 {
     public sealed class ContentService
     {
-        private const string ROOT_PATH = @"C:\Users\Администратор\Documents\GitHub\nosology\Nosology.MVP\Nosology.MVP.UI.WebApp";
         private const string ERROR_MESSAGE = "SERVER ERROR";
+
+        private string _rootPath;
 
         public ContentService()
         {
-
+            _rootPath = AppDomain.CurrentDomain.BaseDirectory;
+            //@"C:\Users\Администратор\Documents\GitHub\nosology\Nosology.MVP\Nosology.MVP.UI.WebApp";
         }
 
         public string LoadMainContent()
         {
-            string path = string.Format("{0}\\{1}", ROOT_PATH, "App_Data\\main.txt");
+            string path = string.Format("{0}\\{1}", _rootPath, "App_Data\\main.txt");
             
             StringBuilder content = new StringBuilder();
 

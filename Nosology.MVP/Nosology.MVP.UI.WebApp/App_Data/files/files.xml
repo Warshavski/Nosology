@@ -20,17 +20,17 @@
 
   <XmlFile>
     <title>Установочный файл "Высокозатратные нозологии"</title>
-    <link>App_Data/files/Высокозатратные нозологии.msi</link>
+    <link>Высокозатратные нозологии.msi</link>
     <fileType>doc</fileType>
   </XmlFile>
   <XmlFile>
     <title>Библиотека .NET Framework</title>
-    <link>App_Data/files/dotnetfx.exe</link>
+    <link>dotnetfx.exe</link>
     <fileType>doc</fileType>
   </XmlFile>
   <XmlFile>
     <title>Руководство пользователя</title>
-    <link>App_Data/files/Высокозатратные нозологии(Руководство)Вер.2_1</link>
+    <link>Высокозатратные нозологии(Руководство)Вер.2_1</link>
     <fileType>doc</fileType>
   </XmlFile>
 </FilesDataSet>

@@ -45,7 +45,8 @@
                             <%--mdl-color--nos-main--%>
                             <i class="material-icons mdl-list__item-icon ">description</i>
                             
-                            <a href="'<%# Eval("Link") %>'">
+                            <%----%>
+                            <a href="#" data-link='<%# Eval("Link") %>' onclick="viewDoc(this);">
                                 <span><%# Eval("Title") %></span>
                             </a>
 
@@ -92,4 +93,11 @@
 </asp:Content>
 
 <asp:Content ID="ScriptContent" ContentPlaceHolderID="ScriptContentPlaceHolder" runat="server">
+    <script type="text/javascript">
+        function getFile(elem) {
+            var fileName = elem.dataset.link;
+            var outPage = 'doc.aspx?fileName=' + fileName;
+            window.location.href = outPage;
+        }
+    </script>
 </asp:Content>

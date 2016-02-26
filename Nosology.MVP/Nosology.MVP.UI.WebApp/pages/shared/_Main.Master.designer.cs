@@ -49,15 +49,6 @@ namespace Escyug.Nosology.MVP.UI.WebApp.pages.shared {
         protected global::System.Web.UI.WebControls.Label userName;
         
         /// <summary>
-        /// navigationForm элемент управления.
-        /// </summary>
-        /// <remarks>
-        /// Автоматически создаваемое поле.
-        /// Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm navigationForm;
-        
-        /// <summary>
         /// signOutLink элемент управления.
         /// </summary>
         /// <remarks>

@@ -15,7 +15,7 @@
             <ItemTemplate>
 
                 <div download class="nos-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--6-col">
-                    <a href='<%# Eval("Link") %>'>
+                    <a href="#" data-link='<%# Eval("Link") %>' onclick="getFile(this)">
                         <i class="material-icons content-icon"><%# Eval("Icon") %></i>
                         <span style="position: absolute; margin-top: 5px;"><%# Eval("Title") %></span>
                     </a>
@@ -40,4 +40,11 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptContentPlaceHolder" runat="server">
+    <script type="text/javascript">
+        function getFile(elem) {
+            var fileName = elem.dataset.link;
+            var outPage = 'file.aspx?fileName=' + fileName;
+            window.location.href = outPage;
+        }
+    </script>
 </asp:Content>

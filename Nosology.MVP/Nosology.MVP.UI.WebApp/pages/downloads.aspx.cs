@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Escyug.Nosology.MVP.Presentation.Views;
 using Escyug.Nosology.MVP.Presentation.Presenters;
+using System.Web.UI.HtmlControls;
 
 namespace Escyug.Nosology.MVP.UI.WebApp.pages
 {
@@ -76,6 +77,12 @@ namespace Escyug.Nosology.MVP.UI.WebApp.pages
             docsList.DataSource = docs;
             docsList.DataBind();
             */
-        }  
+        }
+
+        protected void FileLink_ServerClick(object sender, EventArgs e)
+        {
+            var value = (sender as HtmlControl).Attributes["datalink"];
+            Response.Redirect("../handlers/FileDownload.ashx?fileName=" + value);  
+        }
     }
 }

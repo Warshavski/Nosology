@@ -100,7 +100,9 @@
 
             <!-- Start #DRAWER__NAVIGATION_MENU -->
             <nav class="demo-navigation mdl-navigation">
-                <form id="navigationForm" runat="server">
+                <%--<form id="navigationForm" runat="server">--%>
+                    
+                    
 
                     <a class="mdl-navigation__link" href="main.aspx">
                         <i class="material-icons nav-icon" role="presentation">home</i>
@@ -123,7 +125,7 @@
                         Выход
                     </a>
 
-                </form>
+               <%-- </form>--%>
 
                 <div class="mdl-layout-spacer"></div>
                 <!-- search box goes here -->

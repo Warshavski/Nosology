@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,6 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,18 +38,17 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -74,6 +75,7 @@
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -94,13 +96,10 @@
       <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="App_Data\docs\" />
-    <Folder Include="App_Data\files\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Data\documents.xml" />
-    <Content Include="App_Data\files.xml" />
+    <Content Include="App_Data\docs\documents.xml" />
+    <Content Include="App_Data\files\files.xml" />
     <Content Include="App_Data\main.txt" />
     <Content Include="App_Data\users.xml" />
     <Content Include="Content\bootstrap.css" />
@@ -132,9 +131,11 @@
     <Content Include="Content\mdl-v1.0.5\material.min.css.map" />
     <Content Include="Content\mdl-v1.0.5\LICENSE" />
     <Content Include="Content\mdl-v1.0.5\bower.json" />
+    <Content Include="pages\access\doc.aspx" />
     <Content Include="pages\documents.aspx" />
     <Content Include="pages\downloads.aspx" />
-    <Content Include="pages\error.aspx" />
+    <Content Include="pages\errors\error.aspx" />
+    <Content Include="pages\access\file.aspx" />
     <Content Include="pages\main.aspx" />
     <Content Include="pages\shared\_Default.Master" />
     <Content Include="pages\shared\_Main.Master" />
@@ -144,8 +145,9 @@
     <Content Include="fonts\material-design-icons\fonts\materialdesignicons-webfont.ttf" />
     <Content Include="fonts\material-design-icons\fonts\materialdesignicons-webfont.woff" />
     <Content Include="fonts\material-design-icons\fonts\materialdesignicons-webfont.woff2" />
+    <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="pages\templates\CS.aspx" />
+    <Content Include="pages\templates\fileDownloadTemplate.aspx" />
     <Content Include="pages\templates\loginTemplate.aspx" />
     <Content Include="pages\templates\modalTemplate.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -203,6 +205,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="pages\access\doc.aspx.cs">
+      <DependentUpon>doc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\access\doc.aspx.designer.cs">
+      <DependentUpon>doc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\documents.aspx.cs">
       <DependentUpon>documents.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -217,12 +226,19 @@
     <Compile Include="pages\downloads.aspx.designer.cs">
       <DependentUpon>downloads.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\error.aspx.cs">
+    <Compile Include="pages\errors\error.aspx.cs">
       <DependentUpon>error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\error.aspx.designer.cs">
+    <Compile Include="pages\errors\error.aspx.designer.cs">
       <DependentUpon>error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\access\file.aspx.cs">
+      <DependentUpon>file.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\access\file.aspx.designer.cs">
+      <DependentUpon>file.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\main.aspx.cs">
       <DependentUpon>main.aspx</DependentUpon>
@@ -245,9 +261,12 @@
     <Compile Include="pages\shared\_Main.Master.designer.cs">
       <DependentUpon>_Main.Master</DependentUpon>
     </Compile>
-    <Compile Include="pages\templates\CS.aspx.cs">
-      <DependentUpon>CS.aspx</DependentUpon>
+    <Compile Include="pages\templates\fileDownloadTemplate.aspx.cs">
+      <DependentUpon>fileDownloadTemplate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\templates\fileDownloadTemplate.aspx.designer.cs">
+      <DependentUpon>fileDownloadTemplate.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\templates\loginTemplate.aspx.cs">
       <DependentUpon>loginTemplate.aspx</DependentUpon>

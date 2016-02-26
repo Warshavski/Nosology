@@ -12,8 +12,9 @@ namespace Escyug.Nosology.MVP.UI.WebApp.pages.templates
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.ContentType = "application/pdf";
-            Response.AppendHeader("Content-Disposition", "attachment; filename=MyFile.pdf");
+            Response.ContentType = "application/txt";
+            // filename in which 
+            Response.AppendHeader("Content-Disposition", "attachment; filename=MyFile.txt");
 
             // Write the file to the Response
             const int bufferLength = 10000;
@@ -22,9 +23,7 @@ namespace Escyug.Nosology.MVP.UI.WebApp.pages.templates
             Stream download = null;
             try
             {
-                download = new FileStream(Server.MapPath("~/App_Data/main.txt"),
-                                                               FileMode.Open,
-                                                               FileAccess.Read);
+                download = new FileStream(Server.MapPath("~/App_Data/main.txt"),FileMode.Open,FileAccess.Read);
                 do
                 {
                     if (Response.IsClientConnected)

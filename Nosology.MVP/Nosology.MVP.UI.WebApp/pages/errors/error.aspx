@@ -15,7 +15,7 @@
             <div class="login-block mdl-shadow--2dp">
 
                 <i class="material-icons mdl-color-text--nos-main login-block__icon">warning</i>
-<%--                <i class="fa fa-warning mdl-color-text--nos-main login-block__icon"></i>--%>
+                <%--<i class="fa fa-warning mdl-color-text--nos-main login-block__icon"></i>--%>
 
                 <br />
 

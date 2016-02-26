@@ -8,6 +8,7 @@ using System.IO;
 using Escyug.Nosology.MVP.Presentation.Views;
 using Escyug.Nosology.MVP.Presentation.Presenters;
 using Escyug.Nosology.MVP.Presentation.ModelView;
+using System.Web.UI.HtmlControls;
 
 namespace Escyug.Nosology.MVP.UI.WebApp.pages
 {
@@ -47,7 +48,7 @@ namespace Escyug.Nosology.MVP.UI.WebApp.pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            //Response.Redirect("handlers/FileDownload.ashx?fileName=" + val);
         }
     }
 }

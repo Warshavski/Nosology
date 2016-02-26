@@ -14,12 +14,15 @@ namespace Escyug.Nosology.MVP.DataAccessLayer.Xml
 
     public sealed class TemplateFileService
     {
-        private string _path;
+        private string _rootPath;
 
         public TemplateFileService()
         {
             // should be in config file
-            _path = @"C:\test"; //@"C:\Users\Администратор\Documents\GitHub\nosology\Nosology.MVP\Nosology.MVP.UI.WebApp";
+            _rootPath = AppDomain.CurrentDomain.BaseDirectory;
+            //@"C:\test"; 
+            //@"C:\Users\Администратор\Documents\GitHub\nosology\Nosology.MVP\Nosology.MVP.UI.WebApp";
+            
         }
 
         
@@ -27,7 +30,7 @@ namespace Escyug.Nosology.MVP.DataAccessLayer.Xml
         private string CreateFilePath(string folderName, string fileName)
         {
             var xmlFilePath = new StringBuilder();
-            xmlFilePath.AppendFormat("{0}\\{1}\\{2}", _path, folderName, fileName);
+            xmlFilePath.AppendFormat("{0}\\App_Data\\{1}\\{2}", _rootPath, folderName, fileName);
 
             return xmlFilePath.ToString();
         }
