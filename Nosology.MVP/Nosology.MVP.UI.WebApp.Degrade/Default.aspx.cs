@@ -73,8 +73,7 @@ namespace Escyug.Nosology.MVP.UI.WebApp.Degrade
             if ((System.Web.HttpContext.Current.User != null) && 
                 System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                // use formsauth instead of simple redirect
-                Response.Redirect("/pages/main.aspx");
+                this.Response.Redirect(FormsAuthentication.DefaultUrl);
             }
             else
             {

@@ -11,6 +11,6 @@ namespace Escyug.Nosology.MVP.UI.WebApp.Degrade.pages
 {
     
     
-    public partial class error {
+    public partial class common {
     }
 }
