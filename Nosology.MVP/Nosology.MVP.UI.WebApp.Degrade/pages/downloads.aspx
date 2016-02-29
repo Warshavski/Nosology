@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/shared/_Main.Master" AutoEventWireup="true" CodeBehind="downloads.aspx.cs" Inherits="Escyug.Nosology.MVP.UI.WebApp.Degrade.pages.downloads" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/shared/_Main.Master" AutoEventWireup="true" CodeBehind="downloads.aspx.cs" Inherits="Escyug.Nosology.MVP.UI.WebApp.Degrade.pages.downloads" EnableViewState="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -16,8 +16,11 @@
 
                 <div download class="nos-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--6-col">
                     <a href="#" data-link='<%# Eval("Link") %>' onclick="getFile(this)">
+
                         <i class="material-icons content-icon"><%# Eval("Icon") %></i>
+
                         <span style="position: absolute; margin-top: 5px;"><%# Eval("Title") %></span>
+
                     </a>
                 </div>
 

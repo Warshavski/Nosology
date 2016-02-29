@@ -26,16 +26,6 @@ namespace Escyug.Nosology.MVP.UI.WebApp.Degrade.pages
                 action.Invoke();
         }
 
-        protected void Page_Init(object sender, EventArgs e)
-        {
-            this.Load += (send, args) => Invoke(PageLoad);
-        }
-
-		protected void Page_Load(object sender, EventArgs e)
-		{
-            //this.AsyncMode = true;
-		}
-
         #region IMainView members
 
         public event Action PageLoad;
@@ -47,5 +37,14 @@ namespace Escyug.Nosology.MVP.UI.WebApp.Degrade.pages
 
         #endregion
 
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            this.Load += (send, args) => Invoke(PageLoad);
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            //this.AsyncMode = true;
+        }
     }
 }

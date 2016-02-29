@@ -44,7 +44,7 @@
 
                 <asp:Label ID="errorLabel" CssClass="login-block__label--error" runat="server" Text=""></asp:Label>
 
-                <button id="checkButton" onclick="testLogin()"
+                <button id="checkButton" onclick="login()"
                     class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
                         mdl-button--colored mdl-color-text--white mdl-color--nos-main login-block__button">
                     ВХОД
@@ -61,18 +61,17 @@
 </asp:Content>
 
 <asp:Content ID="ScriptContent" ContentPlaceHolderID="ScriptContentPlaceHolder" runat="server">
-    <script type="text/javascript">
-
+     <script type="text/javascript">
         // server elements (bad practice?)
-        var serverLogin     = $selectElement('#<%= HiddenLogin.ClientID %>');
-        var serverPwd       = $selectElement('#<%= HiddenPwd.ClientID %>');
-        var serverPersist   = $selectElement('#<%= HiddenChecked.ClientID %>');
+        var serverLogin = $selectElement('#<%= HiddenLogin.ClientID %>');
+        var serverPwd = $selectElement('#<%= HiddenPwd.ClientID %>');
+        var serverPersist = $selectElement('#<%= HiddenChecked.ClientID %>');
 
         // client elements
-        var errorLabel      = $selectElement('.login-block__label--error');
-        var loginField      = $selectElement('#loginInput');
-        var pwdField        = $selectElement('#pwdInput');
-        var persistCheck    = $selectElement('#persistCheckBox');
+        var errorLabel = $selectElement('.login-block__label--error');
+        var loginField = $selectElement('#loginInput');
+        var pwdField = $selectElement('#pwdInput');
+        var persistCheck = $selectElement('#persistCheckBox');
 
         // selector function
         function $selectElement(selector) {
@@ -88,7 +87,7 @@
 
         // works fine
         function checkPersist() {
-            if (persistCheck['checked']) {    
+            if (persistCheck['checked']) {
                 return true;
             }
             return false;
@@ -103,7 +102,7 @@
         }
 
         // main login function, checks inputs and call server side event (can't call server side event)
-        function testLogin() {
+        function login() {
 
             var isValidInput = checkInput();
 
@@ -116,70 +115,11 @@
                 serverPersist.value = isPersist;
 
                 // call server side event
-                <%= Page.ClientScript.GetPostBackEventReference(HiddenPwd, String.Empty) %>; 
+                <%= Page.ClientScript.GetPostBackEventReference(HiddenPwd, String.Empty) %>;
             }
             else {
                 errorLabel.innerText = 'Ошибка! Поля не должны быть пустыми';
             }
-            
-            <%--
-            $('#<%= HiddenLogin.ClientID %>').val(isValidInput);
-            <%= Page.ClientScript.GetPostBackEventReference(HiddenLogin, String.Empty) %>; 
-            --%>
         }
     </script>
 </asp:Content>
-
-
-
-
-<%-- Old version
-    <!-- #LOGIN_FORM -->
-    <form id="loginForm" runat="server" class="mdl-shadow--2dp default-form">
-        
-        <asp:HiddenField ID="HiddenChecked" runat="server"  Value="false"/>
-        
-        <i style="font-size: 60px;" class="fa fa-user-md user-logon-icon mdl-color-text--nos-main"></i>
-        
-        <br />
-        
-        <!-- #INPUT_CONTAINER -->
-        <div>
-            
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input runat="server" class="mdl-textfield__input" type="text" id="loginField"
-                    onfocus="$('#errorLabel').text('');" />
-                <label class="mdl-textfield__label" for="loginField">Имя...</label>
-            </div>
-           
-            <br />
-           
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input runat="server" class="mdl-textfield__input" type="password" id="pwdField" 
-                    onfocus="$('#errorLabel').text('');"/>
-                <label class="mdl-textfield__label" for="pwdField">Пароль...</label>
-            </div>
-            
-            <br />
-            
-            <asp:Label ID="errorLabel" runat="server" Text=""></asp:Label>
-            
-        </div><!-- / #INPUT_CONTAINER -->
-        
-        <br />
-        
-        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkBoxPersist" onclick="checkPersist();">
-            <input type="checkbox" id="checkBoxPersist" class="mdl-checkbox__input" />
-            <span class="mdl-checkbox__label">Запомнить?</span>
-        </label>
-        
-        <br />
-        
-        <button runat="server" id="checkButton" onclick="checkInput();"
-            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
-                   mdl-color--nos-help mdl-color-text--white logon-button">Вход
-        </button>
-        
-        <br />
-        
-    </form><!-- / #LOGIN_FORM -->--%>

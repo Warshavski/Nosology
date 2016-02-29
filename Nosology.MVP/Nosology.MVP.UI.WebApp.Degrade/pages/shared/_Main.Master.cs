@@ -21,8 +21,9 @@ namespace Escyug.Nosology.MVP.UI.WebApp.Degrade.pages.shared
 
             if (usr != null)
             {
-                this.userName.Text = (Session["User"] as Escyug.Nosology.MVP.Engine.User).Name;
-                this.userLevel.Text = (Session["User"] as Escyug.Nosology.MVP.Engine.User).Level;
+                this.userName.Text = usr.Name;
+                this.userLevel.Text = usr.Level;
+
                 this.signOutLink.ServerClick += (send, args) =>
                 {
                     FormsAuthentication.SignOut();
@@ -40,13 +41,5 @@ namespace Escyug.Nosology.MVP.UI.WebApp.Degrade.pages.shared
         {
 
         }
-
-        // ajax call test method
-        //[System.Web.Services.WebMethod]
-        //public static string GetCurrentTime()
-        //{
-        //    return "Hello " + "wat" + Environment.NewLine + "The Current Time is: "
-        //        + DateTime.Now.ToString();
-        //}
     }
 }

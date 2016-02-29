@@ -27,6 +27,8 @@ namespace Escyug.Nosology.MVP.UI.WebApp.Degrade.pages
                 action.Invoke();
         }
 
+        #region IDocumentsView members
+
         public event Action PageLoad;
 
         public List<TemplateFileMV> DocumentsList
@@ -38,12 +40,14 @@ namespace Escyug.Nosology.MVP.UI.WebApp.Degrade.pages
             }
         }
 
+        #endregion
+
         protected void Page_Init(object sender, EventArgs e)
         {
             this.AsyncMode = true;
 
             if (!Page.IsPostBack)
-                Invoke(PageLoad);
+                this.Load += (send, args) => Invoke(PageLoad);
         }
 
         protected void Page_Load(object sender, EventArgs e)

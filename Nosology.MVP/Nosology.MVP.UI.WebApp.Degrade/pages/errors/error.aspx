@@ -12,22 +12,16 @@
 
         <!-- #MAIN CELL -->
         <div class="mdl-cell mdl-cell--10-col mdl-cell--middle">
-            <div class="login-block mdl-shadow--2dp">
+            <div class="login-block mdl-shadow--2dp" align="center">
 
                 <i class="material-icons mdl-color-text--nos-main login-block__icon">warning</i>
-                <%--<i class="fa fa-warning mdl-color-text--nos-main login-block__icon"></i>--%>
-
+                
                 <br />
-
+                
                 <span class="mdl-layout__title">Что-то пошло не так</span>
 
                 <br />
-
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-                    mdl-button--colored mdl-color-text--white mdl-color--nos-main login-block__button">
-                    вернуться назад
-                </button>
-                
+                 
             </div>
         </div>
 

@@ -96,10 +96,11 @@
     <![endif]-->
 
     <!-- jQuery library -->
-    <script type="text/javascript" src="../nos/Scripts/jquery-1.10.2.min.js"></script>
+    <%--<script type="text/javascript" src="../nos/Scripts/jquery-1.10.2.min.js"></script>--%>
 
     <!-- mdl scripts -->
-    <script type="text/javascript" src="../nos/Content/mdl-v1.0.5/material.min.js"></script>
+    <%--<script type="text/javascript" src="../Content/mdl-v1.0.5/material.min.js"></script>--%>
+    <script type="text/javascript" defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
 
     <asp:ContentPlaceHolder ID="ScriptContentPlaceHolder" runat="server">
         <!-- particular page scripts goes here -->
