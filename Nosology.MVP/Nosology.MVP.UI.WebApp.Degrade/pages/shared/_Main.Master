@@ -25,9 +25,9 @@
 
 
     <!-- general styles -->
-    <%--<link rel="stylesheet" href="../../Content/mdl-v1.0.5/material.min.css" />--%>
+    <link rel="stylesheet" href="../../Content/mdl-v1.0.5/material.min.css" />
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-pink.min.css" />
-    <link rel="stylesheet" href="../../Content/jDialog/jDialog.css" />
+    <link rel="stylesheet" href="../../Content/jDialog/jDialog.min.css" />
     <link rel="stylesheet" href="../../Content/Site.css" />
 
     
@@ -156,14 +156,14 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
     <![endif]-->
 
-    <!-- jQuery library -->
-    <script type="text/javascript" src="../Scripts/jquery-1.10.2.min.js"></script>
 
     <!-- mdl scripts -->
     <script type="text/javascript" defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
 
+
     <!-- dialog box -->
-    <script type="text/javascript" src="../Content/jDialog/jDialog.js"></script>
+    <script type="text/javascript" src="../Content/jDialog/jDialog.min.js"></script>
+
 
     <!-- shows up contact info dialog window (side menu in #HEADER) -->
     <script type="text/javascript">

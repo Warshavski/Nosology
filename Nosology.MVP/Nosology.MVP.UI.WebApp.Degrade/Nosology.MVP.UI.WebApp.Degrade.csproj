@@ -88,12 +88,12 @@
     <Compile Include="pages\downloads.aspx.designer.cs">
       <DependentUpon>downloads.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\errors\error.aspx.cs">
-      <DependentUpon>error.aspx</DependentUpon>
+    <Compile Include="pages\errors\common.aspx.cs">
+      <DependentUpon>common.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\errors\error.aspx.designer.cs">
-      <DependentUpon>error.aspx</DependentUpon>
+    <Compile Include="pages\errors\common.aspx.designer.cs">
+      <DependentUpon>common.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\errors\FileNotFound.aspx.cs">
       <DependentUpon>FileNotFound.aspx</DependentUpon>
@@ -152,7 +152,7 @@
     <Content Include="pages\access\file.aspx" />
     <Content Include="pages\documents.aspx" />
     <Content Include="pages\downloads.aspx" />
-    <Content Include="pages\errors\error.aspx" />
+    <Content Include="pages\errors\common.aspx" />
     <Content Include="pages\errors\FileNotFound.aspx" />
     <Content Include="pages\main.aspx" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
