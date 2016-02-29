@@ -26,7 +26,7 @@ namespace Escyug.Nosology.MVP.UI.WebApp.Degrade.pages
 
 
 
-            string path = "~/docs";
+            string path = "~/App_Data";
 
             System.Web.HttpRequest request = System.Web.HttpContext.Current.Request;
             string fileName = request.QueryString["fileName"];

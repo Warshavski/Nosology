@@ -59,8 +59,9 @@
 <asp:Content ID="ScriptContent" ContentPlaceHolderID="ScriptContentPlaceHolder" runat="server">
     <script type="text/javascript">
         function viewDoc(elem) {
+            var fileType = 'docs';
             var fileName = elem.dataset.link;
-            var outPage = 'access/doc.aspx?fileName=' + fileName;
+            var outPage = 'access/file.aspx?fileName=' + fileName + '&fileType=' + fileType;
             window.location.href = outPage;
         }
     </script>

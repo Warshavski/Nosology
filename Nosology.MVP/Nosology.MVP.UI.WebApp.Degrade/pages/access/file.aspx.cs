@@ -22,6 +22,7 @@ namespace Escyug.Nosology.MVP.UI.WebApp.Degrade.pages
 
             System.Web.HttpRequest request = System.Web.HttpContext.Current.Request;
             string fileName = request.QueryString["fileName"];
+            string fileType = request.QueryString["fileType"];
             
             string extension = Path.GetExtension(fileName);
 
@@ -40,7 +41,7 @@ namespace Escyug.Nosology.MVP.UI.WebApp.Degrade.pages
             {
                 downloadStream = new FileStream(
                     Server.MapPath(
-                        string.Format("{0}/files/{1}", path, fileName)), FileMode.Open, FileAccess.Read);
+                        string.Format("{0}/{1}/{2}", path, fileType, fileName)), FileMode.Open, FileAccess.Read);
                 do
                 {
                     if (Response.IsClientConnected)
@@ -61,7 +62,7 @@ namespace Escyug.Nosology.MVP.UI.WebApp.Degrade.pages
             }
             catch (FileNotFoundException)
             {
-                Response.Redirect("error.aspx");
+                Response.Redirect("../errors/FileNotFound.aspx");
             }
             finally
             {
