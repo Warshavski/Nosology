@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Escyug.Nosology.MVP.Engine
 {
-    public sealed class User
+    public class User
     {
         private string _name;
         public string Name

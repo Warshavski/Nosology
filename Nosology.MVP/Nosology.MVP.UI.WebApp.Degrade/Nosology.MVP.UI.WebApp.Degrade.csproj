@@ -74,6 +74,13 @@
       <DependentUpon>file.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="pages\admin\main.aspx.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\admin\main.aspx.designer.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pages\documents.aspx.cs">
       <DependentUpon>documents.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -108,6 +115,13 @@
     </Compile>
     <Compile Include="pages\main.aspx.designer.cs">
       <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\shared\_Admin.Master.cs">
+      <DependentUpon>_Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\shared\_Admin.Master.designer.cs">
+      <DependentUpon>_Admin.Master</DependentUpon>
     </Compile>
     <Compile Include="pages\shared\_Default.Master.cs">
       <DependentUpon>_Default.Master</DependentUpon>
@@ -150,6 +164,7 @@
     <Content Include="fonts\material-design-icons\fonts\materialdesignicons-webfont.svg" />
     <Content Include="pages\access\doc.aspx" />
     <Content Include="pages\access\file.aspx" />
+    <Content Include="pages\admin\main.aspx" />
     <Content Include="pages\documents.aspx" />
     <Content Include="pages\downloads.aspx" />
     <Content Include="pages\errors\common.aspx" />
@@ -177,6 +192,7 @@
     <Content Include="fonts\material-design-icons\fonts\materialdesignicons-webfont.woff2" />
     <Content Include="pages\shared\_Default.Master" />
     <Content Include="pages\shared\_Main.Master" />
+    <Content Include="pages\shared\_Admin.Master" />
     <None Include="Properties\PublishProfiles\dev nosology.pubxml" />
   </ItemGroup>
   <ItemGroup />

@@ -59,6 +59,25 @@ namespace Escyug.Nosology.MVP.DataAccessLayer.Xml
             return data;
         }
 
+        private void LoadFileToXml(string path, DataSet data)
+        {
+            DataSet existData = LoadXmlToDataSet(path);
+            existData.Merge(data);
+
+            try
+            {
+                var settings = new XmlWriterSettings();
+
+                using (var writer = XmlWriter.Create(path, settings))
+                    existData.WriteXml(path);
+            }
+            catch (XmlException)
+            {
+                if (existData != null)
+                    existData.Dispose();
+            }
+        }
+
 
         /** XML NODE EXAMPLE
          * 
@@ -86,6 +105,14 @@ namespace Escyug.Nosology.MVP.DataAccessLayer.Xml
             string filePath = CreateFilePath(directoryName, fileName);
 
             return LoadXmlToDataSet(filePath);
+        }
+
+        public void SaveFileToXml(DataSet fileData)
+        {
+            string directoryName = "files";
+            string fileName = "files.xml";
+
+            string filePath = CreateFilePath(directoryName, fileName);
         }
 
     }

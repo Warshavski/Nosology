@@ -94,5 +94,28 @@ namespace Escyug.Nosology.MVP.Engine.Repositories
 
             return filesList;
         }
+
+        public void SaveFile(TemplateFile file)
+        {
+            DataSet fileData = null;
+
+            try
+            {
+                
+            }
+            catch (NullReferenceException)
+            {
+                throw;
+            }
+            catch (DataException)
+            {
+                throw;
+            }
+            finally
+            {
+                if (fileData != null)
+                    fileData.Dispose();
+            }
+        }
     }
 }

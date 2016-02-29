@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.cs" />
     <Compile Include="ContentService.cs" />
     <Compile Include="Loggers\StupidLogger.cs">
       <SubType>Code</SubType>
