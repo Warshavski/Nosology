@@ -99,17 +99,17 @@
                 
                 <form id="navigationForm" runat="server">
                    
-                    <a class="mdl-navigation__link" href="main.aspx">
+                    <a class="mdl-navigation__link" href="admin/main.aspx">
                         <i class="material-icons nav-icon" role="presentation">home</i>
                         Главная
                     </a>
 
-                    <a class="mdl-navigation__link" href="documents.aspx" >
+                    <a class="mdl-navigation__link" href="admin/users.aspx" >
                         <i class="material-icons nav-icon" role="presentation">account_box</i>
                         Пользователи
                     </a>
 
-                    <a class="mdl-navigation__link" href="downloads.aspx">
+                    <a class="mdl-navigation__link" href="admin/files.aspx">
                         <i class="material-icons nav-icon" role="presentation">insert_drive_file</i>
                         Файлы
                     </a>
