@@ -133,14 +133,20 @@
     <Compile Include="App_Start\NinjectConfigurator.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\jDialog\jDialog.css" />
+    <Content Include="Content\jDialog\jDialog.js" />
+    <Content Include="Content\jDialog\jDialog.min.css" />
+    <Content Include="Content\jDialog\jDialog.min.js" />
+    <Content Include="Content\jDialog\modal.js" />
+    <Content Include="Content\mdl-v1.1.2\material-cyan-teal.min.css" />
     <Content Include="Content\mdl-v1.1.2\material.css" />
     <Content Include="Content\mdl-v1.1.2\material.js" />
     <Content Include="Content\mdl-v1.1.2\material.min.css" />
@@ -179,14 +185,14 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_Default.cshtml" />
+    <Content Include="Views\Shared\_Main.cshtml" />
+    <Content Include="Views\Authentication\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nosology.Common\Nosology.Common.csproj">

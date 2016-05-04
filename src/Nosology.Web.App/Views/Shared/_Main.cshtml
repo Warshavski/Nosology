@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    
+    <meta name="msapplication-TileColor" content="#3372DF" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- general styles -->
+    @Styles.Render("~/Content/css")
+    
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" />
+    
+    <title>@ViewBag.Title – "Высокозатратные нозологии"</title>
+
+</head>
+
+<body>
+
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        
+        <!-- Start #HEADER (TITLE, MENU) nos-header  mdl-color--grey-100 mdl-color-text--grey-600 -->
+        <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        
+            <div class="mdl-layout__header-row">
+                
+                <div class="mdl-layout-spacer"></div>
+
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+                    <i class="material-icons">more_vert</i>
+                </button>
+
+                <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+                    <li class="mdl-menu__item" onclick="showNoticeDialog()">Справка</li>
+                    <li class="mdl-menu__item" onclick="showContactDialog()">Контакт</li>
+                </ul>
+
+            </div>
+
+            <div class="mdl-layout__header-row header-row--helper">
+                <i class="material-icons">star</i>
+                @*<asp:Label ID="userLevel" runat="server" Text="[user level placeholder]" />*@
+            </div>
+
+        </header><!-- / #HEADER -->
+
+        <!-- Start #DRAWER (USER INFO, NAVIGATION MENU) nos-drawer -->
+        <div class="demo-drawer mdl-layout__drawer colored-test mdl-color-text--blue-grey-50">
+
+            <header class="demo-drawer-header mdl-color--nos-main">
+                
+                <!-- class="nos-drawer-header" -->
+                <i class="fa fa-user-md" style="font-size: 48px"></i>
+                <br />
+                @*<asp:Label ID="userName" runat="server" Text="[user name placeholder]"></asp:Label>*@
+                <br />
+
+            </header>
+
+            <!-- Start #DRAWER__NAVIGATION_MENU -->
+            <nav class="demo-navigation mdl-navigation">
+
+                <a class="mdl-navigation__link" href="">
+                    <i class="material-icons nav-icon" role="presentation">home</i>
+                    Главная
+                </a>
+                <a class="mdl-navigation__link" href="">
+                    <i class="material-icons nav-icon" role="presentation">description</i>
+                    Документы
+                </a>
+                <a class="mdl-navigation__link" href="">
+                    <i class="material-icons nav-icon" role="presentation">file_download</i>
+                    Загрузки
+                </a>
+                <!-- close user session and redirects to the login page -->
+                <a class="mdl-navigation__link" href="#" id="signOutLink">
+                    <i class="material-icons nav-icon" role="presentation">exit_to_app</i>
+                    Выход
+                </a>
+                
+                <div class="mdl-layout-spacer"></div>
+                <!-- search box goes here -->
+                <div class="mdl-layout-spacer"></div>
+
+                <!-- start #MODAL_BOX (Modal box that contains some help information) -->
+                <a href="#" data-modal="#modal" class="mdl-navigation__link modal__trigger">
+                    <i class="material-icons mdl-color-text--white link__icon" role="presentation">help_outline</i>
+                    <span class="visuallyhidden"></span>
+                </a>
+
+            </nav><!-- / #DRAWER__NAVIGATION_MENU -->
+
+        </div><!-- / #DRAWER -->
+
+        <main class="mdl-layout__content mdl-color--grey-100">
+            @RenderBody()
+        </main>
+
+    </div>
+
+    <!--[if IE]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.7/es5-shim.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+    <![endif]-->
+   
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/mdl")
+    @Scripts.Render("~/bundles/modal")
+    @RenderSection("scripts", required: false)
+
+</body>
+
+</html>
