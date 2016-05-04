@@ -8,8 +8,8 @@ using Ninject.Web.Common;
 
 using Escyug.Nosology.Common.Logging;
 
-using Escyug.Nosology.Data.Processors;
-using Escyug.Nosology.Data.Sql.Processors;
+using Escyug.Nosology.Data.QueryProcessors;
+using Escyug.Nosology.Data.Sql.QueryProcessors;
 
 using Escyug.Nosology.Models.Services;
 using Escyug.Nosology.Models.Repositories;
@@ -35,8 +35,8 @@ namespace Escyug.Nosology.Web.App
         {
             ConfigureLog4net(container);
 
-            container.Bind<IUserProcessor>()
-                .To<SqlUserProcessor>()
+            container.Bind<IUserQueryProcessor>()
+                .To<SqlUserQueryProcessor>()
                 .InRequestScope()
                 .WithConstructorArgument("connectionString", GetConnectionString("local"));
 

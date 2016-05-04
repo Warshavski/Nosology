@@ -1,12 +1,12 @@
-﻿using Escyug.Nosology.Data.Processors;
+﻿using Escyug.Nosology.Data.QueryProcessors;
 
 namespace Escyug.Nosology.Models.Repositories
 {
     public sealed class UserRepository : IUserRepository
     {
-        private readonly IUserProcessor _userProcessor;
+        private readonly IUserQueryProcessor _userProcessor;
 
-        public UserRepository(IUserProcessor userProcessor)
+        public UserRepository(IUserQueryProcessor userProcessor)
         {
             _userProcessor = userProcessor;
         }

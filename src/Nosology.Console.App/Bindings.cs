@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using Ninject;
 using Ninject.Modules;
 
-using Escyug.Nosology.Data.Processors;
-using Escyug.Nosology.Data.Sql.Processors;
+using Escyug.Nosology.Data.QueryProcessors;
+using Escyug.Nosology.Data.Sql.QueryProcessors;
 
 using Escyug.Nosology.Models.Services;
 using Escyug.Nosology.Models.Repositories;
@@ -18,8 +18,8 @@ namespace Escyug.Nosology.Console.App
     {
         public override void Load()
         {
-            Bind<IUserProcessor>()
-                .To<SqlUserProcessor>()
+            Bind<IUserQueryProcessor>()
+                .To<SqlUserQueryProcessor>()
                 .WithConstructorArgument("connectionString", GetConnectionString("test"));
 
             Bind<IUserRepository>()

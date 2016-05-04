@@ -4,15 +4,15 @@ using System.Data;
 using System.Data.SqlClient;
 
 using Escyug.Nosology.Data.Entities;
-using Escyug.Nosology.Data.Processors;
+using Escyug.Nosology.Data.QueryProcessors;
 
-namespace Escyug.Nosology.Data.Sql.Processors
+namespace Escyug.Nosology.Data.Sql.QueryProcessors
 {
-    public sealed class SqlUserProcessor : IUserProcessor
+    public sealed class SqlUserQueryProcessor : IUserQueryProcessor
     {
         private readonly string _connectionString;
 
-        public SqlUserProcessor(string connectionString)
+        public SqlUserQueryProcessor(string connectionString)
         {
             _connectionString = connectionString;
         }

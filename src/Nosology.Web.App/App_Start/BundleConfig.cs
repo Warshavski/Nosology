@@ -24,9 +24,15 @@ namespace Escyug.Nosology.Web.App
             bundles.Add(new ScriptBundle("~/bundles/mdl").Include(
                         "~/Content/mdl-v1.1.2/material.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/modal").Include(
+                        "~/Content/jDialog/jDialog.js",
+                        "~/Content/jDialog/modal.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/mdl-v1.1.2/material.css",
-                      "~/Content/Site.css"));
+                      "~/Content/mdl-v1.1.2/material-cyan-teal.min.css",
+                      "~/Content/Site.css",
+                      "~/Content/jDialog/jDialog.css"));
         }
     }
 }

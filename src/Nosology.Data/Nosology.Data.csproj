@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="Entities\Document.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Processors\IUserProcessor.cs" />
+    <Compile Include="QueryProcessors\IUserQueryProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
