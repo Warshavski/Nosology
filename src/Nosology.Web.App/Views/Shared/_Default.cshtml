@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <meta name="msapplication-TileColor" content="#3372DF" />
+
+    <title>@ViewBag.Title – приложение ASP.NET</title>
+
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.cyan-teal.min.css" />
+
+</head>
+
+<body>
+    <div class="mdl-layout__container">
+        <!-- #LAYOUT -->
+        <div class="mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+
+            <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--nos-main mdl-color-text--white">
+                <div class="mdl-layout__header-row">
+                    <span class="mdl-layout-title">Высокозатратные нозологии</span>
+                </div>
+            </header>
+
+            <main class="default-content mdl-layout__content">
+                @RenderBody()
+            </main>
+            <!-- #FOOTER -->
+            <footer class="default-footer mdl-mini-footer">
+                <div class="mdl-mini-footer--left-section">
+                    <div class="mdl-logo">
+                        <a href="http://www.escyug.ru/">
+                            <i class="fa fa-cube mdl-color-text--white"></i>&nbspООО "Эскейп-Юг"
+                        </a>
+                    </div>
+
+                    <ul class="mdl-mini-footer__link-list">
+                        <li><a href="http://www.minzdravkk.ru/">Министерство здравоохранения Краснодарского края</a></li>
+                    </ul>
+                </div>
+            </footer><!-- / #FOOTER -->
+        </div><!-- / #LAYOUT -->
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/mdl")
+    @RenderSection("scripts", required: false)
+
+    <!--[if IE]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.7/es5-shim.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+    <![endif]-->
+
+</body>
+
+</html>

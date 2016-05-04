@@ -14,7 +14,7 @@ namespace Escyug.Nosology.Web.App
 
     using Escyug.Nosology.Web.Common;
 
-    /*
+   /*
     * Make sure a DI container is created during 
     * application start-up and remains in memory
     * until the application shuts down. (You can think 
@@ -27,9 +27,6 @@ namespace Escyug.Nosology.Web.App
 
         /// <summary>
         /// Starts the application
-        /// register dependency resolver with Web API configuratio. In doing so, 
-        /// we have directed the framework to hit our configured Ninject 
-        /// container instance to resolve any dependencies that are needed.
         /// </summary>
         public static void Start() 
         {
@@ -37,18 +34,16 @@ namespace Escyug.Nosology.Web.App
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             
             IKernel container = null;
-            bootstrapper.Initialize(() =>
-            {
-                container = CreateKernel();
-                return container;
-            });
+
+            bootstrapper.Initialize(() => 
+                {
+                    container = CreateKernel();
+                    return container;
+                });
 
             var resolver = new NinjectDependencyResolver(container);
             DependencyResolver.SetResolver(resolver);
 
-            /* for Web API
-             * GlobalConfiguration.Configuration.DependencyResolver = resolver;
-             */
         }
         
         /// <summary>
@@ -88,8 +83,8 @@ namespace Escyug.Nosology.Web.App
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            var configurator = new NinjectConfigurator();
-            configurator.Configure(kernel);
+            var containerConfigurator = new NinjectConfigurator();
+            containerConfigurator.Configure(kernel);
         }        
     }
 }
@@ -101,4 +96,5 @@ namespace Escyug.Nosology.Web.App
  * which is called during application start-up. In this way, all of this setup is completed
  * before the application accepts and processes anu HTTP requests, and thus before any of the
  * controllers - which rely on dependencies being injected into them - are ever created.
+ * 
  */
