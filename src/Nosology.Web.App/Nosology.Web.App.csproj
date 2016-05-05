@@ -141,6 +141,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\main.txt" />
     <Content Include="Content\jDialog\jDialog.css" />
     <Content Include="Content\jDialog\jDialog.js" />
     <Content Include="Content\jDialog\jDialog.min.css" />
@@ -188,9 +189,7 @@
     <Content Include="Views\Shared\_Main.cshtml" />
     <Content Include="Views\Authentication\Login.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
