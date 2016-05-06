@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/shared/_Default.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Escyug.Nosology.Web.App.Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/shared/_Default.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Escyug.Nosology.Web.App.Default" EnableViewState="false" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

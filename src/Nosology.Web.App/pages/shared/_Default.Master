@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="_Default.master.cs" Inherits="Escyug.Nosology.Web.App.pages.shared._Default" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="_Default.master.cs" Inherits="Escyug.Nosology.Web.App.pages.shared._Default" EnableViewState="false" %>
 
 <!DOCTYPE html>
 
