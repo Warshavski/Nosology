@@ -1,17 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿using System.Collections.Generic;
+
+using Escyug.Nosology.Presentation.Views;
 
 namespace Escyug.Nosology.Web.App.pages
 {
-    public partial class documents : System.Web.UI.Page
+    public partial class documents : PageBase<IDocumentsView>, IDocumentsView
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+        protected override IDocumentsView GetView() { return this; }
 
+        public IEnumerable<ViewModels.TemplateFile> FilesList
+        {
+            set
+            {
+                docsList.DataSource = value;
+                docsList.DataBind();
+            }
         }
     }
 }

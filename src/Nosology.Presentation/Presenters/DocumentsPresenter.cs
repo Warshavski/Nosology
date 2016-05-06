@@ -1,20 +1,33 @@
 ﻿using System.Collections.Generic;
 
-using Escyug.Nosology.Models.Repositories;
-using Escyug.Nosology.Presentation.Views;
 using Escyug.Nosology.ViewModels;
+using Escyug.Nosology.Models.Repositories;
+
+using Escyug.Nosology.Presentation.Common;
+using Escyug.Nosology.Presentation.Views;
 
 namespace Escyug.Nosology.Presentation.Presenters
 {
-    public sealed class DocumentsPresenter
+    public sealed class DocumentsPresenter : IPresenter<IDocumentsView>
     {
-        private readonly IDocumentsView _view;
+        private IDocumentsView _view;
         private readonly IDocumentsRepository _documentRepository;
 
-        public DocumentsPresenter(IDocumentsView view, IDocumentsRepository documentRepository)
+        [Ninject.Inject]
+        public DocumentsPresenter(IDocumentsRepository documentRepository)
+        {
+            _documentRepository = documentRepository;   
+        }
+
+        public DocumentsPresenter(IDocumentsRepository documentRepository, IDocumentsView view)
+            : this (documentRepository)
+        {
+            InjectView(view);
+        }
+
+        public void InjectView(IDocumentsView view)
         {
             _view = view;
-            _documentRepository = documentRepository;
 
             _view.PageLoad += () => OnPageLoad();
         }
@@ -29,5 +42,6 @@ namespace Escyug.Nosology.Presentation.Presenters
 
             _view.FilesList = templateFilesList;
         }
+   
     }
 }

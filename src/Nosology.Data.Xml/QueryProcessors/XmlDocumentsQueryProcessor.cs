@@ -33,7 +33,7 @@ namespace Escyug.Nosology.Data.Xml.QueryProcessors
         private string CreateFilePath(string fileName)
         {
             var xmlFilePath = new StringBuilder();
-            xmlFilePath.AppendFormat("{0}\\{1}", _rootPath, fileName);
+            xmlFilePath.AppendFormat("{0}\\App_Data\\{1}", _rootPath, fileName);
 
             return xmlFilePath.ToString();
         }

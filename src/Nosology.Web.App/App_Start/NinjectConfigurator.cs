@@ -50,7 +50,6 @@ namespace Escyug.Nosology.Web.App
             container.Bind<IDocumentsRepository>()
                 .To<DocumentsRepository>()
                 .InRequestScope();
-
             container.Bind<IAboutRepository>()
                 .To<AboutRepository>()
                 .InRequestScope();
@@ -58,15 +57,15 @@ namespace Escyug.Nosology.Web.App
             container.Bind<ILoginService>()
                 .To<StupidLoginService>()
                 .InRequestScope();
-            container.Bind<IDocumentsRepository>()
-                .To<DocumentsRepository>()
-                .InRequestScope();
 
             container.Bind<IPresenter<ILoginView>>()
                 .To<LoginPresenter>()
                 .InRequestScope();
             container.Bind<IPresenter<IMainView>>()
                 .To<MainPresenter>()
+                .InRequestScope();
+            container.Bind<IPresenter<IDocumentsView>>()
+                .To<DocumentsPresenter>()
                 .InRequestScope();
         }
 
