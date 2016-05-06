@@ -7,7 +7,7 @@
 // </автоматически создаваемое>
 //------------------------------------------------------------------------------
 
-namespace Escyug.Nosology.Web.App.pages {
+namespace Escyug.Nosology.Web.App.pages.errors {
     
     
     public partial class error {

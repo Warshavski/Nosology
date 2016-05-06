@@ -162,6 +162,7 @@
     <Content Include="pages\main.aspx" />
     <Content Include="pages\shared\_Default.Master" />
     <Content Include="pages\shared\_Main.Master" />
+    <None Include="Properties\PublishProfiles\escyugtestapi.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

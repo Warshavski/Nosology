@@ -7,7 +7,7 @@
 // </автоматически создаваемое>
 //------------------------------------------------------------------------------
 
-namespace Escyug.Nosology.Web.App.pages {
+namespace Escyug.Nosology.Web.App.pages.access {
     
     
     public partial class doc {

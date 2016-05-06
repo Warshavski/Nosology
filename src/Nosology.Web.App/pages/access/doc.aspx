@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="doc.aspx.cs" Inherits="Escyug.Nosology.Web.App.pages.doc" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="doc.aspx.cs" Inherits="Escyug.Nosology.Web.App.pages.access.doc" %>
 
 <!DOCTYPE html>
 
