@@ -26,6 +26,7 @@ namespace Escyug.Nosology.Web.App
             set { this.errorLabel.Text = value; }
         }
 
+        // ?? useless ??
         public bool IsPersist
         {
             get { return bool.Parse(this.HiddenChecked.Value); }
