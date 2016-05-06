@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-using Escyug.Nosology.Models.Services;
+using Escyug.Nosology.Models.Repositories;
 using Escyug.Nosology.Presentation.Views;
 using Escyug.Nosology.ViewModels;
 
@@ -9,12 +9,12 @@ namespace Escyug.Nosology.Presentation.Presenters
     public sealed class DownloadsPresenter
     {
         private readonly IDownloadsView _view;
-        private readonly IDocumentsService _documentsService;
+        private readonly IDocumentsRepository _documentsRepositrory;
 
-        public DownloadsPresenter(IDownloadsView view, IDocumentsService documentsService)
+        public DownloadsPresenter(IDownloadsView view, IDocumentsRepository documentsRepository)
         {
             _view = view;
-            _documentsService = documentsService;
+            _documentsRepositrory = documentsRepository;
 
             _view.PageLoad += () => OnPageLoad();
         }
@@ -23,7 +23,7 @@ namespace Escyug.Nosology.Presentation.Presenters
         {
             var templateFilesList = new List<TemplateFile>();
 
-            var documentsList = _documentsService.GetDocuments(DocumentsTypes.orders);
+            var documentsList = _documentsRepositrory.SelectDocuments(DocumentsTypes.orders);
             foreach (var document in documentsList)
                 templateFilesList.Add(new TemplateFile());
 

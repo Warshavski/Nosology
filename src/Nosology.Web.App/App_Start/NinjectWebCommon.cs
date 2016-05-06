@@ -11,6 +11,14 @@ namespace Escyug.Nosology.Web.App
     using Ninject;
     using Ninject.Web.Common;
 
+
+    /*
+    * Make sure a DI container is created during 
+    * application start-up and remains in memory
+    * until the application shuts down. (You can think 
+    * of the container as the object that contains the dependencies.)
+    */
+
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Escyug.Nosology.Models.Repositories
 {
-    public class AboutRepository : IAboutRepository
+    public sealed class AboutRepository : IAboutRepository
     {
         private const string ERROR_MESSAGE = "SERVER ERROR";
 

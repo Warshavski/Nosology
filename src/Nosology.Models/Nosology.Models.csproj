@@ -48,9 +48,7 @@
     <Compile Include="Repositories\IDocumentsRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="Services\IDocumentsService.cs" />
     <Compile Include="Services\ILoginService.cs" />
-    <Compile Include="Services\SimpleDocumentsService.cs" />
     <Compile Include="Services\StupidLoginService.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>

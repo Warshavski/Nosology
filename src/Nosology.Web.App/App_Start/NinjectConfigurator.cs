@@ -17,9 +17,16 @@ using Escyug.Nosology.Presentation.Views;
 
 namespace Escyug.Nosology.Web.App
 {
-    public class NinjectConfigurator
-    {
+    /*
+    * This is where we bind or relate interfaces 
+    * to concrete implementations so that the
+    * dependencies can be resolved at run time.
+    * For example, if a class requires an IUserQueryProcessor object, 
+    * the bindings tell the container to provide a SqlUserQueryProcessor object.
+    */
 
+    public sealed class NinjectConfigurator
+    {
         public void Configure(IKernel container)
         {
             AddBindings(container);
@@ -51,8 +58,8 @@ namespace Escyug.Nosology.Web.App
             container.Bind<ILoginService>()
                 .To<StupidLoginService>()
                 .InRequestScope();
-            container.Bind<IDocumentsService>()
-                .To<SimpleDocumentsService>()
+            container.Bind<IDocumentsRepository>()
+                .To<DocumentsRepository>()
                 .InRequestScope();
 
             container.Bind<IPresenter<ILoginView>>()
