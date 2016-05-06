@@ -37,9 +37,19 @@ namespace Escyug.Nosology.Presentation.Presenters
             var templateFilesList = new List<TemplateFile>();
 
             var documentsList = _documentRepository.SelectDocuments(DocumentsTypes.orders);
+            var templateFileId = 0;
             foreach (var document in documentsList)
-                templateFilesList.Add(new TemplateFile());
+            {
+                var templateFileTitle = document.Title;
+                var templateFileLink = document.Link;
+                var templateFileDescription = document.Description;
+                var templateFileIcon = "file-pdf-o";
 
+                templateFilesList.Add(
+                    new TemplateFile(++templateFileId, templateFileTitle,
+                        templateFileLink, templateFileDescription, templateFileIcon));
+            }
+            
             _view.FilesList = templateFilesList;
         }
    

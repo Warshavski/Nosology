@@ -36,10 +36,20 @@ namespace Escyug.Nosology.Presentation.Presenters
         {
             var templateFilesList = new List<TemplateFile>();
 
-            var documentsList = _documentsRepositrory.SelectDocuments(DocumentsTypes.orders);
+            var documentsList = _documentsRepositrory.SelectDocuments(DocumentsTypes.files);
+            var templateFileId = 0;
             foreach (var document in documentsList)
-                templateFilesList.Add(new TemplateFile());
+            {
+                var templateFileTitle = document.Title;
+                var templateFileLink = document.Link;
+                var templateFileDescription = document.Description;
+                var templateFileIcon = "insert_drive_file";
 
+                templateFilesList.Add(
+                    new TemplateFile(++templateFileId, templateFileTitle, 
+                        templateFileLink, templateFileDescription, templateFileIcon));
+            }
+            
             _view.DocumentsList = templateFilesList;
         }
 

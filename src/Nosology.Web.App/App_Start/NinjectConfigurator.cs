@@ -67,6 +67,9 @@ namespace Escyug.Nosology.Web.App
             container.Bind<IPresenter<IDocumentsView>>()
                 .To<DocumentsPresenter>()
                 .InRequestScope();
+            container.Bind<IPresenter<IDownloadsView>>()
+                .To<DownloadsPresenter>()
+                .InRequestScope();
         }
 
         // get connection string from web.config

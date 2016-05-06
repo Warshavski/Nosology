@@ -16,8 +16,11 @@
 
                 <div download class="nos-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--6-col">
                     <a href="#" data-link='<%# Eval("Link") %>' onclick="getFile(this)">
+
                         <i class="material-icons content-icon"><%# Eval("Icon") %></i>
+
                         <span style="position: absolute; margin-top: 5px;"><%# Eval("Title") %></span>
+
                     </a>
                 </div>
 
@@ -42,8 +45,9 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptContentPlaceHolder" runat="server">
     <script type="text/javascript">
         function getFile(elem) {
+            var fileType = 'files';
             var fileName = elem.dataset.link;
-            var outPage = 'file.aspx?fileName=' + fileName;
+            var outPage = 'access/file.aspx?fileName=' + fileName + '&fileType=' + fileType;
             window.location.href = outPage;
         }
     </script>
