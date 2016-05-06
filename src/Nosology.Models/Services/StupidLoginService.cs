@@ -21,11 +21,11 @@ namespace Escyug.Nosology.Models.Services
             throw new NotImplementedException();
         }
 
-        public User Login(string mcod, string password)
+        public User Login(string login, string password)
         {
-            if (mcod.Length <= LOGIN_SIZE_THRESHOLD && password.Length <= PWD_SIZE_THRESHOLD)
+            if (login.Length <= LOGIN_SIZE_THRESHOLD && password.Length <= PWD_SIZE_THRESHOLD)
             {
-                var user = _userRepository.SelectUser(mcod, password);
+                var user = _userRepository.SelectUser(login, password);
 
                 if (user.ExpiredDate < DateTime.Today)
                     throw new ArgumentException(); // Account date expired error

@@ -46,8 +46,7 @@
 
                 <button id="checkButton" onclick="testLogin()"
                     class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect 
-                        mdl-button--colored mdl-color-text--white mdl-color--nos-main login-block__button">
-                    ВХОД
+                        mdl-button--colored mdl-color-text--white mdl-color--nos-main login-block__button">ВХОД
                 </button>
 
             </div>

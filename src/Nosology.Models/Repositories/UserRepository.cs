@@ -1,4 +1,6 @@
-﻿using Escyug.Nosology.Data.QueryProcessors;
+﻿using System;
+
+using Escyug.Nosology.Data.QueryProcessors;
 
 namespace Escyug.Nosology.Models.Repositories
 {
@@ -14,9 +16,6 @@ namespace Escyug.Nosology.Models.Repositories
         public User SelectUser(string login, string password)
         {
             var userData = _userProcessor.SelectUser(login, password);
-
-            if (userData == null)
-                return null;
 
             return ModelBinder.CreateUserModel(userData);
         }

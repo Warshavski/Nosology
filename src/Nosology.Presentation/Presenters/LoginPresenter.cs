@@ -1,4 +1,6 @@
-﻿using Ninject;
+﻿using System;
+
+using Ninject;
 
 using Escyug.Nosology.Models.Services;
 
@@ -28,26 +30,34 @@ namespace Escyug.Nosology.Presentation.Presenters
         public void InjectView(ILoginView view)
         {
             _view = view;
+
             _view.Logon += () => OnLogon();
         }
 
-        //public LoginPresenter(ILoginView view, ILoginService loginService)
-        //{
-        //    _view = view;
-        //    _loginService = loginService;
-
-        //    _view.Logon += () => OnLogon();
-        //}
-
         private void OnLogon()
         {
-            var login = _view.Login;
-            var password = _view.Password;
+            var login = _view.Login.Trim();
+            var password = _view.Password.Trim();
 
-            var user = _loginService.Login(login, password);
-            var userVM = new ViewModels.User(user.Name, user.Level, string.Empty);
+            try
+            {
+                var user = _loginService.Login(login, password);
+                var userVM = new ViewModels.User(user.Name, user.Level, string.Empty);
 
-            _view.AuthUser = userVM;
+                _view.AuthUser = userVM;
+            }
+            catch (TimeoutException)
+            {
+                _view.ErrorText = "Error! Server timeout";
+            }
+            catch (NullReferenceException)
+            {
+                _view.ErrorText = "Error! Check login or(and) password";
+            }
+            catch (ArgumentException)
+            {
+                _view.ErrorText = "Error! Account time expired";
+            }
         }
     }
 }

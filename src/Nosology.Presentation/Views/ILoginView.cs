@@ -11,6 +11,8 @@ namespace Escyug.Nosology.Presentation.Views
         string Login { get; }
         string Password { get; }
 
+        string ErrorText { set; }
+
         bool IsPersist { get; }
 
         ViewModels.User AuthUser { set; }
