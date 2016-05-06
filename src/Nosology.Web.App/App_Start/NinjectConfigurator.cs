@@ -31,7 +31,7 @@ namespace Escyug.Nosology.Web.App
             container.Bind<IUserQueryProcessor>()
                 .To<SqlUserQueryProcessor>()
                 .InRequestScope()
-                .WithConstructorArgument("connecitonString", GetConnectionString("local"));
+                .WithConstructorArgument("connectionString", GetConnectionString("local"));
             container.Bind<IDocumentQueryProcessor>()
                 .To<XmlDocumentsQueryProcessor>()
                 .InRequestScope()
