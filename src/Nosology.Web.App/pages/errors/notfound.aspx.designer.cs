@@ -10,6 +10,6 @@
 namespace Escyug.Nosology.Web.App.pages.errors {
     
     
-    public partial class error {
+    public partial class notfound {
     }
 }
