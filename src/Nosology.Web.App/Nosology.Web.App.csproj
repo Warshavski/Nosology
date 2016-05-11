@@ -163,7 +163,7 @@
     <Content Include="pages\shared\_Default.Master" />
     <Content Include="pages\shared\_Main.Master" />
     <Content Include="pages\access\Downloads.ashx" />
-    <None Include="Properties\PublishProfiles\escyugtestapi.pubxml" />
+    <None Include="Properties\PublishProfiles\escyugnosology.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\downloads.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
