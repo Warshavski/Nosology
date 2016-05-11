@@ -18,21 +18,15 @@
 
                     <li class="mdl-list__item mdl-list__item--three-line">
                         
-                        
                         <span class="mdl-list__item-primary-content">
-                            
-                            <%--mdl-color--nos-main--%>
+
                             <i class="material-icons mdl-list__item-icon ">description</i>
-                            
-                            <%----%>
-                            <a href="#" data-link='<%# Eval("Link") %>' onclick="viewDoc(this);">
+
+                            <a href="#" data-link='<%# Eval("Link") %>' onclick="getFile(this.dataset.link, 'docs')">
                                 <span><%# Eval("Title") %></span>
                             </a>
 
-                            <%--<span class="mdl-list__item-text-body"><%# Eval("Description") %></span>--%>
-                            <%--<a class="mdl-list__item-secondary-action" href="'<%# Eval("Link") %>'"></a>--%>
                         </span>
-                        
 
                         <span class="mdl-list__item-secondary-content">
                             <i class="material-icons mdl-color-text--grey-600" id="<%# Eval("Id") %>">info_outline</i>
@@ -43,14 +37,6 @@
                         </div>
 
                     </li>
-
-                    <%-- old template
-                    <div class="mdl-cell mdl-cell--10-col demo-graphs">
-                        <a href=>
-                            <i class=" content-icon"></i>
-                        </a>
-                    </div>
-                    --%>
 
                 </ItemTemplate>
 
@@ -72,11 +58,5 @@
 </asp:Content>
 
 <asp:Content ID="ScriptContent" ContentPlaceHolderID="ScriptContentPlaceHolder" runat="server">
-    <script type="text/javascript">
-        function getFile(elem) {
-            var fileName = elem.dataset.link;
-            var outPage = 'doc.aspx?fileName=' + fileName;
-            window.location.href = outPage;
-        }
-    </script>
+    <script type="text/javascript" src="../Scripts/downloads.js"></script>
 </asp:Content>

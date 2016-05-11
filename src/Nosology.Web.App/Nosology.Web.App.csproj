@@ -154,16 +154,18 @@
     <Content Include="Content\mdl-v1.1.2\material.min.css.map" />
     <Content Include="Content\mdl-v1.1.2\LICENSE" />
     <Content Include="Content\mdl-v1.1.2\bower.json" />
-    <Content Include="pages\access\doc.aspx" />
-    <Content Include="pages\access\file.aspx" />
     <Content Include="pages\documents.aspx" />
     <Content Include="pages\downloads.aspx" />
-    <Content Include="pages\errors\error.aspx" />
+    <Content Include="pages\errors\notfound.aspx" />
+    <Content Include="pages\errors\unauthorized.aspx" />
+    <Content Include="pages\errors\unhandled.aspx" />
     <Content Include="pages\main.aspx" />
     <Content Include="pages\shared\_Default.Master" />
     <Content Include="pages\shared\_Main.Master" />
+    <Content Include="pages\access\Downloads.ashx" />
     <None Include="Properties\PublishProfiles\escyugtestapi.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\downloads.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -223,19 +225,8 @@
     <Compile Include="PageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\access\doc.aspx.cs">
-      <DependentUpon>doc.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\access\doc.aspx.designer.cs">
-      <DependentUpon>doc.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="pages\access\file.aspx.cs">
-      <DependentUpon>file.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="pages\access\file.aspx.designer.cs">
-      <DependentUpon>file.aspx</DependentUpon>
+    <Compile Include="pages\access\Downloads.ashx.cs">
+      <DependentUpon>Downloads.ashx</DependentUpon>
     </Compile>
     <Compile Include="pages\documents.aspx.cs">
       <DependentUpon>documents.aspx</DependentUpon>
@@ -251,12 +242,26 @@
     <Compile Include="pages\downloads.aspx.designer.cs">
       <DependentUpon>downloads.aspx</DependentUpon>
     </Compile>
-    <Compile Include="pages\errors\error.aspx.cs">
-      <DependentUpon>error.aspx</DependentUpon>
+    <Compile Include="pages\errors\notfound.aspx.cs">
+      <DependentUpon>notfound.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="pages\errors\error.aspx.designer.cs">
-      <DependentUpon>error.aspx</DependentUpon>
+    <Compile Include="pages\errors\notfound.aspx.designer.cs">
+      <DependentUpon>notfound.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\errors\unauthorized.aspx.cs">
+      <DependentUpon>unauthorized.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\errors\unauthorized.aspx.designer.cs">
+      <DependentUpon>unauthorized.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pages\errors\unhandled.aspx.cs">
+      <DependentUpon>unhandled.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pages\errors\unhandled.aspx.designer.cs">
+      <DependentUpon>unhandled.aspx</DependentUpon>
     </Compile>
     <Compile Include="pages\main.aspx.cs">
       <DependentUpon>main.aspx</DependentUpon>

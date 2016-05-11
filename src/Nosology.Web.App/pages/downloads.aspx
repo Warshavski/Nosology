@@ -1,13 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/shared/_Main.Master" AutoEventWireup="true" CodeBehind="downloads.aspx.cs" Inherits="Escyug.Nosology.Web.App.pages.downloads" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="TitlePlaceHolder" runat="server">
+<asp:Content ID="TitleContent" ContentPlaceHolderID="TitlePlaceHolder" runat="server">
     <span class="mdl-layout-title">Загрузки</span>
 </asp:Content>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="BodyPlaceHolder" runat="server">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="BodyPlaceHolder" runat="server">
     <div class="mdl-grid nos-content">
 
         <asp:ListView ID="filesList" runat="server" EnableViewState="true">
@@ -15,7 +15,7 @@
             <ItemTemplate>
 
                 <div download class="nos-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--6-col">
-                    <a href="#" data-link='<%# Eval("Link") %>' onclick="getFile(this)">
+                    <a href="#" data-link='<%# Eval("Link") %>' onclick="getFile(this.dataset.link, 'files')">
 
                         <i class="material-icons content-icon"><%# Eval("Icon") %></i>
 
@@ -39,16 +39,8 @@
         </asp:ListView>
 
     </div>
-
 </asp:Content>
 
-<asp:Content ID="Content4" ContentPlaceHolderID="ScriptContentPlaceHolder" runat="server">
-    <script type="text/javascript">
-        function getFile(elem) {
-            var fileType = 'files';
-            var fileName = elem.dataset.link;
-            var outPage = 'access/file.aspx?fileName=' + fileName + '&fileType=' + fileType;
-            window.location.href = outPage;
-        }
-    </script>
+<asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptContentPlaceHolder" runat="server">
+   <script type="text/javascript" src="../Scripts/downloads.js"></script>
 </asp:Content>
