@@ -1,7 +1,11 @@
-﻿namespace Escyug.Nosology.Models.Services
+﻿using System.Threading.Tasks;
+
+using Escyug.Nosology.Models;
+
+namespace Escyug.Nosology.Models.Services
 {
     public interface ILoginService
     {
-        Models.User Login(string login, string password);
+        Task<User> LoginAsync(string login, string password);
     }
 }

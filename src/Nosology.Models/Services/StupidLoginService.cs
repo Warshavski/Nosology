@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 using Escyug.Nosology.Models.Repositories;
 
@@ -16,19 +17,14 @@ namespace Escyug.Nosology.Models.Services
             _userRepository = userRepository;
         }
 
-        public bool Login(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public User Login(string mcod, string password)
+        public async Task<User> LoginAsync(string mcod, string password)
         {
             if (mcod.Length <= LOGIN_SIZE_THRESHOLD && password.Length <= PWD_SIZE_THRESHOLD)
             {
-                var user = _userRepository.SelectUser(mcod, password);
+                var user = await _userRepository.SelectUserAsync(mcod, password);
 
                 if (user.ExpiredDate < DateTime.Today)
-                    throw new ArgumentException(); // Account date expired error
+                    throw new ArgumentException("Date expired"); // Account date expired error
 
                 return user;
             }

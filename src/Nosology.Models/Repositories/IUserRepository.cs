@@ -1,7 +1,11 @@
-﻿namespace Escyug.Nosology.Models.Repositories
+﻿using System.Threading.Tasks;
+
+using Escyug.Nosology.Models;
+
+namespace Escyug.Nosology.Models.Repositories
 {
     public interface IUserRepository
     {
-        Models.User SelectUser(string login, string password);
+        Task<User> SelectUserAsync(string login, string password);
     }
 }

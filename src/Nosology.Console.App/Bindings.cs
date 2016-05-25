@@ -18,8 +18,8 @@ namespace Escyug.Nosology.Console.App
     {
         public override void Load()
         {
-            Bind<IUserQueryProcessor>()
-                .To<SqlUserQueryProcessor>()
+            Bind<IUserByCredentialsQueryProcessor>()
+                .To<UserByCredentialsQueryProcessor>()
                 .WithConstructorArgument("connectionString", GetConnectionString("test"));
 
             Bind<IUserRepository>()
