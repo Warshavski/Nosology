@@ -1,30 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+
+using Escyug.Nosology.Models.Repositories;
+
 
 namespace Escyug.Nosology.Web.App.Controllers
 {
     public sealed class HomeController : Controller
     {
-        public ActionResult Index()
+        private readonly IMainTextBlockRepository _mainRepository;
+
+        public HomeController(IMainTextBlockRepository mainRepository)
         {
+            _mainRepository = mainRepository;
+        }
+
+        public async Task<ActionResult> Index()
+        {
+            var mainText = await _mainRepository.GetAboutInfoAsync();
+            ViewBag.TextBlock = mainText;
+
             return View();
         }
 
-        //public ActionResult About()
-        //{
-        //    ViewBag.Message = "Your application description page.";
+        public ActionResult Documents()
+        {
+            return RedirectToAction("Index", "Documents");
+        }
 
-        //    return View();
-        //}
-
-        //public ActionResult Contact()
-        //{
-        //    ViewBag.Message = "Your contact page.";
-
-        //    return View();
-        //}
+        public ActionResult Downloads()
+        {
+            return RedirectToAction("Index", "Downloads");
+        }
     }
 }

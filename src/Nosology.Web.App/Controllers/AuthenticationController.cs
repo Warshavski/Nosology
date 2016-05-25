@@ -1,20 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Security;
 using System.Web.Mvc;
 
+using Escyug.Nosology.Data.Exceptions;
 using Escyug.Nosology.Models.Services;
-
 
 namespace Escyug.Nosology.Web.App.Controllers
 {
-    /*
-     * TODO : 
-     *  1. Implement async controller
-     */
-
     [AllowAnonymous]
     public sealed class AuthenticationController : Controller
     {
@@ -26,36 +22,36 @@ namespace Escyug.Nosology.Web.App.Controllers
         }
 
         // GET: Authentication
-        public ActionResult Login()
+        public ActionResult Index()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Authenticate(string login, string password)
+        public async Task<ActionResult> Authenticate(string login, string password, bool isPersist)
         {
             try
             {
-                var user = _loginService.Login(login, password);
+                var user = await _loginService.LoginAsync(login, password);
+                FormsAuthentication.SetAuthCookie(user.Name, isPersist);
 
-                FormsAuthentication.SetAuthCookie(user.Name, false);
-
-                return RedirectToAction("Index", "Home");
+                var redirectUrl = new UrlHelper(Request.RequestContext).Action("Index", "Home");
+                return Json(new { Url = redirectUrl });
             }
-            catch (NullReferenceException)
+            catch (RootObjectNotFoundException)
             {
-                return View("Login");
+                return new HttpStatusCodeResult(404, "User not found. Check login or(and) password");
             }
-            catch (TimeoutException)
+            catch (ArgumentException)
             {
-                return View("Login");
+                return new HttpStatusCodeResult(423, "Error. Expired date");
             }
         }
 
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Login");
+            return RedirectToAction("Index");
         }
     }
 

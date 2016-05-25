@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" />
     
-    <title>@ViewBag.Title – "Высокозатратные нозологии"</title>
+    <title>@ViewBag.Title – "Высокозатратные нозологии - "</title>
 
 </head>
 
@@ -72,20 +72,20 @@
             <!-- Start #DRAWER__NAVIGATION_MENU -->
             <nav class="demo-navigation mdl-navigation">
 
-                <a class="mdl-navigation__link" href="">
+                <a class="mdl-navigation__link" href="@Url.Action("Index","Home")">
                     <i class="material-icons nav-icon" role="presentation">home</i>
                     Главная
                 </a>
-                <a class="mdl-navigation__link" href="">
+                <a class="mdl-navigation__link" href="@Url.Action("Index", "Documents")">
                     <i class="material-icons nav-icon" role="presentation">description</i>
                     Документы
                 </a>
-                <a class="mdl-navigation__link" href="">
+                <a class="mdl-navigation__link" href="@Url.Action("Index", "Downloads")">
                     <i class="material-icons nav-icon" role="presentation">file_download</i>
                     Загрузки
                 </a>
                 <!-- close user session and redirects to the login page -->
-                <a class="mdl-navigation__link" href="#" id="signOutLink">
+                <a class="mdl-navigation__link" href="@Url.Action("Logout", "Authentication")">
                     <i class="material-icons nav-icon" role="presentation">exit_to_app</i>
                     Выход
                 </a>
@@ -116,6 +116,11 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
     <![endif]-->
    
+    <!-- Ajax library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+    <script src="~/Scripts/main.js"></script>
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/mdl")
     @Scripts.Render("~/bundles/modal")

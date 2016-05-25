@@ -10,9 +10,11 @@ using Escyug.Nosology.Common.Logging;
 
 using Escyug.Nosology.Data.QueryProcessors;
 using Escyug.Nosology.Data.Sql.QueryProcessors;
+using Escyug.Nosology.Data.Xml.QueryProcessors;
 
 using Escyug.Nosology.Models.Services;
 using Escyug.Nosology.Models.Repositories;
+using System;
 
 namespace Escyug.Nosology.Web.App
 {
@@ -35,14 +37,23 @@ namespace Escyug.Nosology.Web.App
         {
             ConfigureLog4net(container);
 
-            container.Bind<IUserQueryProcessor>()
-                .To<SqlUserQueryProcessor>()
+            container.Bind<IUserByCredentialsQueryProcessor>()
+                .To<UserByCredentialsQueryProcessor>()
                 .InRequestScope()
                 .WithConstructorArgument("connectionString", GetConnectionString("local"));
+            container.Bind<IAllDocumentsQueryProcessor>()
+                .To<AllDocumentsQueryProcessor>()
+                .WithConstructorArgument("rootFolderPath", GetRootFolderPath());
 
             container.Bind<IUserRepository>()
                 .To<UserRepository>()
                 .InRequestScope();
+            container.Bind<IMainTextBlockRepository>()
+                .To<MainTextBlockRepository>()
+                .InRequestScope()
+                .WithConstructorArgument("rootPath", GetRootFolderPath());
+            container.Bind<IDocumentsRepository>()
+                .To<DocumentsRepository>();
 
             container.Bind<ILoginService>()
                 .To<StupidLoginService>()
@@ -64,6 +75,11 @@ namespace Escyug.Nosology.Web.App
                 connectionString = settings.ConnectionString;
 
             return connectionString;
+        }
+
+        private string GetRootFolderPath()
+        {
+            return AppDomain.CurrentDomain.BaseDirectory;
         }
 
         // configurate log4net (logger framework)

@@ -18,7 +18,7 @@
 
     <meta name="msapplication-TileColor" content="#3372DF" />
 
-    <title>@ViewBag.Title – "Высокозатратные нозологии"</title>
+    <title>@ViewBag.Title – "Высокозатратные нозологии - "</title>
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -66,6 +66,11 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/mdl")
     @RenderSection("scripts", required: false)
+
+    <!-- Ajax library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+    <script src="~/Scripts/login.js"></script>
 
     <!--[if IE]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.7/es5-shim.min.js"></script>
