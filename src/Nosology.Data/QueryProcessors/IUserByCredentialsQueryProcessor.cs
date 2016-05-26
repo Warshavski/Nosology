@@ -6,6 +6,6 @@ namespace Escyug.Nosology.Data.QueryProcessors
 {
     public interface IUserByCredentialsQueryProcessor
     {
-        Task<User> GetUserAsync(string login, string password);
+        Task<User> FindByCredentialsAsync(string login, string password);
     }
 }

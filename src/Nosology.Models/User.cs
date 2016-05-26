@@ -1,14 +1,27 @@
 ﻿using System;
 
+using Microsoft.AspNet.Identity;
+
 namespace Escyug.Nosology.Models
 {
-    public sealed class User
+    public sealed class User : IUser
     {
         private string _userName;
-        public string Name
+
+        #region IUser members
+
+        public string Id
         {
             get { return _userName; }
         }
+
+        public string UserName
+        {
+            get { return _userName; }
+            set { _userName = value; }
+        }
+
+        #endregion
 
         private string _userLevel;
         public string Level
@@ -21,8 +34,6 @@ namespace Escyug.Nosology.Models
         {
             get { return _expiredDate; }
         }
-
-        //private IEnumerable<Document> _userDocuments;
 
         public User(string userName, string userLevel, DateTime expiredDate)
         {

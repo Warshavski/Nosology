@@ -7,6 +7,6 @@ namespace Escyug.Nosology.Data.QueryProcessors
 {
     public interface IAllFilesQueryProcessor
     {
-        Task<IEnumerable<File>> GetFilesAsync();
+        IEnumerable<File> GetFiles();
     }
 }

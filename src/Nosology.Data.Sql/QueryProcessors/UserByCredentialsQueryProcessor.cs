@@ -19,15 +19,15 @@ namespace Escyug.Nosology.Data.Sql.QueryProcessors
             _connectionString = connectionString;
         }
 
-        public async Task<User> GetUserAsync(string login, string password)
+        public async Task<User> FindByCredentialsAsync(string login, string password)
         {
             SqlConnection connection = null;
 
             try
             {
-                using(connection = new SqlConnection(_connectionString))
+                using (connection = new SqlConnection(_connectionString))
                 {
-                   
+
                     await connection.OpenAsync();
 
                     /* 
@@ -99,5 +99,7 @@ namespace Escyug.Nosology.Data.Sql.QueryProcessors
 
             return new User(userName, userLevel, expiredDate);
         }
+
+        
     }
 }

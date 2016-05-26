@@ -10,13 +10,12 @@ using Escyug.Nosology.Web.App.ViewModels;
 
 namespace Escyug.Nosology.Web.App.Controllers
 {
-    public class DocumentsController : Controller
+    public sealed class DocumentsController : Controller
     {
         private readonly IDocumentsRepository _documentsRepository;
 
         private readonly Dictionary<string, string> _documentsIcons;
         
-
         public DocumentsController(IDocumentsRepository documentsRepository)
         {
             _documentsRepository = documentsRepository;
@@ -30,21 +29,35 @@ namespace Escyug.Nosology.Web.App.Controllers
         // GET: Documents
         public ActionResult Index()
         {
-            var documents = _documentsRepository.GetDocuments();
-            var documentsVM = new List<ViewModels.Document>();
-            foreach (var document in documents)
-            {
-                var documentVM = new Document();
-                documentVM.Id = document.Id;
-                documentVM.Title = document.Title;
-                documentVM.Link = document.Link;
-                documentVM.Description = document.Description;
-                documentVM.IconStyle = _documentsIcons[document.Type];
+            ViewBag.Title = "Документы";
 
-                documentsVM.Add(documentVM);
+            var documents = _documentsRepository.GetDocuments();
+            var documentsVM = new List<ViewModels.DocumentViewModel>();
+            foreach (var document in documents)
+                documentsVM.Add(CreateViewModelDocument(document));
+
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("IndexPartial", documentsVM);
+            }
+            else
+            {
+                return View(documentsVM);
             }
 
-            return View(documentsVM);
         }
+
+        private ViewModels.DocumentViewModel CreateViewModelDocument(Models.Document document)
+        {
+            var documentViewModel = new ViewModels.DocumentViewModel();
+
+            documentViewModel.Id = document.Id;
+            documentViewModel.Title = document.Title;
+            documentViewModel.Link = document.Link;
+            documentViewModel.Description = document.Description;
+            documentViewModel.IconStyle = _documentsIcons[document.Type];
+
+            return documentViewModel;
+        }  
     }
 }

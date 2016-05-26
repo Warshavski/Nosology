@@ -27,6 +27,6 @@ namespace Escyug.Nosology.Data.Entities
             _userName = userName;
             _userLevel = userLevel;
             _expiredDate = expiredDate;
-        }
+        }  
     }
 }

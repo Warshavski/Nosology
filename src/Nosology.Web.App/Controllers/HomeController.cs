@@ -6,36 +6,40 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
+using Escyug.Nosology.Models;
 using Escyug.Nosology.Models.Repositories;
 
 
 namespace Escyug.Nosology.Web.App.Controllers
 {
+    [Authorize]
     public sealed class HomeController : Controller
     {
-        private readonly IMainTextBlockRepository _mainRepository;
+        private readonly IMainTextBlockRepository _mainTextRepository;
 
-        public HomeController(IMainTextBlockRepository mainRepository)
+        public HomeController(IMainTextBlockRepository mainTextRepository)
         {
-            _mainRepository = mainRepository;
+            _mainTextRepository = mainTextRepository;
         }
 
         public async Task<ActionResult> Index()
         {
-            var mainText = await _mainRepository.GetAboutInfoAsync();
-            ViewBag.TextBlock = mainText;
+            var mainText = await _mainTextRepository.GetAboutInfoAsync();
 
-            return View();
+            ViewBag.Title = "Главная";
+            ViewBag.MainText = mainText;
+
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("IndexPartial");
+            }
+            else
+            {
+                var user = Session["user"] as User;
+                return View(user);
+            }
         }
 
-        public ActionResult Documents()
-        {
-            return RedirectToAction("Index", "Documents");
-        }
-
-        public ActionResult Downloads()
-        {
-            return RedirectToAction("Index", "Downloads");
-        }
+       
     }
 }

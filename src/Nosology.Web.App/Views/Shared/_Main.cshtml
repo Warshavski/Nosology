@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" />
     
-    <title>@ViewBag.Title – "Высокозатратные нозологии - "</title>
+    <title>@ViewBag.Title - "Высокозатратные нозологии"</title>
 
 </head>
 
@@ -36,6 +36,8 @@
         
             <div class="mdl-layout__header-row">
                 
+                <span class="mdl-layout-title">@ViewBag.Title</span>
+
                 <div class="mdl-layout-spacer"></div>
 
                 <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
@@ -51,7 +53,7 @@
 
             <div class="mdl-layout__header-row header-row--helper">
                 <i class="material-icons">star</i>
-                @*<asp:Label ID="userLevel" runat="server" Text="[user level placeholder]" />*@
+                @*<span>@Model.Level</span>*@
             </div>
 
         </header><!-- / #HEADER -->
@@ -64,7 +66,7 @@
                 <!-- class="nos-drawer-header" -->
                 <i class="fa fa-user-md" style="font-size: 48px"></i>
                 <br />
-                @*<asp:Label ID="userName" runat="server" Text="[user name placeholder]"></asp:Label>*@
+                @*<span>@Model.Name</span>*@
                 <br />
 
             </header>
@@ -72,20 +74,20 @@
             <!-- Start #DRAWER__NAVIGATION_MENU -->
             <nav class="demo-navigation mdl-navigation">
 
-                <a class="mdl-navigation__link" href="@Url.Action("Index","Home")">
+                <a class="mdl-navigation__link" href="#" onclick="renderPartial('/Home/Index')">
                     <i class="material-icons nav-icon" role="presentation">home</i>
                     Главная
                 </a>
-                <a class="mdl-navigation__link" href="@Url.Action("Index", "Documents")">
+                <a class="mdl-navigation__link" href="#" onclick="renderPartial('/Documents/Index')">
                     <i class="material-icons nav-icon" role="presentation">description</i>
                     Документы
                 </a>
-                <a class="mdl-navigation__link" href="@Url.Action("Index", "Downloads")">
+                <a class="mdl-navigation__link" href="#" onclick="renderPartial('/Downloads/Index')">
                     <i class="material-icons nav-icon" role="presentation">file_download</i>
                     Загрузки
                 </a>
                 <!-- close user session and redirects to the login page -->
-                <a class="mdl-navigation__link" href="@Url.Action("Logout", "Authentication")">
+                <a class="mdl-navigation__link" href="@Url.Action("LogOut", "Account")">
                     <i class="material-icons nav-icon" role="presentation">exit_to_app</i>
                     Выход
                 </a>
@@ -103,6 +105,9 @@
             </nav><!-- / #DRAWER__NAVIGATION_MENU -->
 
         </div><!-- / #DRAWER -->
+
+        <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate" 
+             style="width: 100%; display:none;"></div>
 
         <main class="mdl-layout__content mdl-color--grey-100">
             @RenderBody()

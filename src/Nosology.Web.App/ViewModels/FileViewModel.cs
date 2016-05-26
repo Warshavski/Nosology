@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Escyug.Nosology.Web.App.ViewModels
 {
-    public sealed class DownloadableFile : BaseItem
+    public sealed class FileViewModel : BaseItem
     {
 
     }

@@ -1,11 +1,12 @@
 ﻿using System.Threading.Tasks;
 
-using Escyug.Nosology.Models;
+using Microsoft.AspNet.Identity;
+
 
 namespace Escyug.Nosology.Models.Repositories
 {
-    public interface IUserRepository
+    public interface IUserRepository : IUserStore<User>
     {
-        Task<User> SelectUserAsync(string login, string password);
+        Task<User> FindByCredentialsAsync(string login, string password);   
     }
 }

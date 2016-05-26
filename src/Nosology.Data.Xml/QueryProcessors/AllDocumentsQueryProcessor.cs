@@ -11,9 +11,8 @@ namespace Escyug.Nosology.Data.Xml.QueryProcessors
 {
     public sealed class AllDocumentsQueryProcessor : IAllDocumentsQueryProcessor
     {
-
         [Serializable()]
-        public class DocumentNode
+        public sealed class DocumentNode
         {
             [System.Xml.Serialization.XmlElement("Id")]
             public int Id { get; set; }
@@ -33,7 +32,7 @@ namespace Escyug.Nosology.Data.Xml.QueryProcessors
 
         [Serializable()]
         [System.Xml.Serialization.XmlRoot("DocumentCollection")]
-        public class DocumentNodeCollection
+        public sealed class DocumentNodeCollection
         {
             [XmlArray("Documents")]
             [XmlArrayItem("Document", typeof(DocumentNode))]
@@ -49,7 +48,6 @@ namespace Escyug.Nosology.Data.Xml.QueryProcessors
 
         public IEnumerable<Document> GetDocuments()
         {
-
             try
             {
                 DocumentNodeCollection documentsNodes = null;
@@ -63,16 +61,9 @@ namespace Escyug.Nosology.Data.Xml.QueryProcessors
                 }
 
                 var documentsList = new List<Document>();
-                foreach (var serItem in documentsNodes.DocumentsNodes)
+                foreach (var documentNode in documentsNodes.DocumentsNodes)
                 {
-                    var doc = new Document();
-                    doc.Id = serItem.Id;
-                    doc.Description = serItem.Description;
-                    doc.Link = serItem.Link;
-                    doc.Title = serItem.Title;
-                    doc.Type = serItem.Type;
-
-                    documentsList.Add(doc);
+                    documentsList.Add(NodeToDocument(documentNode));
                 }
 
                 return documentsList;
@@ -86,6 +77,18 @@ namespace Escyug.Nosology.Data.Xml.QueryProcessors
         private string CreatePath(string rootFolderPath)
         {
             return string.Format("{0}\\App_Data\\{1}", rootFolderPath, "documents.xml");
+        }
+
+        private Document NodeToDocument(DocumentNode documentNode)
+        {
+            var document = new Document();
+            document.Id = documentNode.Id;
+            document.Description = documentNode.Description;
+            document.Link = documentNode.Link;
+            document.Title = documentNode.Title;
+            document.Type = documentNode.Type;
+
+            return document;
         }
     }
 }

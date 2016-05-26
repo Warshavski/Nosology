@@ -1,4 +1,7 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
+
+using Microsoft.AspNet.Identity;
 
 using log4net;
 using log4net.Config;
@@ -12,9 +15,10 @@ using Escyug.Nosology.Data.QueryProcessors;
 using Escyug.Nosology.Data.Sql.QueryProcessors;
 using Escyug.Nosology.Data.Xml.QueryProcessors;
 
+using Escyug.Nosology.Models;
 using Escyug.Nosology.Models.Services;
 using Escyug.Nosology.Models.Repositories;
-using System;
+
 
 namespace Escyug.Nosology.Web.App
 {
@@ -46,7 +50,7 @@ namespace Escyug.Nosology.Web.App
                 .WithConstructorArgument("rootFolderPath", GetRootFolderPath());
 
             container.Bind<IUserRepository>()
-                .To<UserRepository>()
+                .To<UserIdentityRepository>()
                 .InRequestScope();
             container.Bind<IMainTextBlockRepository>()
                 .To<MainTextBlockRepository>()
@@ -55,8 +59,8 @@ namespace Escyug.Nosology.Web.App
             container.Bind<IDocumentsRepository>()
                 .To<DocumentsRepository>();
 
-            container.Bind<ILoginService>()
-                .To<StupidLoginService>()
+            container.Bind<UserManager<User>>()
+                .To<UserManagerService>()
                 .InRequestScope();
         }
 

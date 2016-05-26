@@ -23,3 +23,19 @@ function redirect(url) {
         }
     });
 }
+
+function renderPartial(url) {
+
+    $('#p2').show();
+
+    $.ajax({
+        url: url,
+        dataType: 'html',
+        success: function (data) {
+            $('#p2').hide();
+            $('main').html(data);
+            componentHandler.upgradeAllRegistered();
+        }
+    });
+    
+};

@@ -14,7 +14,7 @@ namespace Escyug.Nosology.Console.App
             var kernel = new StandardKernel();
             kernel.Load(Assembly.GetExecutingAssembly());
 
-            var loginService = kernel.Get<ILoginService>();
+            var loginService = kernel.Get<IUserService>();
 
             System.Console.Write("Input login : ");
             var login = System.Console.ReadLine();
