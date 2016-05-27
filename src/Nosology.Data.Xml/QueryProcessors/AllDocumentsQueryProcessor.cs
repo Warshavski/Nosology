@@ -1,7 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO;
-using System.Xml;
-using System.Xml.Serialization;
 
 using Escyug.Nosology.Data.Entities;
 using Escyug.Nosology.Data.QueryProcessors;
@@ -12,6 +9,8 @@ namespace Escyug.Nosology.Data.Xml.QueryProcessors
 {
     public sealed class AllDocumentsQueryProcessor : IAllDocumentsQueryProcessor
     {
+        private const string FILE_NAME = "documents.xml";
+
         private readonly string _rootFolderPath;
 
         public AllDocumentsQueryProcessor(string rootFolderPath)
@@ -21,18 +20,11 @@ namespace Escyug.Nosology.Data.Xml.QueryProcessors
 
         public IEnumerable<Document> GetDocuments()
         {
-            try
+            var documentsNodes = EntityDeSerializer
+                .GetDeSerializedEntity<DocumentNodesCollection>(_rootFolderPath, FILE_NAME);
+
+            if (documentsNodes != null)
             {
-                DocumentNodesCollection documentsNodes = null;
-                string path = CreatePath(_rootFolderPath);
-
-                XmlSerializer serializer = new XmlSerializer(typeof(DocumentNodesCollection));
-
-                using (var reader = new StreamReader(path))
-                {
-                    documentsNodes = (DocumentNodesCollection)serializer.Deserialize(reader);
-                }
-
                 var documentsList = new List<Document>();
                 foreach (var documentNode in documentsNodes.DocumentsNodes)
                 {
@@ -41,15 +33,10 @@ namespace Escyug.Nosology.Data.Xml.QueryProcessors
 
                 return documentsList;
             }
-            catch (XmlException)
+            else
             {
                 return null;
-            }           
-        }
-
-        private string CreatePath(string rootFolderPath)
-        {
-            return string.Format("{0}\\App_Data\\{1}", rootFolderPath, "documents.xml");
+            }
         }
 
         private Document NodeToDocument(DocumentNode documentNode)

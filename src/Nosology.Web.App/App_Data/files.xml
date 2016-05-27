@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FileCollection>
+  <Files>
+    <File>
+      <Id>1</Id>
+      <Title>Установочный файл "Высокозатратные нозологии"</Title>
+      <Link>Высокозатратные нозологии.msi</Link>
+      <Type>file</Type>
+    </File>
+    <File>
+      <Id>2</Id>
+      <Title>Библиотека .NET Framework</Title>
+      <Link>dotnetfx.exe</Link>
+      <Type>file</Type>
+    </File>
+    <File>
+      <Id>3</Id>
+      <Title>Руководство пользователя</Title>
+      <Link>Высокозатратные нозологии(Руководство)Вер.2_1</Link>
+      <Type>file</Type>
+    </File>
+  </Files>
+</FileCollection>

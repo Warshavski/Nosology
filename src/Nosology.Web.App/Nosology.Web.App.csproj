@@ -175,12 +175,14 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\IconsList.cs" />
     <Compile Include="ViewModels\FileViewModel.cs" />
     <Compile Include="ViewModels\DocumentViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\documents.xml" />
+    <Content Include="App_Data\files.xml" />
     <Content Include="App_Data\main.txt" />
     <Content Include="Content\jDialog\jDialog.css" />
     <Content Include="Content\jDialog\jDialog.js" />
@@ -235,6 +237,7 @@
     <Content Include="Views\Documents\IndexPartial.cshtml" />
     <Content Include="Views\Home\IndexPartial.cshtml" />
     <Content Include="Views\Home\DocumentsPartial.cshtml" />
+    <Content Include="Views\Downloads\IndexPartial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

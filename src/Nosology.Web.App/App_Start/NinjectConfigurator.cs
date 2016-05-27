@@ -48,6 +48,9 @@ namespace Escyug.Nosology.Web.App
             container.Bind<IAllDocumentsQueryProcessor>()
                 .To<AllDocumentsQueryProcessor>()
                 .WithConstructorArgument("rootFolderPath", GetRootFolderPath());
+            container.Bind<IAllFilesQueryProcessor>()
+                .To<AllFilesQueryProcessor>()
+                .WithConstructorArgument("rootFolderPath", GetRootFolderPath());
 
             container.Bind<IUserRepository>()
                 .To<UserIdentityRepository>()
@@ -57,7 +60,11 @@ namespace Escyug.Nosology.Web.App
                 .InRequestScope()
                 .WithConstructorArgument("rootPath", GetRootFolderPath());
             container.Bind<IDocumentsRepository>()
-                .To<DocumentsRepository>();
+                .To<DocumentsRepository>()
+                .InRequestScope();
+            container.Bind<IFilesRepository>()
+                .To<FilesRepository>()
+                .InRequestScope();
 
             container.Bind<UserManager<User>>()
                 .To<UserManagerService>()

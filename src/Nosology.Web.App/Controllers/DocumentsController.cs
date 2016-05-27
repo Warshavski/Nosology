@@ -5,8 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 
 using Escyug.Nosology.Data.Exceptions;
+
+using Escyug.Nosology.Models;
 using Escyug.Nosology.Models.Repositories;
+
 using Escyug.Nosology.Web.App.ViewModels;
+
 
 namespace Escyug.Nosology.Web.App.Controllers
 {
@@ -15,35 +19,36 @@ namespace Escyug.Nosology.Web.App.Controllers
     {
         private readonly IDocumentsRepository _documentsRepository;
 
-        private readonly Dictionary<string, string> _documentsIcons;
-        
         public DocumentsController(IDocumentsRepository documentsRepository)
         {
             _documentsRepository = documentsRepository;
-
-            _documentsIcons = new Dictionary<string, string>()
-            {
-                {"pdf", "info_outline"}
-            };
         }
 
         // GET: Documents
         public ActionResult Index()
         {
-            ViewBag.Title = "Документы";
-
-            var documents = _documentsRepository.GetDocuments();
-            var documentsVM = new List<ViewModels.DocumentViewModel>();
-            foreach (var document in documents)
-                documentsVM.Add(CreateViewModelDocument(document));
-
-            if (Request.IsAjaxRequest())
+            var user = Session["user"] as User;
+            if (user != null)
             {
-                return PartialView("IndexPartial", documentsVM);
+                ViewBag.Title = "Документы";
+
+                var documents = _documentsRepository.GetDocuments();
+                var documentsVM = new List<ViewModels.DocumentViewModel>();
+                foreach (var document in documents)
+                    documentsVM.Add(CreateViewModelDocument(document));
+
+                if (Request.IsAjaxRequest())
+                {
+                    return PartialView("IndexPartial", documentsVM);
+                }
+                else
+                {
+                    return View(documentsVM);
+                }
             }
             else
             {
-                return View(documentsVM);
+                return RedirectToAction("Index", "Account");
             }
 
         }
@@ -56,7 +61,7 @@ namespace Escyug.Nosology.Web.App.Controllers
             documentViewModel.Title = document.Title;
             documentViewModel.Link = document.Link;
             documentViewModel.Description = document.Description;
-            documentViewModel.IconStyle = _documentsIcons[document.Type];
+            documentViewModel.IconStyle = IconsList.GetIconTypeName(document.Type);
 
             return documentViewModel;
         }  

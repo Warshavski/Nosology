@@ -50,9 +50,11 @@
     <Compile Include="Repositories\DocumentsRepository.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Repositories\FilesRepository.cs" />
     <Compile Include="Repositories\IDocumentsRepository.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Repositories\IFilesRepository.cs" />
     <Compile Include="Repositories\IMainTextBlockRepository.cs">
       <SubType>Code</SubType>
     </Compile>
