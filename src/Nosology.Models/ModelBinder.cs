@@ -20,16 +20,26 @@
             return new Models.User(userName, userLevel, userExpiredDate);
         }
 
-        public static Models.Document CreateDocumentModel(Data.Entities.Document documentEntitie)
+        public static Models.Document CreateDocumentModel(Data.Entities.Document documentEntity)
         {
-            var documentId = documentEntitie.Id;
-            var documentTitle = documentEntitie.Title;
-            var documentDescription = documentEntitie.Description;
-            var documentLink = documentEntitie.Link;
-            var documentType = documentEntitie.Type;
+            var documentId = documentEntity.Id;
+            var documentTitle = documentEntity.Title;
+            var documentDescription = documentEntity.Description;
+            var documentLink = documentEntity.Link;
+            var documentType = documentEntity.Type;
 
             return new Document(documentId, documentTitle,
                 documentDescription, documentType, documentLink);
+        }
+
+        public static Models.File CreateFileModel(Data.Entities.File fileEntity)
+        {
+            var fileId = fileEntity.Id;
+            var fileTitle = fileEntity.Title;
+            var fileLink = fileEntity.Link;
+            var fileType = fileEntity.Type;
+
+            return new File(fileId, fileTitle, fileType, fileLink);
         }
     }
 }

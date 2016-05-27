@@ -5,40 +5,13 @@ using System.Xml.Serialization;
 
 using Escyug.Nosology.Data.Entities;
 using Escyug.Nosology.Data.QueryProcessors;
-using System;
+
+using Escyug.Nosology.Data.Xml.SerializbleEntities;
 
 namespace Escyug.Nosology.Data.Xml.QueryProcessors
 {
     public sealed class AllDocumentsQueryProcessor : IAllDocumentsQueryProcessor
     {
-        [Serializable()]
-        public sealed class DocumentNode
-        {
-            [System.Xml.Serialization.XmlElement("Id")]
-            public int Id { get; set; }
-
-            [System.Xml.Serialization.XmlElement("Title")]
-            public string Title { get; set; }
-
-            [System.Xml.Serialization.XmlElement("Description")]
-            public string Description { get; set; }
-
-            [System.Xml.Serialization.XmlElement("Link")]
-            public string Link { get; set; }
-
-            [System.Xml.Serialization.XmlElement("Type")]
-            public string Type { get; set; }
-        }
-
-        [Serializable()]
-        [System.Xml.Serialization.XmlRoot("DocumentCollection")]
-        public sealed class DocumentNodeCollection
-        {
-            [XmlArray("Documents")]
-            [XmlArrayItem("Document", typeof(DocumentNode))]
-            public DocumentNode[] DocumentsNodes { get; set; }
-        }
-
         private readonly string _rootFolderPath;
 
         public AllDocumentsQueryProcessor(string rootFolderPath)
@@ -50,14 +23,14 @@ namespace Escyug.Nosology.Data.Xml.QueryProcessors
         {
             try
             {
-                DocumentNodeCollection documentsNodes = null;
+                DocumentNodesCollection documentsNodes = null;
                 string path = CreatePath(_rootFolderPath);
 
-                XmlSerializer serializer = new XmlSerializer(typeof(DocumentNodeCollection));
+                XmlSerializer serializer = new XmlSerializer(typeof(DocumentNodesCollection));
 
                 using (var reader = new StreamReader(path))
                 {
-                    documentsNodes = (DocumentNodeCollection)serializer.Deserialize(reader);
+                    documentsNodes = (DocumentNodesCollection)serializer.Deserialize(reader);
                 }
 
                 var documentsList = new List<Document>();

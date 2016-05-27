@@ -16,7 +16,6 @@ namespace Escyug.Nosology.Models.Repositories
 
         public IEnumerable<Document> GetDocuments()
         {
-            
             var documentsEntities = _queryProcessor.GetDocuments();
 
             if (documentsEntities != null)
@@ -30,8 +29,7 @@ namespace Escyug.Nosology.Models.Repositories
             else
             {
                 throw new RootObjectNotFoundException("Documents not found");
-            }
-            
+            }   
         }
     }
 }

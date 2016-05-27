@@ -1,22 +1,22 @@
 ﻿var errorLabel = $selectElement('.login-block__label--error span');
 
-function login() {
+function logIn() {
     var userLogin = $selectElement('#loginInput').value;
     var userPassword = $selectElement('#pwdInput').value;
 
     var isValidInput = checkInput(userLogin, userPassword);
     if (isValidInput) {
 
-        block();
+        blockSubmit();
 
         $.ajax({
             type: 'POST',
-            url: '/Authentication/Authenticate',
+            url: '/Account/LogIn',
             data:
                 {
-                    login: userLogin,
-                    password: userPassword,
-                    isPersist: isPersist()
+                    UserName: userLogin,
+                    Password: userPassword,
+                    RememberMe: isPersist()
                 },
             dataType: 'json',
 
@@ -25,7 +25,7 @@ function login() {
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 errorLabel.innerText = thrownError;
-                unBlock();
+                unBlockSubmit();
             }
         });
     }
@@ -62,14 +62,14 @@ function isPersist() {
     return isPersist;
 }
 
-function block() {
+function blockSubmit() {
     $selectElement('.mdl-spinner').classList.add('is-active');
-    $selectElement('#checkButton').setAttribute('disabled', 'disabled');
+    $selectElement('#logInButton').setAttribute('disabled', 'disabled');
 }
 
-function unBlock() {
+function unBlockSubmit() {
     $selectElement('.mdl-spinner').classList.remove('is-active');
-    $selectElement('#checkButton').removeAttribute('disabled');
+    $selectElement('#logInButton').removeAttribute('disabled');
 }
 
 // error label cleanup

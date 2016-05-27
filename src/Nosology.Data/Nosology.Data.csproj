@@ -45,6 +45,8 @@
     <Compile Include="Exceptions\RootObjectNotFoundException.cs" />
     <Compile Include="QueryProcessors\IAllDocumentsQueryProcessor.cs" />
     <Compile Include="QueryProcessors\IAllFilesQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IDocumentByTitleQueryProcessor.cs" />
+    <Compile Include="QueryProcessors\IFileByNameQueryProcessor.cs" />
     <Compile Include="QueryProcessors\IUserByCredentialsQueryProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

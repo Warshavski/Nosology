@@ -14,7 +14,7 @@ using Escyug.Nosology.Models;
 using Escyug.Nosology.Models.Services;
 using Escyug.Nosology.Web.App.ViewModels;
 
-//using Escyug.Nosology.Web.Common.Security;
+using Escyug.Nosology.Web.Common.Security;
 
 namespace Escyug.Nosology.Web.App.Controllers
 {
@@ -28,12 +28,16 @@ namespace Escyug.Nosology.Web.App.Controllers
             _userService = userService;
         }
 
+        //
+        // GET: /Account
         [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
         }
 
+        //
+        // POST: /Account/LogIn
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -41,32 +45,45 @@ namespace Escyug.Nosology.Web.App.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await _userService.FindAsync(model.UserName, model.Password);
-                if (user != null)
+                try
                 {
-                    await SignInAsync(user, model.RememberMe);
-                    Session["user"] = user;
-                    return RedirectToAction("Index", "Home"); //RedirectToLocal(returnUrl);
+                    var user = await _userService.FindAsync(model.UserName, model.Password);
+
+                    if (user != null)
+                    {
+                        await SignInAsync(user, model.RememberMe);
+
+                        Session.Add("user", user);
+
+                        return RedirectToAction("Index", "Home"); //RedirectToLocal(returnUrl);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Invalid username or password.");
+                    }
                 }
-                else
+                catch (ArgumentException)
                 {
-                    ModelState.AddModelError("", "Invalid username or password.");
+                    ModelState.AddModelError("", "User account is out of date.");
                 }
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
-            
-            /*
-            var user = await _loginService.LoginAsync(login, password);
-            FormsAuthentication.SetAuthCookie(user.Name, isPersist);
+            return View("Index", model);
+        }
 
-            Session.Add("user", user);
-            var redirectUrl = new UrlHelper(Request.RequestContext).Action("Index", "Home");
-            */
+        //
+        // POST: /Account/LogOff
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LogOut()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Account");
         }
 
         #region Helpers
+
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -82,15 +99,18 @@ namespace Escyug.Nosology.Web.App.Controllers
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             var identity = await _userService.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
-            /*
-            // Add more custom claims here if you want. Eg HomeTown can be a claim for the User
-            var homeclaim = new Claim(ClaimTypes.Country, user.HomeTown);
-            identity.AddClaim(homeclaim);
-            */
+
+            /** Add more custom claims here if you want. Eg HomeTown can be a claim for the User
+             *
+             * var homeclaim = new Claim(ClaimTypes.Country, user.HomeTown);
+             * identity.AddClaim(homeclaim);
+             * 
+             */
+
             AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
         }
 
-        /*
+        /* other helper methods 
         private void AddErrors(IdentityResult result)
         {
             foreach (var error in result.Errors)
@@ -158,163 +178,60 @@ namespace Escyug.Nosology.Web.App.Controllers
             }
         }
         */
+
         #endregion
-
-        /*
-        private readonly ILoginService _loginService;
-
-        public UserManager<User> UserManager { get; private set; }
-
-        public AccountController(ILoginService loginService)
-        {
-            _loginService = loginService;
-        }
-
-        // GET: Account
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> LogIn(LoginViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = await UserManager.FindAsync(model.UserName, model.Password);
-                if (user != null)
-                {
-                    await SignInAsync(user, model.RememberMe);
-                    return RedirectToLocal(returnUrl);
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Invalid username or password.");
-                }
-            }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
-            
-            / *
-            var user = await _loginService.LoginAsync(login, password);
-            FormsAuthentication.SetAuthCookie(user.Name, isPersist);
-
-            Session.Add("user", user);
-            var redirectUrl = new UrlHelper(Request.RequestContext).Action("Index", "Home");
-            * /
-        }
-
-        private IAuthenticationManager AuthenticationManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().Authentication;
-            }
-        }
-
-        //
-        // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult LogOut()
-        {
-            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
-        }
-
-
-        #region Helpers
-        // Used for XSRF protection when adding external logins
-        private const string XsrfKey = "XsrfId";
-
-        private IAuthenticationManager AuthenticationManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().Authentication;
-            }
-        }
-
-        private async Task SignInAsync(User user, bool isPersistent)
-        {
-            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-            var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
-            // Add more custom claims here if you want. Eg HomeTown can be a claim for the User
-            var homeclaim = new Claim(ClaimTypes.Country, user.HomeTown);
-            identity.AddClaim(homeclaim);
-            AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
-        }
-
-        private void AddErrors(IdentityResult result)
-        {
-            foreach (var error in result.Errors)
-            {
-                ModelState.AddModelError("", error);
-            }
-        }
-
-        private bool HasPassword()
-        {
-            var user = UserManager.FindById(User.Identity.GetUserId());
-            if (user != null)
-            {
-                return user.PasswordHash != null;
-            }
-            return false;
-        }
-
-        public enum ManageMessageId
-        {
-            ChangePasswordSuccess,
-            SetPasswordSuccess,
-            RemoveLoginSuccess,
-            Error
-        }
-
-        private ActionResult RedirectToLocal(string returnUrl)
-        {
-            if (Url.IsLocalUrl(returnUrl))
-            {
-                return Redirect(returnUrl);
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
-        }
-
-        private class ChallengeResult : HttpUnauthorizedResult
-        {
-            public ChallengeResult(string provider, string redirectUri)
-                : this(provider, redirectUri, null)
-            {
-            }
-
-            public ChallengeResult(string provider, string redirectUri, string userId)
-            {
-                LoginProvider = provider;
-                RedirectUri = redirectUri;
-                UserId = userId;
-            }
-
-            public string LoginProvider { get; set; }
-            public string RedirectUri { get; set; }
-            public string UserId { get; set; }
-
-            public override void ExecuteResult(ControllerContext context)
-            {
-                var properties = new AuthenticationProperties() { RedirectUri = RedirectUri };
-                if (UserId != null)
-                {
-                    properties.Dictionary[XsrfKey] = UserId;
-                }
-                context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
-            }
-        }
-        #endregion
-*/
     }
 }
+
+
+
+
+/* Old archive code 
+private readonly ILoginService _loginService;
+
+public UserManager<User> UserManager { get; private set; }
+
+public AccountController(ILoginService loginService)
+{
+    _loginService = loginService;
+}
+
+// GET: Account
+public ActionResult Index()
+{
+    return View();
+}
+
+[HttpPost]
+[AllowAnonymous]
+[ValidateAntiForgeryToken]
+public async Task<ActionResult> LogIn(LoginViewModel model)
+{
+    if (ModelState.IsValid)
+    {
+        var user = await UserManager.FindAsync(model.UserName, model.Password);
+        if (user != null)
+        {
+            await SignInAsync(user, model.RememberMe);
+            return RedirectToLocal(returnUrl);
+        }
+        else
+        {
+            ModelState.AddModelError("", "Invalid username or password.");
+        }
+    }
+
+    // If we got this far, something failed, redisplay form
+    return View(model);
+            
+    / *
+    var user = await _loginService.LoginAsync(login, password);
+    FormsAuthentication.SetAuthCookie(user.Name, isPersist);
+
+    Session.Add("user", user);
+    var redirectUrl = new UrlHelper(Request.RequestContext).Action("Index", "Home");
+    return Json(new { Url = redirectUrl });
+    * /
+}
+
+*/

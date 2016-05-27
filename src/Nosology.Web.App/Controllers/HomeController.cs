@@ -24,22 +24,27 @@ namespace Escyug.Nosology.Web.App.Controllers
 
         public async Task<ActionResult> Index()
         {
-            var mainText = await _mainTextRepository.GetAboutInfoAsync();
-
-            ViewBag.Title = "Главная";
-            ViewBag.MainText = mainText;
-
-            if (Request.IsAjaxRequest())
+            var user = Session["user"] as User;
+            if (user != null)
             {
-                return PartialView("IndexPartial");
+                var mainText = await _mainTextRepository.GetAboutInfoAsync();
+
+                ViewBag.Title = "Главная";
+                ViewBag.MainText = mainText;
+
+                if (Request.IsAjaxRequest())
+                {
+                    return PartialView("IndexPartial");
+                }
+                else
+                {
+                    return View(user);
+                }
             }
             else
             {
-                var user = Session["user"] as User;
-                return View(user);
-            }
+                return RedirectToAction("LogOut", "Account");
+            }   
         }
-
-       
     }
 }

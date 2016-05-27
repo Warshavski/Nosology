@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 using Microsoft.AspNet.Identity;
@@ -29,7 +26,7 @@ namespace Escyug.Nosology.Models.Services
             {
                 var user = await _userRepository.FindByCredentialsAsync(userName, password);
 
-                if (user.ExpiredDate < DateTime.Today)
+                if (user != null && user.ExpiredDate < DateTime.Today)
                     throw new ArgumentException(); // Account date expired error
 
                 return user;

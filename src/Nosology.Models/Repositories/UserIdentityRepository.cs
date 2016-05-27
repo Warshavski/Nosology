@@ -28,7 +28,8 @@ namespace Escyug.Nosology.Models.Repositories
             }
             else
             {
-                throw new RootObjectNotFoundException("No such user");
+                return null;
+                //throw new RootObjectNotFoundException("No such user");
             }
         }
 

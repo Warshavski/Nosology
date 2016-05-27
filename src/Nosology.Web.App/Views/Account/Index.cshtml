@@ -15,44 +15,11 @@
         <div class="login-block mdl-shadow--2dp">
 
             <i class="fa fa-user-md mdl-color-text--nos-main login-block__icon"></i>
-
-            @*<form method="POST" id="loginForm" action="javascript:void(null);" onsubmit="login()">
-
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" id="loginInput" onfocus="clearError();" />
-                    <label class="mdl-textfield__label" for="loginInput">Логин...</label>
-                </div>
-
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="password" id="pwdInput" onfocus="clearError();" />
-                    <label class="mdl-textfield__label" for="pwdInput">Пароль...</label>
-                </div>
-
-                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="persistCheckBox">
-                    <input type="checkbox" id="persistCheckBox" class="mdl-checkbox__input" />
-                    <span class="mdl-checkbox__label">Запомнить?</span>
-                </label>
-
-                <label class="login-block__label--error">
-                    <span></span>
-                </label>
-
-                <button type="submit" form="loginForm" value="ВХОД" id="checkButton"
-                    class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
-                        mdl-button--colored mdl-color-text--white mdl-color--nos-main login-block__button">ВХОД
-                </button>
-
-                <!-- MDL Spinner Component with Single Color -->
-                <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner"
-                        style="float:right; margin-top: 44px; margin-right: 75px;">
-                </div>
-
-            </form>*@
-
-            @using (Html.BeginForm("LogIn", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "", role = "form", @id="loginForm" }))
+            
+            @using (Html.BeginForm("LogIn", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post,
+                new { @class = "", role = "form", @id = "loginForm", @onsubmit = "blockSubmit()" }))
             {
                 @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true)
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     @Html.TextBoxFor(m => m.UserName, new { @class = "mdl-textfield__input", @id = "loginInput" })
@@ -69,17 +36,15 @@
                     <span class="mdl-checkbox__label">Запомнить?</span>
                 </label>
 
-                <label class="login-block__label--error">
-                    <span></span>
-                </label>
+                @Html.ValidationSummary(true)
 
-                <button type="submit" form="loginForm" value="ВХОД" id="checkButton"
+                <button type="submit" form="loginForm" value="ВХОД" id="logInButton"
                         class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
                                 mdl-button--colored mdl-color-text--white mdl-color--nos-main login-block__button">
                     ВХОД
                 </button>
 
-                        <!-- MDL Spinner Component with Single Color -->
+                <!-- MDL Spinner Component with Single Color -->
                 <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner"
                      style="float:right; margin-top: 44px; margin-right: 75px;">
                 </div>

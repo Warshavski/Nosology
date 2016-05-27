@@ -27,7 +27,6 @@ namespace Escyug.Nosology.Data.Sql.QueryProcessors
             {
                 using (connection = new SqlConnection(_connectionString))
                 {
-
                     await connection.OpenAsync();
 
                     /* 
@@ -35,7 +34,7 @@ namespace Escyug.Nosology.Data.Sql.QueryProcessors
                      * we will execute this without specifying a CommandBehavior
                      * This will cause the default (non-sequential) access mode to be used
                      */
-                    using (var command = CreateSelectCommnad(login, password, connection))
+                    using (var command = CreateSelectUserCommnad(login, password, connection))
                     {
                         using (var reader = await command.ExecuteReaderAsync())
                         {
@@ -65,7 +64,7 @@ namespace Escyug.Nosology.Data.Sql.QueryProcessors
             }
         }
 
-        private SqlCommand CreateSelectCommnad(string login, string password, SqlConnection connection)
+        private SqlCommand CreateSelectUserCommnad(string login, string password, SqlConnection connection)
         {
             var commandText = @"SELECT PAROL, DATE_E, NIC, KAT  FROM dbo.DOPUSK WHERE  (NIC = @NIC) AND (PAROL = @PAROL)";
             var commandType = CommandType.Text;
@@ -84,6 +83,7 @@ namespace Escyug.Nosology.Data.Sql.QueryProcessors
             return command;
         }
 
+        // Exceptions handling
         private User GetUserFromReader(SqlDataReader reader)
         {
             /** Data columns order :
@@ -99,7 +99,5 @@ namespace Escyug.Nosology.Data.Sql.QueryProcessors
 
             return new User(userName, userLevel, expiredDate);
         }
-
-        
     }
 }
