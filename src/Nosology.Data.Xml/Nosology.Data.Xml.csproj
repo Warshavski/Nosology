@@ -46,7 +46,7 @@
     <Compile Include="SerializbleEntities\DocumentNodesCollection.cs" />
     <Compile Include="SerializbleEntities\FileNode.cs" />
     <Compile Include="SerializbleEntities\FilesNodesCollection.cs" />
-    <Compile Include="EntiryDeSerializer.cs" />
+    <Compile Include="EntityDeSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nosology.Data\Nosology.Data.csproj">

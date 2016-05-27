@@ -20,7 +20,7 @@
 
                         <i class="material-icons mdl-list__item-icon ">description</i>
 
-                        <a href="#" data-link='@document.Link' onclick="getFile(this.dataset.link, 'docs')">
+                        <a href="@Url.Action("OpenDocument", "Documents", new { documentLink = @document.Link })" data-link='@document.Link' >
                             <span>@document.Title</span>
                         </a>
 
@@ -46,4 +46,5 @@
 
 </div>
 
+@*onclick="getFile(this.dataset.link, 'docs')"*@
 

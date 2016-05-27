@@ -10,6 +10,7 @@ using Escyug.Nosology.Models;
 using Escyug.Nosology.Models.Repositories;
 
 using Escyug.Nosology.Web.App.ViewModels;
+using System.IO;
 
 
 namespace Escyug.Nosology.Web.App.Controllers
@@ -51,6 +52,16 @@ namespace Escyug.Nosology.Web.App.Controllers
                 return RedirectToAction("Index", "Account");
             }
 
+        }
+
+        [Authorize]
+        public ActionResult OpenDocument(string documentLink)
+        {
+            string rootFolderPath = AppDomain.CurrentDomain.BaseDirectory;
+
+            string path = Path.Combine(rootFolderPath + "\\App_Data\\docs", documentLink);
+
+            return File(path, "application/pdf");
         }
 
         private ViewModels.DocumentViewModel CreateViewModelDocument(Models.Document document)
