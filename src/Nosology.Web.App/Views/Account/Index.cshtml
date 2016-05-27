@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Вход";
+    Layout = "~/Views/Shared/_Default.cshtml";
+}
+
+@model Escyug.Nosology.Web.App.ViewModels.LoginViewModel
+
+<div class="mdl-grid mdl-grid--no-spacing">
+
+    <!-- #SPACER -->
+    <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-phone mdl-cell--hide-tablet"></div>
+
+    <!-- #MAIN CELL  -->
+    <div class="mdl-cell mdl-cell--10-col mdl-cell--middle">
+        <div class="login-block mdl-shadow--2dp">
+
+            <i class="fa fa-user-md mdl-color-text--nos-main login-block__icon"></i>
+            
+            @using (Html.BeginForm("LogIn", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post,
+                new { @class = "", role = "form", @id = "loginForm", @onsubmit = "blockSubmit()" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "mdl-textfield__input", @id = "loginInput" })
+                    <label class="mdl-textfield__label" for="loginInput">Логин...</label>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    @Html.PasswordFor(m => m.Password, new { @class = "mdl-textfield__input", @id = "pwdInput" })
+                    <label class="mdl-textfield__label" for="pwdInput">Пароль...</label>
+                </div>
+
+                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="persistCheckBox">
+                    @Html.CheckBoxFor(m => m.RememberMe, new { @class = "mdl-checkbox__input", @id = "persistCheckBox" })
+                    <span class="mdl-checkbox__label">Запомнить?</span>
+                </label>
+
+                @Html.ValidationSummary(true)
+
+                <button type="submit" form="loginForm" value="ВХОД" id="logInButton"
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
+                                mdl-button--colored mdl-color-text--white mdl-color--nos-main login-block__button">
+                    ВХОД
+                </button>
+
+                <!-- MDL Spinner Component with Single Color -->
+                <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner"
+                     style="float:right; margin-top: 44px; margin-right: 75px;">
+                </div>
+            }
+
+        </div>
+    </div>
+
+    <!-- #SPACER -->
+    <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-phone mdl-cell--hide-tablet"></div>
+
+</div>

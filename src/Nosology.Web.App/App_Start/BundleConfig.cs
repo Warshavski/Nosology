@@ -1,0 +1,38 @@
+﻿using System.Web;
+using System.Web.Optimization;
+
+namespace Escyug.Nosology.Web.App
+{
+    public sealed class BundleConfig
+    {
+        //Дополнительные сведения об объединении см. по адресу: http://go.microsoft.com/fwlink/?LinkId=301862
+        public static void RegisterBundles(BundleCollection bundles)
+        {
+            bundles.UseCdn = true;
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                        "~/Scripts/jquery-{version}.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                        "~/Scripts/jquery.validate*"));
+
+            // Используйте версию Modernizr для разработчиков, чтобы учиться работать. Когда вы будете готовы перейти к работе,
+            // используйте средство сборки на сайте http://modernizr.com, чтобы выбрать только нужные тесты.
+            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+                        "~/Scripts/modernizr-*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/mdl").Include(
+                        "~/Content/mdl-v1.1.2/material.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/modal").Include(
+                        "~/Content/jDialog/jDialog.js",
+                        "~/Content/jDialog/modal.js"));
+
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/mdl-v1.1.2/material.css",
+                      "~/Content/mdl-v1.1.2/material-cyan-teal.min.css",
+                      "~/Content/Site.css",
+                      "~/Content/jDialog/jDialog.css"));
+        }
+    }
+}

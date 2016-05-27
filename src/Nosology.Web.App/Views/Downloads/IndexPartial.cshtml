@@ -1,0 +1,33 @@
+﻿
+@using Escyug.Nosology.Web.App.ViewModels
+@model IEnumerable<FileViewModel>
+
+@{
+    ViewBag.Title = "Загрузки";
+}
+
+<div class="mdl-grid nos-content">
+
+    @if (Model != null)
+    {
+        foreach (var file in Model)
+        {
+            <div download class="nos-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--6-col">
+                <a href="@Url.Action("DownloadFile", "Downloads", new { fileLink= @file.Link })" data-link='@file.Link'>
+
+                    <i class="material-icons content-icon">@file.IconStyle</i>
+
+                    <span style="position: absolute; margin-top: 5px;">@file.Title</span>
+
+                </a>
+            </div>
+        }
+    }
+    else
+    {
+        <h3>NO DATA</h3>
+    }
+
+</div>
+
+@*onclick="getFile(this.dataset.link, 'files')"*@
