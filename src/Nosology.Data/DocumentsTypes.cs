@@ -1,1 +1,0 @@
-﻿public enum DocumentsTypes { files, orders }
