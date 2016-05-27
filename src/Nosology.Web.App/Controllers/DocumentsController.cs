@@ -10,6 +10,7 @@ using Escyug.Nosology.Web.App.ViewModels;
 
 namespace Escyug.Nosology.Web.App.Controllers
 {
+    [Authorize]
     public sealed class DocumentsController : Controller
     {
         private readonly IDocumentsRepository _documentsRepository;

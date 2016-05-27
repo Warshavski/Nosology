@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Escyug.Nosology.Web.App.Controllers
 {
+    [Authorize]
     public class DownloadsController : Controller
     {
         // GET: Download
