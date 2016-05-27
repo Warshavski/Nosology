@@ -43,7 +43,7 @@ namespace Escyug.Nosology.Web.App.Controllers
             }
             else
             {
-                return RedirectToAction("LogOut", "Account");
+                return RedirectToAction("Index", "Account");
             }   
         }
     }
