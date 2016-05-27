@@ -202,9 +202,6 @@
     <Content Include="Content\mdl-v1.1.2\material.min.css.map" />
     <Content Include="Content\mdl-v1.1.2\LICENSE" />
     <Content Include="Content\mdl-v1.1.2\bower.json" />
-    <Content Include="App_Data\docs\rp_№2782-r_30_12_2014.pdf" />
-    <Content Include="App_Data\docs\О внесении изменений в приказ Минздравсоцразвития №162н.pdf" />
-    <Content Include="App_Data\docs\Постановление №404 от 2012.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -241,8 +238,10 @@
     <Content Include="Views\Home\IndexPartial.cshtml" />
     <Content Include="Views\Home\DocumentsPartial.cshtml" />
     <Content Include="Views\Downloads\IndexPartial.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\docs\" />
     <Folder Include="App_Data\files\" />
   </ItemGroup>
   <ItemGroup>

@@ -57,11 +57,19 @@ namespace Escyug.Nosology.Web.App.Controllers
         [Authorize]
         public ActionResult OpenDocument(string documentLink)
         {
-            string rootFolderPath = AppDomain.CurrentDomain.BaseDirectory;
+            try
+            {
+                string rootFolderPath = AppDomain.CurrentDomain.BaseDirectory;
 
-            string path = Path.Combine(rootFolderPath + "\\App_Data\\docs", documentLink);
+                string path = Path.Combine(rootFolderPath + "\\App_Data\\docs", documentLink);
 
-            return File(path, "application/pdf");
+                return File(path, "application/pdf");
+            }
+            catch (FileNotFoundException)
+            {
+                return View("Error", new { Title = "File not found." });
+            }
+            
         }
 
         private ViewModels.DocumentViewModel CreateViewModelDocument(Models.Document document)

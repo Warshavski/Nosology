@@ -52,12 +52,19 @@ namespace Escyug.Nosology.Web.App.Controllers
         [Authorize]
         public ActionResult DownloadFile(string fileLink)
         {
-            string rootFolderPath = AppDomain.CurrentDomain.BaseDirectory;
+            try
+            {
+                string rootFolderPath = AppDomain.CurrentDomain.BaseDirectory;
 
-            byte[] fileBytes = 
-                System.IO.File.ReadAllBytes(rootFolderPath + "\\App_Data\\files\\" + fileLink);
+                byte[] fileBytes =
+                    System.IO.File.ReadAllBytes(rootFolderPath + "\\App_Data\\files\\" + fileLink);
 
-            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileLink);
+                return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileLink);
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                return View("Error", new { Title = "File not found." });
+            }
         }
 
         private FileViewModel CreateViewModelFile(Models.File file)
