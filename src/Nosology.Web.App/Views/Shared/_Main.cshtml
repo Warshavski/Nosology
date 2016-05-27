@@ -3,26 +3,26 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes" />
-    
+
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    
+
     <meta name="msapplication-TileColor" content="#3372DF" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+
     <!-- general styles -->
     @Styles.Render("~/Content/css")
-    
+
     <!-- fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" />
-    
+
     <title>@ViewBag.Title - "Высокозатратные нозологии"</title>
 
 </head>
@@ -30,12 +30,12 @@
 <body>
 
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-        
+
         <!-- Start #HEADER (TITLE, MENU) nos-header  mdl-color--grey-100 mdl-color-text--grey-600 -->
         <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
-        
+
             <div class="mdl-layout__header-row">
-                
+
                 <span class="mdl-layout-title">@ViewBag.Title</span>
 
                 <div class="mdl-layout-spacer"></div>
@@ -57,12 +57,11 @@
             </div>
 
         </header><!-- / #HEADER -->
-
         <!-- Start #DRAWER (USER INFO, NAVIGATION MENU) nos-drawer -->
         <div class="demo-drawer mdl-layout__drawer colored-test mdl-color-text--blue-grey-50">
 
             <header class="demo-drawer-header mdl-color--nos-main">
-                
+
                 <!-- class="nos-drawer-header" -->
                 <i class="fa fa-user-md" style="font-size: 48px"></i>
                 <br />
@@ -86,12 +85,19 @@
                     <i class="material-icons nav-icon" role="presentation">file_download</i>
                     Загрузки
                 </a>
+                @using (Html.BeginForm("LogOut", "Account", FormMethod.Post, new { @id = "myFormName" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="mdl-navigation__link mdl-button mdl-button--colored" form="myFormName" 
+                            style="border: none; width:100%; height: 60px; text-transform: none;">
+                        <i class="material-icons nav-icon" role="presentation">exit_to_app</i>
+                        Выход
+                    </button>
+                }
                 <!-- close user session and redirects to the login page -->
-                <a class="mdl-navigation__link" href="@Url.Action("LogOut", "Account")">
-                    <i class="material-icons nav-icon" role="presentation">exit_to_app</i>
-                    Выход
-                </a>
-                
+                @*@Html.ActionLink("Выход", "LogOut", "Account", new { @class = "mdl-navigation__link", @id = "loginInput" })*@
+
+
                 <div class="mdl-layout-spacer"></div>
                 <!-- search box goes here -->
                 <div class="mdl-layout-spacer"></div>
@@ -106,7 +112,7 @@
 
         </div><!-- / #DRAWER -->
 
-        <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate" 
+        <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"
              style="width: 100%; display:none;"></div>
 
         <main class="mdl-layout__content mdl-color--grey-100">
@@ -120,7 +126,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
     <![endif]-->
-   
     <!-- Ajax library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 

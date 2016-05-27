@@ -78,6 +78,7 @@ namespace Escyug.Nosology.Web.App.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOut()
         {
+            Session.Clear();
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Account");
         }
