@@ -24,7 +24,7 @@ function redirect(url) {
     });
 }
 
-function renderPartial(url) {
+function renderPartial(url, title) {
 
     $('#p2').show();
 
@@ -33,6 +33,7 @@ function renderPartial(url) {
         dataType: 'html',
         success: function (data) {
             $('#p2').hide();
+            $('#moduleTitle').text(title);
             $('main').html(data);
             componentHandler.upgradeAllRegistered();
         }

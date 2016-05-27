@@ -1,0 +1,50 @@
+﻿
+@using Escyug.Nosology.Web.App.ViewModels
+@model IEnumerable<DocumentViewModel>
+
+@{
+    ViewBag.Title = "Документы";
+}
+
+<div class="mdl-grid nos-content nos-docs">
+
+    @if (Model != null)
+    {
+        <ul class="mdl-cell mdl-cell--10-col demo-list-three mdl-list">
+
+            @foreach (var document in Model)
+            {
+                <li class="mdl-list__item mdl-list__item--three-line">
+
+                    <span class="mdl-list__item-primary-content">
+
+                        <i class="material-icons mdl-list__item-icon ">description</i>
+
+                        <a href="#" data-link='@document.Link' onclick="getFile(this.dataset.link, 'docs')">
+                            <span>@document.Title</span>
+                        </a>
+
+                    </span>
+
+                    <span class="mdl-list__item-secondary-content">
+                        <i class="material-icons mdl-color-text--grey-600" id="@document.Id">@document.IconStyle</i>
+                    </span>
+
+                    <div class="mdl-tooltip" for="@document.Id">
+                        @document.Description
+                    </div>
+
+                </li>
+            }
+
+        </ul>
+    }
+    else
+    {
+        <h3>NO DATA</h3>
+    }
+
+</div>
+
+
+

@@ -38,7 +38,7 @@ namespace Escyug.Nosology.Web.App.Controllers
                 }
                 else
                 {
-                    return View(user);
+                    return View();
                 }
             }
             else

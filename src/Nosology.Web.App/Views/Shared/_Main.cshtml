@@ -1,6 +1,9 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
+@using Escyug.Nosology.Models;
+@{ User user = (User)HttpContext.Current.Session["user"]; }
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -28,7 +31,7 @@
 </head>
 
 <body>
-
+   
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 
         <!-- Start #HEADER (TITLE, MENU) nos-header  mdl-color--grey-100 mdl-color-text--grey-600 -->
@@ -36,7 +39,7 @@
 
             <div class="mdl-layout__header-row">
 
-                <span class="mdl-layout-title">@ViewBag.Title</span>
+                <span id="moduleTitle" class="mdl-layout-title">@ViewBag.Title</span>
 
                 <div class="mdl-layout-spacer"></div>
 
@@ -53,7 +56,7 @@
 
             <div class="mdl-layout__header-row header-row--helper">
                 <i class="material-icons">star</i>
-                <span>@Model.Level</span>
+                <span>@user.Level</span>
             </div>
 
         </header><!-- / #HEADER -->
@@ -65,7 +68,7 @@
                 <!-- class="nos-drawer-header" -->
                 <i class="fa fa-user-md" style="font-size: 48px"></i>
                 <br />
-                <span>@Model.UserName</span>
+                <span>@user.UserName</span>
                 <br />
 
             </header>
@@ -73,18 +76,20 @@
             <!-- Start #DRAWER__NAVIGATION_MENU -->
             <nav class="demo-navigation mdl-navigation">
 
-                <a class="mdl-navigation__link" href="#" onclick="renderPartial('/Home/Index')">
+                <a class="mdl-navigation__link" href="#" onclick="renderPartial('/Home/Index', 'Главная')">
                     <i class="material-icons nav-icon" role="presentation">home</i>
                     Главная
                 </a>
-                <a class="mdl-navigation__link" href="#" onclick="renderPartial('/Documents/Index')">
+                <a class="mdl-navigation__link" href="#" onclick="renderPartial('/Documents/Index', 'Документы')">
                     <i class="material-icons nav-icon" role="presentation">description</i>
                     Документы
                 </a>
-                <a class="mdl-navigation__link" href="#" onclick="renderPartial('/Downloads/Index')">
+                <a class="mdl-navigation__link" href="#" onclick="renderPartial('/Downloads/Index', 'Загрузки')">
                     <i class="material-icons nav-icon" role="presentation">file_download</i>
                     Загрузки
                 </a>
+
+                <!-- close user session and redirects to the login page -->
                 @using (Html.BeginForm("LogOut", "Account", FormMethod.Post, new { @id = "myFormName" }))
                 {
                     @Html.AntiForgeryToken()
@@ -94,10 +99,7 @@
                         Выход
                     </button>
                 }
-                <!-- close user session and redirects to the login page -->
-                @*@Html.ActionLink("Выход", "LogOut", "Account", new { @class = "mdl-navigation__link", @id = "loginInput" })*@
-
-
+            
                 <div class="mdl-layout-spacer"></div>
                 <!-- search box goes here -->
                 <div class="mdl-layout-spacer"></div>

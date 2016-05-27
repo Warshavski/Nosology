@@ -234,6 +234,7 @@
     <Content Include="Views\Downloads\Index.cshtml" />
     <Content Include="Views\Documents\IndexPartial.cshtml" />
     <Content Include="Views\Home\IndexPartial.cshtml" />
+    <Content Include="Views\Home\DocumentsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
