@@ -13,25 +13,17 @@ namespace Escyug.Nosology.Web.App
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
-
-            // Используйте версию Modernizr для разработчиков, чтобы учиться работать. Когда вы будете готовы перейти к работе,
-            // используйте средство сборки на сайте http://modernizr.com, чтобы выбрать только нужные тесты.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
-
             bundles.Add(new ScriptBundle("~/bundles/mdl").Include(
-                        "~/Content/mdl-v1.1.2/material.js"));
+                        "~/Content/mdl-v1.1.2/material.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/modal").Include(
-                        "~/Content/jDialog/jDialog.js",
-                        "~/Content/jDialog/modal.js"));
+                        "~/Content/jDialog/jDialog.min.js",
+                        "~/Content/jDialog/modal.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/mdl-v1.1.2/material.css",
+                      "~/Content/mdl-v1.1.2/material.min.css",
                       "~/Content/mdl-v1.1.2/material-cyan-teal.min.css",
-                      "~/Content/Site.css",
+                      "~/Content/Site.min.css",
                       "~/Content/jDialog/jDialog.css"));
         }
     }
