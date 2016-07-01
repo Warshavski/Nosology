@@ -4,29 +4,17 @@ namespace Escyug.Nosology.Data.Entities
 {
     public sealed class User
     {
-        private string _userName;
-        public string Name
-        {
-            get { return _userName; }
-        }
+        public string Name { get; private set; }
 
-        private int _userLevel;
-        public  int Level
-        {
-            get { return _userLevel; }
-        }
+        public int Level { get; private set; }
 
-        private DateTime _expiredDate;
-        public DateTime ExpiredDate
-        {
-            get { return _expiredDate; }
-        }
+        public DateTime ExpiredDate { get; private set; }
 
         public User(string userName, int userLevel, DateTime expiredDate)
         {
-            _userName = userName;
-            _userLevel = userLevel;
-            _expiredDate = expiredDate;
+            Name = userName;
+            Level = userLevel;
+            ExpiredDate = expiredDate;
         }  
     }
 }

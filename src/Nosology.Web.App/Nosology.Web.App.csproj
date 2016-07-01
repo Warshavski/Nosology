@@ -204,8 +204,7 @@
     <Content Include="Content\mdl-v1.1.2\material.min.css.map" />
     <Content Include="Content\mdl-v1.1.2\LICENSE" />
     <Content Include="Content\mdl-v1.1.2\bower.json" />
-    <None Include="Properties\PublishProfiles\escyugnosology - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\escyugnosology - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\escyugnosology.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\login.js" />
     <Content Include="Scripts\login.min.js" />

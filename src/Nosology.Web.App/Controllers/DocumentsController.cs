@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.IO;
 using System.Web.Mvc;
-
-using Escyug.Nosology.Data.Exceptions;
 
 using Escyug.Nosology.Models;
 using Escyug.Nosology.Models.Repositories;
 
 using Escyug.Nosology.Web.App.ViewModels;
-using System.IO;
-
 
 namespace Escyug.Nosology.Web.App.Controllers
 {
@@ -25,7 +20,15 @@ namespace Escyug.Nosology.Web.App.Controllers
             _documentsRepository = documentsRepository;
         }
 
-        // GET: Documents
+        #region Controller public methods(interface)
+
+        
+        /**
+         * GET: /Documents
+         * 
+         * Load all documents and retun its in view
+         */
+        [HttpGet]
         public ActionResult Index()
         {
             var user = Session["user"] as User;
@@ -54,6 +57,12 @@ namespace Escyug.Nosology.Web.App.Controllers
 
         }
 
+
+        /**
+         * GET: /OpenDocument/documentLink
+         * 
+         * Try to open document
+         */
         [Authorize]
         public ActionResult OpenDocument(string documentLink)
         {
@@ -69,8 +78,10 @@ namespace Escyug.Nosology.Web.App.Controllers
             {
                 return View("Error", new { Title = "File not found." });
             }
-            
+
         }
+
+        #endregion Controller public methods(interface)
 
         private ViewModels.DocumentViewModel CreateViewModelDocument(Models.Document document)
         {
@@ -83,6 +94,6 @@ namespace Escyug.Nosology.Web.App.Controllers
             documentViewModel.IconStyle = IconsList.GetIconTypeName(document.Type);
 
             return documentViewModel;
-        }  
+        }
     }
 }

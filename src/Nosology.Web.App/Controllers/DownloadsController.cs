@@ -1,12 +1,11 @@
-﻿using Escyug.Nosology.Models.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
-using Escyug.Nosology.Web.App.ViewModels;
 using Escyug.Nosology.Models;
+using Escyug.Nosology.Models.Repositories;
+
+using Escyug.Nosology.Web.App.ViewModels;
 
 namespace Escyug.Nosology.Web.App.Controllers
 {
@@ -22,6 +21,12 @@ namespace Escyug.Nosology.Web.App.Controllers
 
         //
         // GET: files
+        /**
+         * GET: files
+         * 
+         * Load all files and retun its in view
+         */
+        [HttpGet]
         public ActionResult Index()
         {
             var user = Session["user"] as User;

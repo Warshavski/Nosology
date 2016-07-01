@@ -1,7 +1,15 @@
 ﻿namespace Escyug.Nosology.Models
 {
+    /// <summary>
+    /// Binds data entities to the domain model.
+    /// </summary>
     internal static class ModelBinder
     {
+        /// <summary>
+        /// Creates user domain model from user data entity.
+        /// </summary>
+        /// <param name="userEntitie">User data entity.</param>
+        /// <returns>User domain model.</returns>
         public static Models.User CreateUserModel(Data.Entities.User userEntitie)
         {
             var levels = new string[] 
@@ -20,6 +28,11 @@
             return new Models.User(userName, userLevel, userExpiredDate);
         }
 
+        /// <summary>
+        /// Creates document domain model from document data entity.
+        /// </summary>
+        /// <param name="documentEntity">Document data entity.</param>
+        /// <returns>Document domain model.</returns>
         public static Models.Document CreateDocumentModel(Data.Entities.Document documentEntity)
         {
             var documentId = documentEntity.Id;
@@ -32,6 +45,11 @@
                 documentDescription, documentType, documentLink);
         }
 
+        /// <summary>
+        /// Creates file domain model from file data entity.
+        /// </summary>
+        /// <param name="fileEntity">File data entity.</param>
+        /// <returns>File domain model.</returns>
         public static Models.File CreateFileModel(Data.Entities.File fileEntity)
         {
             var fileId = fileEntity.Id;

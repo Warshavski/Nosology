@@ -38,11 +38,12 @@ namespace Escyug.Nosology.Data.Xml.QueryProcessors
             }
         }
 
-        private string CreatePath(string rootFolderPath)
-        {
-            return string.Format("{0}\\App_Data\\{1}", rootFolderPath, "documents.xml");
-        }
-
+        
+        /// <summary>
+        /// Converts deserialized file entity node to the file data entity.
+        /// </summary>
+        /// <param name="documentNode">Deserialized file entity node.</param>
+        /// <returns>File data entity.</returns>
         private Data.Entities.File NodeToFile(FileNode documentNode)
         {
             var document = new Data.Entities.File();
@@ -53,5 +54,13 @@ namespace Escyug.Nosology.Data.Xml.QueryProcessors
 
             return document;
         }
+
+        /* 
+        private string CreatePath(string rootFolderPath)
+        {
+            return string.Format("{0}\\App_Data\\{1}", rootFolderPath, "documents.xml");
+        }
+        */
+
     }
 }

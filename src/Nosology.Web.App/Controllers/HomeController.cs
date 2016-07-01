@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
+﻿using System.Threading.Tasks;
 using System.Web.Mvc;
-using System.Web.Security;
 
 using Escyug.Nosology.Models;
 using Escyug.Nosology.Models.Repositories;
-
 
 namespace Escyug.Nosology.Web.App.Controllers
 {
@@ -22,6 +16,11 @@ namespace Escyug.Nosology.Web.App.Controllers
             _mainTextRepository = mainTextRepository;
         }
 
+        /**
+         * GET: /Home/Index
+         * 
+         * Try to load main form
+         */
         public async Task<ActionResult> Index()
         {
             var user = Session["user"] as User;

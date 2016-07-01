@@ -3,25 +3,21 @@ namespace Escyug.Nosology.Models
 {
     public class File
     {
-        private int _fileId;
-        public int Id { get { return _fileId; } }
+        public int Id { get; private set; }
 
-        private string _fileTitle;
-        public string Title { get { return _fileTitle; } }
+        public string Title { get; private set; }
 
-        private string _fileType;
-        public string Type { get { return _fileType; } }
+        public string Type { get; private set; }
 
-        private string _fileLink;
-        public string Link { get { return _fileLink; } }
+        public string Link { get; private set; }
 
         public File(int fileId, string fileTitle,
             string fileType, string fileLink)
         {
-            _fileId = fileId;
-            _fileTitle = fileTitle;
-            _fileType = fileType;
-            _fileLink = fileLink;
+            Id = fileId;
+            Title = fileTitle;
+            Type = fileType;
+            Link = fileLink;
         }
     }
 }

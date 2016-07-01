@@ -39,6 +39,11 @@ namespace Escyug.Nosology.Data.Xml.QueryProcessors
             }
         }
 
+        /// <summary>
+        /// Converts deserialized document entity node to the document data entity.
+        /// </summary>
+        /// <param name="documentNode">Deserialized document entity node.</param>
+        /// <returns>Document data entity.</returns>
         private Document NodeToDocument(DocumentNode documentNode)
         {
             var document = new Document();

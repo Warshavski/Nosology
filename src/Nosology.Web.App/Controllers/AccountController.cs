@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 
 using Escyug.Nosology.Models;
-using Escyug.Nosology.Models.Services;
 using Escyug.Nosology.Web.App.ViewModels;
 
 using Escyug.Nosology.Web.Common.Security;
@@ -28,16 +23,26 @@ namespace Escyug.Nosology.Web.App.Controllers
             _userService = userService;
         }
 
-        //
-        // GET: /Account
+
+        #region Controller public methods(interface)
+
+        /**
+         * GET: /Account
+         * 
+         * Return login form
+         */
+        [HttpGet]
         [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
         }
 
-        //
-        // POST: /Account/LogIn
+        /**
+         * POST: /Account/LogIn
+         * 
+         * Process user logIn
+         */
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -74,6 +79,11 @@ namespace Escyug.Nosology.Web.App.Controllers
 
         //
         // POST: /Account/LogOff
+        /**
+         * POST: /Account/LogOff
+         * 
+         * Process user log out
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOut()
@@ -82,6 +92,10 @@ namespace Escyug.Nosology.Web.App.Controllers
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Account");
         }
+
+        #endregion Controller public methods(interface)
+
+
 
         #region Helpers
 
@@ -180,7 +194,7 @@ namespace Escyug.Nosology.Web.App.Controllers
         }
         */
 
-        #endregion
+        #endregion Helpers
     }
 }
 

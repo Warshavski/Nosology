@@ -64,6 +64,13 @@ namespace Escyug.Nosology.Data.Sql.QueryProcessors
             }
         }
 
+        /// <summary>
+        /// Creates select user query.
+        /// </summary>
+        /// <param name="login">User login</param>
+        /// <param name="password">User password</param>
+        /// <param name="connection">SqlConnection to the data storage.</param>
+        /// <returns></returns>
         private SqlCommand CreateSelectUserCommnad(string login, string password, SqlConnection connection)
         {
             var commandText = @"SELECT PAROL, DATE_E, NIC, KAT  FROM dbo.DOPUSK WHERE  (NIC = @NIC) AND (PAROL = @PAROL)";
@@ -84,6 +91,11 @@ namespace Escyug.Nosology.Data.Sql.QueryProcessors
         }
 
         // Exceptions handling
+        /// <summary>
+        /// Parse user data fields from SqlDataReader and create user data entity.
+        /// </summary>
+        /// <param name="reader">SqlDataReader with query results.</param>
+        /// <returns>User data entity.</returns>
         private User GetUserFromReader(SqlDataReader reader)
         {
             /** Data columns order :
